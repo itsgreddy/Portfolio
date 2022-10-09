@@ -16,6 +16,20 @@ export default class Room {
     }
 
     setModel() {
+        this.actualRoom.children.forEach(child => { // For shadows
+            child.castShadow = true;
+            child.receiveShadow = true;
+
+            if (child instanceof THREE.Group) { // Since with normal method shadows werent visible for groups
+                child.children.forEach((groupchild) => { // This is the updated method for shadows
+                    groupchild.castShadow = true;
+                    groupchild.receiveShadow = true;
+                });
+            }
+
+            console.log(child)
+        });
+
         this.scene.add(this.actualRoom);
         // this.actualRoom.scale.set(0.11, 0.11, 0.11) // To scale the room 
         // this.actualRoom.rotation.y = Math.pi // For rotation
