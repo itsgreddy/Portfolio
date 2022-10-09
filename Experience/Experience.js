@@ -1,8 +1,11 @@
 // We are using Singleton Pattern here
 import * as THREE from "three";
 
+// Utils Imports
 import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time";
+import Resources from "./Utils/Resources";
+import Assets from "./Utils/Assets"
 
 import Camera from "./Camera";
 import Renderer from "./Renderer";
@@ -22,6 +25,7 @@ export default class Experience {
         this.time = new Time();
         this.camera = new Camera();
         this.renderer = new Renderer();
+        this.Resources = new Resources(Assets); // Calling in Asset's Array and Passing them to Resources class
         this.world = new World();; // Order matters here
 
         this.sizes.on("resize", () => { // We are emitting in Time.JS here with "on" we are listening and executing the update fucntion
