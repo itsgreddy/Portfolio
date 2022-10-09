@@ -73,10 +73,10 @@ export default class Resources extends EventEmitter {
         this.items[asset.name] = file;
         this.loaded++;
 
-        console.log("Assets are loading");
+        // console.log("Assets are loading");
         if (this.loaded === this.queue) // If true, all our Assets are loaded
         {
-            console.log("All assets are done");
+            // console.log("All assets are done");
             this.emit("ready"); // When it's ready, then we create the world
         }
     }

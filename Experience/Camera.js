@@ -3,6 +3,8 @@
 
 import * as THREE from 'three';
 import Experience from "./Experience";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { AxesHelper } from 'three';
 export default class Camera {
     constructor() {
         this.experience = new Experience(); //Singleton Pattern
@@ -12,6 +14,7 @@ export default class Camera {
 
         this.createPrespectiveCamera(); // We generally need only one camera
         this.createOrthographicCamera(); // But, these will be helpful during pathing  
+        this.setOrbitControls();
     }
 
     createPrespectiveCamera() {
@@ -36,6 +39,21 @@ export default class Camera {
             100
         );
         this.scene.add(this.orthographicCamera);
+
+        const size = 10;
+        const divisions = 10;
+
+        const gridHelper = new THREE.GridHelper(size, divisions);
+        this.scene.add(gridHelper);
+
+        const AxesHelper = new THREE.AxesHelper(5);
+        this.scene.add(AxesHelper);
+    }
+
+    setOrbitControls() {
+        this.controls = new OrbitControls(this.prespectiveCamera, this.canvas); // Giving it to camera and canvas
+        this.controls.enableDamping = true;
+        this.controls.enableZoom = true;
     }
 
     resize() {
@@ -52,6 +70,6 @@ export default class Camera {
     }
 
     update() {
-
+        this.controls.update();
     }
 }
