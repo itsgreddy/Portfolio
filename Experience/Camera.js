@@ -22,6 +22,7 @@ export default class Camera {
             1000
         );
         this.scene.add(this.prespectiveCamera)
+        this.prespectiveCamera.position.z = 5;
     }
 
     createOrthographicCamera() {
