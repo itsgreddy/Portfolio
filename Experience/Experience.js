@@ -25,10 +25,10 @@ export default class Experience {
         this.time = new Time();
         this.camera = new Camera();
         this.renderer = new Renderer();
-        this.Resources = new Resources(Assets); // Calling in Asset's Array and Passing them to Resources class
+        this.resources = new Resources(Assets); // Calling in Asset's Array and Passing them to Resources class
         this.world = new World();; // Order matters here
 
-        this.sizes.on("resize", () => { // We are emitting in Time.JS here with "on" we are listening and executing the update fucntion
+        this.sizes.on("resize", () => { // We are emitting in Size.JS here with "on" we are listening and executing the update fucntion
             this.resize();
         })
         this.time.on("update", () => { // We are emitting in Time.JS here with "on" we are listening and executing the update fucntion

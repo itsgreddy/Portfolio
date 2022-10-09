@@ -1,11 +1,13 @@
 // This is to load all the resources and store them 
 // So, whenever we need access anything we access if from resources
 
+import * as THREE from "three";
+
 import EventEmitter from "events";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader"
 import Experience from "../Experience";
-import { urlToHttpOptions } from "url";
+
 
 export default class Resources extends EventEmitter {
     constructor(Assets) {
@@ -29,47 +31,53 @@ export default class Resources extends EventEmitter {
         this.loaders = {}; // Loaders object which contains loaders
         this.loaders.gltfLoader = new GLTFLoader();
         this.loaders.dracoLoader = new DRACOLoader(); // Since we exported with compression in Blender (Draco Mesh Compression)
-        this.loaders.dracoLoader.setDecoderPath("/public/draco");
+        this.loaders.dracoLoader.setDecoderPath("/public/draco/");
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader); // Assigning draco Loader -> gltf Loader
     }
 
     startLoading() {
-        for (const Asset of this.Assets) {
-            if (Asset.type === "glbModel") {
-                this.loaders.gltfLoader.load(Asset.path, (file) => {
-                    this.singleAssetLoaded(Asset, file);
+        for (const asset of this.Assets) {
+            if (asset.type === "glbModel") {
+                this.loaders.gltfLoader.load(asset.path, (file) => {
+                    this.singleAssetLoaded(asset, file);
                 });
             }
-            // else if (Asset.type === "videoTexture") {
+            // else if (asset.type === "videoTexture") {
             //     this.video = {}; // Holds HTML Part
             //     this.videoTexture = {}; // Holds Three JS Configuration
 
-            //     this.video[Asset.name] = document.createElement("video"); // Key value Pairs
-            //     this.video[Asset.name].src = Asset.path;
-            //     this.video[Asset.name].playsInLine = true;
-            //     this.video[Asset.name].autoplay = true;
-            //     this.video[Asset.name].loop = true;
-            //     this.video[Asset.name].play();
+            //     this.video[asset.name] = document.createElement("video"); // Key value Pairs
+            //     this.video[asset.name].src = asset.path;
+            //     this.video[asset.name].muted = true;
+            //     this.video[asset.name].playsInLine = true;
+            //     this.video[asset.name].autoplay = true;
+            //     this.video[asset.name].loop = true;
+            //     this.video[asset.name].play();
 
-            //     this.videoTexture[Asset.name] = new THREE.VideoTexture(
-            //         this.video[Asset.name]
+            //     this.videoTexture[asset.name] = new THREE.VideoTexture(
+            //         this.video[asset.name]
             //     );
-            //     this.videoTexture[Asset.name].flipY = true; // Depending on UVs of the Model
-            //     this.videoTexture[Asset.name].minFilter = THREE.NearestFilter;
-            //     this.videoTexture[Asset.name].magFilter = THREE.NearestFilter;
-            //     this.videoTexture[Asset.name].generateMipmaps = false;
-            //     this.videoTexture[Asset.name].encoding = THREE.sRGBEncoding;
+            //     this.videoTexture[asset.name].flipY = true; // Depending on UVs of the Model
+            //     this.videoTexture[asset.name].minFilter = THREE.NearestFilter;
+            //     this.videoTexture[asset.name].magFilter = THREE.NearestFilter;
+            //     this.videoTexture[asset.name].generateMipmaps = false;
+            //     this.videoTexture[asset.name].encoding = THREE.sRGBEncoding;
+
+            //     this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
             // }
         }
     }
 
-    singleAssetLoaded() // This function creates key value pairs and makes life easier
+    singleAssetLoaded(asset, file) // Creates key value pairs and makes life easier
     {
-        this.items[Asset.name] = file;
+        this.items[asset.name] = file;
         this.loaded++;
-        if (this.loaded === this.queue) // If true, all our assets are loaded
+
+        console.log("Assets are loading");
+        if (this.loaded === this.queue) // If true, all our Assets are loaded
         {
-            this.emit("ready");
+            console.log("All assets are done");
+            this.emit("ready"); // When it's ready, then we create the world
         }
     }
 }

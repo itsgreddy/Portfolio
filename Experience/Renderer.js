@@ -9,7 +9,7 @@ export default class Renderer {
         this.canvas = this.experience.canvas;
         this.camera = this.experience.camera;
 
-        console.log(this.camera, this.camera.prespectiveCamera)
+        // console.log(this.camera, this.camera.prespectiveCamera)
 
         this.setRenderer();
     }
