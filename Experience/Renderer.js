@@ -38,6 +38,5 @@ export default class Renderer {
     update() {
         this.renderer.render(this.scene, this.camera.prespectiveCamera) // this.camera just points out to the class
         // To get to the class we need to add in prespective camera as well
-
     }
 }
