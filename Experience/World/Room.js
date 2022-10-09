@@ -26,8 +26,6 @@ export default class Room {
                     groupchild.receiveShadow = true;
                 });
             }
-
-            console.log(child)
         });
 
         this.scene.add(this.actualRoom);
