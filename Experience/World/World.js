@@ -23,5 +23,9 @@ export default class World {
 
     resize() { }
 
-    update() { }
+    update() {
+        if (this.room) { // Once the room has been created
+            this.room.update(); // Start updating it
+        }
+    }
 }
