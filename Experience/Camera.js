@@ -47,8 +47,8 @@ export default class Camera {
         this.helper = new THREE.CameraHelper(this.orthographicCamera); // Orthograhic Camera Helper
         this.scene.add(this.helper); // For this to work, we need to manage few things in update
 
-        const size = 10;
-        const divisions = 10;
+        const size = 20; // These help with the grid
+        const divisions = 20;
 
         const gridHelper = new THREE.GridHelper(size, divisions);
         this.scene.add(gridHelper);
@@ -64,11 +64,11 @@ export default class Camera {
     }
 
     resize() {
-        // Prespective Camera on ResizeA
+        // Prespective Camera on Resize
         this.prespectiveCamera.aspect = this.sizes.aspect;
         this.prespectiveCamera.updateProjectionMatrix();
 
-        // Orthographic Camera on ResizeA
+        // Orthographic Camera on Resize
         this.orthographicCamera.left = (-this.sizes.aspect * this.sizes.frustrum) / 2;
         this.orthographicCamera.right = (this.sizes.aspect * this.sizes.frustrum) / 2;
         this.orthographicCamera.top = this.sizes.frustrum / 2;
