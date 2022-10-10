@@ -31,37 +31,47 @@ export default class Camera {
     }
 
     createOrthographicCamera() {
-        // this.orthographicCamera = new THREE.OrthographicCamera(
-        //     (-this.sizes.aspect * this.sizes.frustrum) / 2,
-        //     (this.sizes.aspect * this.sizes.frustrum) / 2,
-        //     this.sizes.frustrum / 2,
-        //     -this.sizes.frustrum / 2,
-        //     -10,
-        //     10
-        // );
-
-        this.orthographicCamera = new THREE.PerspectiveCamera(
-            35,
-            this.sizes.aspect,
-            0.1,
-            1000
+        this.orthographicCamera = new THREE.OrthographicCamera(
+            (-this.sizes.aspect * this.sizes.frustrum) / 2,
+            (this.sizes.aspect * this.sizes.frustrum) / 2,
+            this.sizes.frustrum / 2,
+            -this.sizes.frustrum / 2,
+            -10,
+            10
         );
 
-        console.log(this.orthographicCamera); // We found that bottom is NaN, hence the error
+        this.orthographicCamera.rotation.x = - Math.PI / 6; // - To match our desired rotation
+        // this.orthographicCamera.rotation.y = - Math.PI / 6;
+        // this.orthographicCamera.rotation.z = - Math.PI / 6;
+
+        // this.orthographicCamera.position.x = 5; // Placing the view of our model
+        this.orthographicCamera.position.y = 4;
+        this.orthographicCamera.position.z = 5;
+
+        // this.orthographicCamera = new THREE.PerspectiveCamera(
+        //     35,
+        //     this.sizes.aspect,
+        //     0.1,
+        //     1000
+        // );
+
+        // console.log(this.orthographicCamera); // We found that bottom is NaN, hence the error
 
         this.scene.add(this.orthographicCamera);
 
-        this.helper = new THREE.CameraHelper(this.orthographicCamera); // Orthograhic Camera Helper
-        this.scene.add(this.helper); // For this to work, we need to manage few things in update
+        // ---- Helper ---- //
 
-        const size = 20; // These help with the grid
-        const divisions = 20;
+        // this.helper = new THREE.CameraHelper(this.orthographicCamera); // Orthograhic Camera Helper
+        // this.scene.add(this.helper); // For this to work, we need to manage few things in update
 
-        const gridHelper = new THREE.GridHelper(size, divisions);
-        this.scene.add(gridHelper);
+        // const size = 20; // These help with the grid
+        // const divisions = 20;
 
-        const AxesHelper = new THREE.AxesHelper(5);
-        this.scene.add(AxesHelper);
+        // const gridHelper = new THREE.GridHelper(size, divisions);
+        // this.scene.add(gridHelper);
+
+        // const AxesHelper = new THREE.AxesHelper(5);
+        // this.scene.add(AxesHelper);
     }
 
     setOrbitControls() {
@@ -84,13 +94,13 @@ export default class Camera {
     }
 
     update() {
-        // console.log(this.prespectiveCamera.position); // To check and set up the model
         this.controls.update();
-        this.helper.matrixWorldNeedsUpdate = true;
-        this.helper.update();
-        this.helper.position.copy(this.orthographicCamera.position); // Helpers position to copy the camera's postion
-        this.helper.rotation.copy(this.orthographicCamera.rotation); // and camera's rotation
+        // console.log(this.prespectiveCamera.position); // To check and set up the model
 
-
+        // ---- Helper ---- //
+        // this.helper.matrixWorldNeedsUpdate = true;
+        // this.helper.update();
+        // this.helper.position.copy(this.orthographicCamera.position); // Helpers position to copy the camera's postion
+        // this.helper.rotation.copy(this.orthographicCamera.rotation); // and camera's rotation
     }
 }

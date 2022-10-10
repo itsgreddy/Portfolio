@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import GSAP from "gsap";
 import Experience from "../Experience";
 
 export default class Room {
@@ -9,7 +10,14 @@ export default class Room {
         this.room = this.resources.items.room; // Getting object and using dot notation to get the room
         this.actualRoom = this.room.scene;
 
+        this.lerp = { // Lerping, covering less dist in same time quanta. Decreasing the speed of the transition
+            current: 0,
+            target: 0,
+            ease: 0.1
+        };
+
         this.setModel();
+        this.onMouseMove();
 
         // camera.position.z = 5; // You can't use this line here, coz you have another camera setup already
         // Or else you need to call it here
@@ -29,11 +37,37 @@ export default class Room {
         });
 
         this.scene.add(this.actualRoom);
-        // this.actualRoom.scale.set(0.11, 0.11, 0.11) // To scale the room 
+        this.actualRoom.scale.set(0.8, 0.8, 0.8) // To scale the room 
         // this.actualRoom.rotation.y = Math.pi // For rotation
+    }
+
+    onMouseMove() {
+        window.addEventListener("mousemove", (m) => {
+
+            this.rotation =
+                ((m.clientX - window.innerWidth / 2) / window.innerWidth) * 2; // For reducing it to -1 -> 1
+            // console.log(m.clientX, this.rotation);
+            // 1. 0 -> 1200 | ClientX Value
+            // 2. 1200 / 2 : 600 | Window.innerwidth Value
+            // 3. -600 -> 600 | Total value of X (Rotation)
+            // 4. -0.5 -> 0.5 | Dividing by window.innerwidth
+            // 5. -1 -> 1 | Multiplying by 2
+
+            this.lerp.target = this.rotation * 0.09;
+        });
     }
 
     resize() { }
 
-    update() { }
+    update() {
+        this.lerp.current = GSAP.utils.interpolate(
+            this.lerp.current,
+            this.lerp.target,
+            this.lerp.ease
+        );
+
+        // this.actualRoom.rotation.x = this.lerp.current;
+        this.actualRoom.rotation.x = this.lerp.current;
+        this.actualRoom.rotation.y = this.lerp.current;
+    }
 }
