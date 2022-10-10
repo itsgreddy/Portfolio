@@ -3,7 +3,7 @@ import GSAP from "gsap";
 
 import Experience from "../Experience";
 
-
+// ------ TESTING SECTION FOR CONTROLS ------ ////
 export default class Controls {
     constructor() {
         this.experience = new Experience();
@@ -38,8 +38,11 @@ export default class Controls {
             [
                 new THREE.Vector3(-5, 0, 0), // All determine where the curve will go
                 new THREE.Vector3(0, 0, -5),
-                new THREE.Vector3(5, 0, 0),
-                new THREE.Vector3(0, 0, 5),
+                new THREE.Vector3(5, 12, 0),
+                new THREE.Vector3(0, 5, 5),
+                new THREE.Vector3(15, 0, 5),
+                new THREE.Vector3(0, 5, 5),
+                new THREE.Vector3(-12, 6, 5),
             ],
             true); // To make boolean value true, false by default. Helps to connect the whole curve
 
@@ -58,7 +61,7 @@ export default class Controls {
             console.log(e);
             if (e.deltaY > 0) {
                 this.lerp.target += 0.01;
-                this.back = false; // This is to change the direction of scroll 
+                this.back = false; // This is to change the direction of scroll
             } else {
                 this.lerp.target -= 0.01;
                 this.back = true;
@@ -91,7 +94,7 @@ export default class Controls {
             this.StaticVector,
         );
         this.crossVector.multiplyScalar(100000);
-        this.camera.orthographicCamera.lookAt(this.crossVector);
+        this.camera.orthographicCamera.lookAt(0, 0, 0);
 
 
         // if (this.back) { // If forward or backward
@@ -102,12 +105,12 @@ export default class Controls {
         // this.lerp.current = GSAP.utils.clamp(0, 1, this.lerp.current); // Clamping to certain values
         // this.lerp.target = GSAP.utils.clamp(0, 1, this.lerp.target); // To avoid the use of modolus
 
-        // this.curve.getPointAt(this.lerp.current, this.position) // .getPointAt Takes float, position on curve (vector 3) 
+        // this.curve.getPointAt(this.lerp.current, this.position) // .getPointAt Takes float, position on curve (vector 3)
         // // We use modulus if it goes beyond 1 then we get an error since its Range is 0 - 1
 
         // this.curve.getPointAt(this.lerp.current + 0.00001, this.lookAtPosition);
         // // console.log(this.progress, this.progress % 1)
         // this.camera.orthographicCamera.position.copy(this.position);
-        // this.camera.orthographicCamera.lookAt(this.lookAtPosition);
+        // // this.camera.orthographicCamera.lookAt(this.lookAtPosition);
     }
 }
