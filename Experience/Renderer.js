@@ -36,7 +36,28 @@ export default class Renderer {
     }
 
     update() {
-        this.renderer.render(this.scene, this.camera.prespectiveCamera) // this.camera just points out to the class
-        // To get to the class we need to add in prespective camera as well
+        this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height); // Left, Bottom, Right, Top
+        this.renderer.render(this.scene, this.camera.prespectiveCamera); // this.camera just points out to the class, Add in prespective camera to get to the class
+        // Second Screen
+        this.renderer.setScissorTest(true);
+        this.renderer.setViewport(
+            this.sizes.width - this.sizes.width / 3,
+            this.sizes.height - this.sizes.height / 3,
+            this.sizes.width / 3,
+            this.sizes.height / 3
+        );
+
+        this.renderer.setScissor(
+            this.sizes.width - this.sizes.width / 3,
+            this.sizes.height - this.sizes.height / 3,
+            this.sizes.width / 3,
+            this.sizes.height / 3
+        );
+
+        this.renderer.render(this.scene, this.camera.orthographicCamera);
+
+        this.renderer.setScissorTest(false);
+
+
     }
 }

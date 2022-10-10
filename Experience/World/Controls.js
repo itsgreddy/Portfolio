@@ -25,7 +25,7 @@ export default class Controls {
         this.lookAtPosition = new THREE.Vector3(0, 0, 0);
 
         this.directionalVector = new THREE.Vector3(0, 0, 0); // Using vector for making the camera look to our likings
-        this.StaticVector = new THREE.Vector3(0, -1, 0); // For example, cross product of vectors: We get camera angle
+        this.StaticVector = new THREE.Vector3(0, 1, 0); // For example, cross product of vectors: We get camera angle
         this.crossVector = new THREE.Vector3(0, 0, 0); // that is always on one side depending on static vector
 
         this.setPath();
