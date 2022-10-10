@@ -1,5 +1,8 @@
 import * as THREE from "three";
+import GSAP from "gsap";
+
 import Experience from "../Experience";
+
 
 export default class Controls {
     constructor() {
@@ -11,6 +14,15 @@ export default class Controls {
 
         this.progress = 0;
         this.dummyCurve = new THREE.Vector3(0, 0, 0);
+
+        this.lerp = {
+            current: 0,
+            target: 0,
+            ease: 0.1,
+        }
+
+        this.position = new THREE.Vector3(0, 0, 0);
+
         this.setPath();
         this.onWheel();
 
@@ -40,12 +52,12 @@ export default class Controls {
         window.addEventListener("wheel", (e) => {
             console.log(e);
             if (e.deltaY > 0) {
-                this.progress += 0.1;
+                this.lerp.target += 0.01;
             } else {
-                this.progress -= 0.1;
-                if (this.progress < 0) {
-                    this.progress = 1;
-                }
+                this.lerp.target -= 0.01;
+                // if (this.progress < 0) {
+                //     this.progress = 1;
+                // }
             }
         })
     }
@@ -53,11 +65,19 @@ export default class Controls {
     resize() { }
 
     update() {
-        this.curve.getPointAt(this.progress % 1, this.dummyCurve) // .getPointAt Takes float, position on curve (vector 3) 
-        // We used modulus coz if it goes beyond 1 then we get an error since its Range is 0 - 1
-        // this.progress += 0.001; // + for going front and - for backwards
+        this.lerp.current = GSAP.utils.interpolate( // Lerping technique using GSAP
+            this.lerp.current,
+            this.lerp.target,
+            this.lerp.ease
+        );
+        this.lerp.current = GSAP.utils.clamp(0, 1, this.lerp.current);
+        this.lerp.target = GSAP.utils.clamp(0, 1, this.lerp.target);
 
+        this.curve.getPointAt(this.lerp.current, this.position) // .getPointAt Takes float, position on curve (vector 3) 
+        // We used modulus coz if it goes beyond 1 then we get an error since its Range is 0 - 1
+
+        this.lerp.target += 0.001; // Automatic + for going front and - for backwards
         // console.log(this.progress, this.progress % 1)
-        this.camera.orthographicCamera.position.copy(this.dummyCurve);
+        this.camera.orthographicCamera.position.copy(this.position);
     }
 }
