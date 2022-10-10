@@ -22,6 +22,7 @@ export default class Controls {
         }
 
         this.position = new THREE.Vector3(0, 0, 0);
+        this.lookAtPosition = new THREE.Vector3(0, 0, 0);
 
         this.setPath();
         this.onWheel();
@@ -53,8 +54,10 @@ export default class Controls {
             console.log(e);
             if (e.deltaY > 0) {
                 this.lerp.target += 0.01;
+                this.back = false; // This is to change the direction of scroll 
             } else {
                 this.lerp.target -= 0.01;
+                this.back = true;
                 // if (this.progress < 0) {
                 //     this.progress = 1;
                 // }
@@ -70,14 +73,21 @@ export default class Controls {
             this.lerp.target,
             this.lerp.ease
         );
-        this.lerp.current = GSAP.utils.clamp(0, 1, this.lerp.current);
-        this.lerp.target = GSAP.utils.clamp(0, 1, this.lerp.target);
+
+        if (this.back) { // If forward or backward
+            this.lerp.target -= 0.001; // Automatic + for going front and - for backwards
+        } else {
+            this.lerp.target += 0.001;
+        }
+        this.lerp.current = GSAP.utils.clamp(0, 1, this.lerp.current); // Clamping to certain values
+        this.lerp.target = GSAP.utils.clamp(0, 1, this.lerp.target); // To avoid the use of modolus
 
         this.curve.getPointAt(this.lerp.current, this.position) // .getPointAt Takes float, position on curve (vector 3) 
-        // We used modulus coz if it goes beyond 1 then we get an error since its Range is 0 - 1
+        // We use modulus if it goes beyond 1 then we get an error since its Range is 0 - 1
 
-        this.lerp.target += 0.001; // Automatic + for going front and - for backwards
+        this.curve.getPointAt(this.lerp.current + 0.00001, this.lookAtPosition);
         // console.log(this.progress, this.progress % 1)
         this.camera.orthographicCamera.position.copy(this.position);
+        this.camera.orthographicCamera.lookAt(this.lookAtPosition);
     }
 }
