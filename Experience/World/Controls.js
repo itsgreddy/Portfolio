@@ -24,20 +24,24 @@ export default class Controls {
         this.position = new THREE.Vector3(0, 0, 0);
         this.lookAtPosition = new THREE.Vector3(0, 0, 0);
 
+        this.directionalVector = new THREE.Vector3(0, 0, 0); // Using vector for making the camera look to our likings
+        this.StaticVector = new THREE.Vector3(0, -1, 0); // For example, cross product of vectors: We get camera angle
+        this.crossVector = new THREE.Vector3(0, 0, 0); // that is always on one side depending on static vector
+
         this.setPath();
         this.onWheel();
 
     }
 
     setPath() {
-        this.curve = new THREE.CatmullRomCurve3 // Takes in Array of vector points
-            ([
-                new THREE.Vector3(-10, 0, 10), // All determine where the curve will go
-                new THREE.Vector3(-5, 5, 5),
-                new THREE.Vector3(0, 0, 0),
-                new THREE.Vector3(5, -5, 5),
-                new THREE.Vector3(10, 0, 10)
-            ], true); // To make boolean value true, false by default. Helps to connect the whole curve
+        this.curve = new THREE.CatmullRomCurve3( // Takes in Array of vector points
+            [
+                new THREE.Vector3(-5, 0, 0), // All determine where the curve will go
+                new THREE.Vector3(0, 0, -5),
+                new THREE.Vector3(5, 0, 0),
+                new THREE.Vector3(0, 0, 5),
+            ],
+            true); // To make boolean value true, false by default. Helps to connect the whole curve
 
         const points = this.curve.getPoints(50);
         const geometry = new THREE.BufferGeometry().setFromPoints(points);
@@ -74,20 +78,36 @@ export default class Controls {
             this.lerp.ease
         );
 
-        if (this.back) { // If forward or backward
-            this.lerp.target -= 0.001; // Automatic + for going front and - for backwards
-        } else {
-            this.lerp.target += 0.001;
-        }
-        this.lerp.current = GSAP.utils.clamp(0, 1, this.lerp.current); // Clamping to certain values
-        this.lerp.target = GSAP.utils.clamp(0, 1, this.lerp.target); // To avoid the use of modolus
-
-        this.curve.getPointAt(this.lerp.current, this.position) // .getPointAt Takes float, position on curve (vector 3) 
-        // We use modulus if it goes beyond 1 then we get an error since its Range is 0 - 1
-
-        this.curve.getPointAt(this.lerp.current + 0.00001, this.lookAtPosition);
-        // console.log(this.progress, this.progress % 1)
+        this.curve.getPointAt(this.lerp.current % 1, this.position); // Gets point on the curve and copies in target vector
         this.camera.orthographicCamera.position.copy(this.position);
-        this.camera.orthographicCamera.lookAt(this.lookAtPosition);
+
+        this.directionalVector.subVectors( // To get the directional vector, you need to subtract vectors
+            this.curve.getPointAt((this.lerp.current % 1) + 0.00001), // You added coz we need the next point and lookat, coz we need the point
+            this.position // Subtracting next point in the curve, with current point
+        );
+        this.directionalVector.normalize();
+        this.crossVector.crossVectors(
+            this.directionalVector,
+            this.StaticVector,
+        );
+        this.crossVector.multiplyScalar(100000);
+        this.camera.orthographicCamera.lookAt(this.crossVector);
+
+
+        // if (this.back) { // If forward or backward
+        //     this.lerp.target -= 0.001; // Automatic + for going front and - for backwards
+        // } else {
+        //     this.lerp.target += 0.001;
+        // }
+        // this.lerp.current = GSAP.utils.clamp(0, 1, this.lerp.current); // Clamping to certain values
+        // this.lerp.target = GSAP.utils.clamp(0, 1, this.lerp.target); // To avoid the use of modolus
+
+        // this.curve.getPointAt(this.lerp.current, this.position) // .getPointAt Takes float, position on curve (vector 3) 
+        // // We use modulus if it goes beyond 1 then we get an error since its Range is 0 - 1
+
+        // this.curve.getPointAt(this.lerp.current + 0.00001, this.lookAtPosition);
+        // // console.log(this.progress, this.progress % 1)
+        // this.camera.orthographicCamera.position.copy(this.position);
+        // this.camera.orthographicCamera.lookAt(this.lookAtPosition);
     }
 }
