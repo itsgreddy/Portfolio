@@ -2,6 +2,7 @@ import * as THREE from "three";
 import Experience from "../Experience";
 
 import Room from "./Room";
+import Controls from "./Controls";
 import Environment from "./Environment";
 
 export default class World {
@@ -16,6 +17,7 @@ export default class World {
         this.resources.on("ready", () => {
             this.environment = new Environment(); // Instantiaing Environment
             this.room = new Room();
+            this.controls = new Controls();
             // console.log("Created room");
         })
 
@@ -26,6 +28,9 @@ export default class World {
     update() {
         if (this.room) { // Once the room has been created
             this.room.update(); // Start updating it
+        }
+        if (this.controls) {
+            this.controls.update();
         }
     }
 }

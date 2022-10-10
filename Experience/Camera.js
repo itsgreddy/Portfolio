@@ -25,7 +25,9 @@ export default class Camera {
             1000
         );
         this.scene.add(this.prespectiveCamera)
-        this.prespectiveCamera.position.z = 5;
+        this.prespectiveCamera.position.x = 29;
+        this.prespectiveCamera.position.y = 16;
+        this.prespectiveCamera.position.z = 13;
     }
 
     createOrthographicCamera() {
@@ -70,6 +72,7 @@ export default class Camera {
     }
 
     update() {
+        // console.log(this.prespectiveCamera.position); // To check and set up the model
         this.controls.update();
     }
 }
