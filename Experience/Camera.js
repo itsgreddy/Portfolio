@@ -31,16 +31,21 @@ export default class Camera {
     }
 
     createOrthographicCamera() {
-        this.frustrum = 5;
         this.orthographicCamera = new THREE.OrthographicCamera(
             (-this.sizes.aspect * this.sizes.frustrum) / 2,
             (this.sizes.aspect * this.sizes.frustrum) / 2,
             this.sizes.frustrum / 2,
             -this.sizes.frustrum / 2,
-            -100,
-            100
+            -10,
+            10
         );
+
+        console.log(this.orthographicCamera); // We found that bottom is NaN, hence the error
+
         this.scene.add(this.orthographicCamera);
+
+        this.helper = new THREE.CameraHelper(this.orthographicCamera); // Orthograhic Camera Helper
+        this.scene.add(this.helper); // For this to work, we need to manage few things in update
 
         const size = 10;
         const divisions = 10;
@@ -74,5 +79,11 @@ export default class Camera {
     update() {
         // console.log(this.prespectiveCamera.position); // To check and set up the model
         this.controls.update();
+        this.helper.matrixWorldNeedsUpdate = true;
+        this.helper.update();
+        this.helper.position.copy(this.orthographicCamera.position); // Helpers position to copy the camera's postion
+        this.helper.rotation.copy(this.orthographicCamera.rotation); // and camera's rotation
+
+
     }
 }

@@ -6,6 +6,7 @@ export default class Sizes extends EventEmitter {
         this.height = window.innerHeight; // If it doesn't then use the canvas width and height 
         this.aspect = this.width / this.height; // We need aspect ratio for the camera
         this.pixelRatio = Math.min(window.devicePixelRatio, 2) // To choose the pixel ratio acc to the device (minimum)
+        this.frustrum = 5; // To avoid the NaN error with cam
 
         window.addEventListener("resize", () => { // We need this to update the values on resize
             this.width = window.innerWidth;
