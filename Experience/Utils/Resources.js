@@ -31,7 +31,7 @@ export default class Resources extends EventEmitter {
         this.loaders = {}; // Loaders object which contains loaders
         this.loaders.gltfLoader = new GLTFLoader();
         this.loaders.dracoLoader = new DRACOLoader(); // Since we exported with compression in Blender (Draco Mesh Compression)
-        this.loaders.dracoLoader.setDecoderPath("/public/draco/");
+        this.loaders.dracoLoader.setDecoderPath("/draco/");
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader); // Assigning draco Loader -> gltf Loader
     }
 
