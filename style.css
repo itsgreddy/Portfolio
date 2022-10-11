@@ -106,6 +106,11 @@ button:focus-visible {
 
 html,body{
   font-family: "Montserrat", sans-serif;
+  color: var(--text-black);
+}
+
+:root{
+  --text-black:#333332; 
 }
 
 /* ------------ Experience ------------ */
@@ -133,6 +138,20 @@ html,body{
 .page-wrapper{
   position: relative;
 }
+
+/* ------------ Section Formatting ------------ */
+
+.section-margin{
+  height: 3000px;
+  width: 100%;
+}
+
+.section{
+  width: 50%;
+  padding: 1000px 4%;
+  margin: 0; 
+}
+
 
 /* ------------ Hero Section ------------ */
 
