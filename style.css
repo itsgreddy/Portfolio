@@ -105,12 +105,14 @@ button:focus-visible {
 }
 
 html,body{
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif ;
   color: var(--text-black);
 }
 
 :root{
   --text-black:#333332; 
+  --primary-color: #bd9f68;
+  --primary-brown: #f8dca8; 
 }
 
 /* ------------ Experience ------------ */
@@ -148,8 +150,43 @@ html,body{
 
 .section{
   width: 50%;
-  padding: 1000px 4%;
+  padding: 100px 4%;
+  /* padding: 50% 4%; */
   margin: 0; 
+  background-color: var(--primary-color);
+}
+
+.left{
+  margin-right: auto;
+}
+
+.right{
+  margin-left: auto;
+}
+
+.section-intro-wrapper{
+  position: relative;
+  padding: 20% 5%;
+  border-bottom: 2px solid var(--primary-brown);
+  padding-bottom: 40px;
+}
+
+.section-detail-wrapper{
+  position: relative;
+  padding: 20% 5%;
+}
+
+.section-heading{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.0;
+  margin-top: 64px;
+}
+
+.section-text{
+  line-height: 2;
+  margin-top: 18px;
+  font-size: 16px;
 }
 
 
@@ -163,7 +200,8 @@ html,body{
 .hero-wrapper{
   position: relative;
   height: 100%;
-  width: 80%;
+  width: calc(100%-160px);
+  /* width: 80%; */
   margin: 0 auto;
   max-width: 1100px;
 }
@@ -172,12 +210,14 @@ html,body{
 
 .hero-main{
   position: absolute;
-  bottom: 15%;
+  bottom: 100px;
+  /* bottom: 13%; */
   left: 0;
 }
 
 .hero-second{
   position: absolute;
+  /* top: calc(50%-120px); */
   top: 20%;
   right: 0;
 }
@@ -185,7 +225,7 @@ html,body{
 /* Text Sizes */
 
 .hero-main-title{
-  font-size: 60px;
+  font-size: 64px;
 }
 
 .hero-main-description{
