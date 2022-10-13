@@ -14,6 +14,7 @@ export default class World {
         this.canvas = this.experience.canvas;
         this.camera = this.experience.camera;
         this.resources = this.experience.resources;
+        this.theme = this.experience.theme;
 
         this.resources.on("ready", () => {
             this.environment = new Environment(); // Instantiaing Environment
@@ -21,8 +22,17 @@ export default class World {
             this.floor = new Floor();
             this.controls = new Controls();
             // console.log("Created room");
-        })
+        });
 
+        this.theme.on("switch", (theme) => { // Grabbing the theme we passed in theme.js 
+            this.switchTheme(theme); // Passing theme on to a function
+        });
+    }
+
+    switchTheme(theme) {
+        if (this.environment) {
+            this.environment.switchTheme(theme); // Creating new method and passing in theme
+        }
     }
 
     resize() { }
