@@ -8,6 +8,7 @@ export default class Controls {
     constructor() {
         this.experience = new Experience();
         this.scene = this.experience.scene;
+        this.sizes = this.experience.sizes;
         this.resources = this.experience.resources;
         this.time = this.experience.time;
         this.camera = this.experience.camera;
@@ -21,14 +22,19 @@ export default class Controls {
         // console.log(this.room);
         this.timeline = new GSAP.timeline();
         this.timeline.to(this.room.position, { // Moving the mesh instead of the camera
-            x: 0.5,
+            // x: 2.5,
+            // x: this.sizes.width * 0.00094, // Making the animation depend on the size of window
+            x: () => { // To update the model on window changing we need to provide it as a function
+                return this.sizes.width * 0.00145; // Providing a fucntional wrap
+            },
             // duration: 20, 
             scrollTrigger: {
                 trigger: ".initial", // Specifying the section margin
                 markers: true,
                 start: "top top", // Starting marker, activation
                 end: "bottom bottom", // marker, Trigger
-                scrub: 1,
+                scrub: 0.5,
+                invalidateOnRefresh: true, // Invalidating it on refresh, so that it checks again
             }
         })
     }
