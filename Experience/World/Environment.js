@@ -10,7 +10,8 @@ export default class Environment {
         this.scene = this.experience.scene;
         this.resources = this.experience.resources;
 
-        this.gui = new GUI(); // Creating new GUI
+        this.gui = new GUI({ container: document.querySelector('.hero-main') }); // Creating new GUI
+        // using the container and passing it as a parameter to change the position | Avaliable in documentation
         this.obj = {
             colorObj: { r: 0, g: 0, b: 0 },
             intensity: 4,
@@ -52,14 +53,20 @@ export default class Environment {
         console.log(this.sunLight);
         if (theme === "dark") {
             GSAP.to(this.sunLight.color, { // Converting the RGB to either 1 or 0 by dividing, since that's what is accepted by threeJS 
-                r: 0 / 255,                // as mentioned in the documentation
-                g: 0 / 255,
-                b: 0 / 255,
+                r: 0.17254901960784313,                // as mentioned in the documentation
+                g: 0.23137254901960785,
+                b: 0.6862745098039216,
             });
             GSAP.to(this.ambientLight.color, {
-                r: 0 / 255,
-                g: 0 / 255,
-                b: 0 / 255,
+                r: 0.17254901960784313,                // as mentioned in the documentation
+                g: 0.23137254901960785,
+                b: 0.6862745098039216,
+            });
+            GSAP.to(this.sunLight, {
+                intensity: 4,
+            });
+            GSAP.to(this.ambientLight, {
+                intensity: 3,
             });
         } else {
             GSAP.to(this.sunLight.color, {
@@ -71,6 +78,12 @@ export default class Environment {
                 r: 255 / 255,
                 g: 255 / 255,
                 b: 255 / 255,
+            });
+            GSAP.to(this.sunLight, {
+                intensity: 4,
+            });
+            GSAP.to(this.ambientLight, {
+                intensity: 2,
             });
         }
     }
