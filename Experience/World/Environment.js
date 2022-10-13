@@ -10,7 +10,7 @@ export default class Environment {
         this.scene = this.experience.scene;
         this.resources = this.experience.resources;
 
-        this.gui = new GUI({ container: document.querySelector('.hero-main') }); // Creating new GUI
+        // this.gui = new GUI({ container: document.querySelector('.hero-main') }); // Creating new GUI
         // using the container and passing it as a parameter to change the position | Avaliable in documentation
         this.obj = {
             colorObj: { r: 0, g: 0, b: 0 },
@@ -18,7 +18,7 @@ export default class Environment {
         }
 
         this.setSunLight();
-        this.setGUI();
+        // this.setGUI();
     }
 
     setGUI() { // Selecting colorObj, hence the passing

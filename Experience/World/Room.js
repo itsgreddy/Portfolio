@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import GSAP from "gsap";
+import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper"
 import Experience from "../Experience";
 
 export default class Room {
@@ -35,6 +36,16 @@ export default class Room {
                 });
             }
         });
+
+        const width = 0.5;
+        const height = 0.5;
+        const intensity = 4;
+        const rectLight = new THREE.RectAreaLight(0xffffff, intensity, width, height);
+        rectLight.position.set(0, 0, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.actualRoom.add(rectLight)
+
+        const rectLightHelper = new RectAreaLightHelper(rectLight);
+        rectLight.add(rectLightHelper);
 
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.8, 0.8, 0.8) // To scale the room 
