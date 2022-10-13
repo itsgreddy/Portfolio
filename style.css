@@ -141,6 +141,58 @@ html, body{
   position: relative;
 }
 
+/* ------------ Toggle Bar ------------ */
+.toggle-bar{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  right: 48px;
+  z-index: 99999;
+}
+
+.sun-wrapper,
+.moon-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-button{
+  cursor: pointer;
+  position: relative;
+  width: 56px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-brown);
+  border-radius: 999px;
+  margin: 0px 16px; /* Top & Bottom, Left & Right */
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;;
+}
+
+.toggle-button:hover .toggle-circle{ /* To create an reducing effect of toggle on Hover */
+  /* width: 16px; --- Using these only change the circle to the side (left) Hence not ideal                     
+  height: 16px; */
+
+  transform: scale(0.8);  /* Changing the size of the circle */
+}
+
+.toggle-circle{
+  position: absolute;
+  left: 6px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  transition: all 0.2s ease-in-out; /* Transition */
+}
+
 /* ------------ Section Formatting ------------ */
 
 .section-margin{
@@ -269,8 +321,8 @@ html, body{
 
 .hero-second{
   position: absolute;
-  top: calc(50%-120px);
-  top: 20%;
+  /* top: calc(50%-120px); */
+  top: 35%;
   right: 0;
 }
 
