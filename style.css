@@ -104,7 +104,7 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
-html,body{
+html, body{
   font-family: "Montserrat", sans-serif ;
   color: var(--text-black);
 }
@@ -112,7 +112,7 @@ html,body{
 :root{
   --text-black:#333332; 
   --primary-color: #bd9f68;
-  --primary-brown: #f8dca8; 
+  --primary-cream: #f8dca8; 
 }
 
 /* ------------ Experience ------------ */
@@ -150,7 +150,7 @@ html,body{
 
 .section{
   width: 50%;
-  padding: 100px 4%;
+  padding: 1000px 4%;
   /* padding: 50% 4%; */
   margin: 0; 
   background-color: var(--primary-color);
@@ -167,8 +167,8 @@ html,body{
 .section-intro-wrapper{
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--primary-brown);
-  padding-bottom: 40px;
+  border-bottom: 2px solid var(--primary-cream);
+  padding-bottom: 400px;
 }
 
 .section-detail-wrapper{
@@ -179,7 +179,7 @@ html,body{
 .section-heading{
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.0;
+  line-height: 1.8;
   margin-top: 64px;
 }
 
@@ -187,6 +187,58 @@ html,body{
   line-height: 2;
   margin-top: 18px;
   font-size: 16px;
+}
+
+/* -- Fancy Decoration -- */
+
+.section-title{
+  position: relative;
+  color: var(--primary-cream);
+}
+
+.section-title-text{
+  display: block;
+  font-size: 40px;
+  font-weight: 500;
+  transform-origin: left;
+  transform: skewY(25deg);
+  z-index: 5;
+  text-transform: uppercase;
+}
+
+.styleOne,
+.styleTwo,
+.styleThree{
+  position: absolute;
+  display: block;
+  width: 100%;
+  max-width: 270px;
+  height: 60px;
+  border: 1px solid var(--primary-cream);
+  transform-origin: left;
+  transform: skewY(-25deg);
+}
+
+.styleOne{
+  top: 0px;
+}
+
+.styleTwo{
+  top: 80px;
+}
+
+.styleThree{
+  top: 80px;
+  transform: skewY(25deg);
+  background-color: var(--primary-cream);
+}
+
+.section-number{
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  color: var(--primary-cream);
+  font-size: 24px;
 }
 
 
@@ -206,7 +258,7 @@ html,body{
   max-width: 1100px;
 }
 
-/* Text Positions */ 
+/* -- Text Positions -- */ 
 
 .hero-main{
   position: absolute;
@@ -217,12 +269,12 @@ html,body{
 
 .hero-second{
   position: absolute;
-  /* top: calc(50%-120px); */
+  top: calc(50%-120px);
   top: 20%;
   right: 0;
 }
 
-/* Text Sizes */
+/* -- Text Sizes -- */
 
 .hero-main-title{
   font-size: 64px;
