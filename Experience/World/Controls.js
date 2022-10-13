@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import GSAP from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 import Experience from "../Experience";
 
@@ -10,6 +11,26 @@ export default class Controls {
         this.resources = this.experience.resources;
         this.time = this.experience.time;
         this.camera = this.experience.camera;
+        this.room = this.experience.world.room.actualRoom; // Taking it from World.js instead of Experience.js
+        GSAP.registerPlugin(ScrollTrigger); // Registering plugin
+
+        this.setPath();
+    }
+
+    setPath() {
+        // console.log(this.room);
+        this.timeline = new GSAP.timeline();
+        this.timeline.to(this.room.position, { // Moving the mesh instead of the camera
+            x: 0.5,
+            // duration: 20, 
+            scrollTrigger: {
+                trigger: ".initial", // Specifying the section margin
+                markers: true,
+                start: "top top", // Starting marker, activation
+                end: "bottom bottom", // marker, Trigger
+                scrub: 1,
+            }
+        })
     }
 
     resize() { }
