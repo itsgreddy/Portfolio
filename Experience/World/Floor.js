@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import GSAP from "gsap";
 import Experience from "../Experience";
+import { RGBAFormat } from "three";
 
 export default class Floor {
     constructor() {
@@ -13,7 +14,7 @@ export default class Floor {
     setFloor() {
         this.geometry = new THREE.PlaneGeometry(100, 100);
         this.material = new THREE.MeshStandardMaterial({
-            color: 0xbd9f68,
+            color: "rgb(255, 202, 117)",
             side: THREE.DoubleSide, // Adds texture to both sides of the floor
         });
         this.plane = new THREE.Mesh(this.geometry, this.material);

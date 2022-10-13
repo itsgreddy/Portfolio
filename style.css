@@ -111,8 +111,8 @@ html, body{
 
 :root{
   --text-black:#333332; 
-  --primary-color: #bd9f68;
-  --primary-cream: #f8dca8; 
+  --primary-color: #FBF4E4;
+  --primary-brown: #815B5B; 
 }
 
 /* ------------ Experience ------------ */
@@ -167,7 +167,7 @@ html, body{
 .section-intro-wrapper{
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--primary-cream);
+  border-bottom: 2px solid var(--primary-brown);
   padding-bottom: 400px;
 }
 
@@ -193,7 +193,7 @@ html, body{
 
 .section-title{
   position: relative;
-  color: var(--primary-cream);
+  color: var(--primary-brown);
 }
 
 .section-title-text{
@@ -214,7 +214,7 @@ html, body{
   width: 100%;
   max-width: 270px;
   height: 60px;
-  border: 1px solid var(--primary-cream);
+  border: 1px solid var(--primary-brown);
   transform-origin: left;
   transform: skewY(-25deg);
 }
@@ -230,14 +230,14 @@ html, body{
 .styleThree{
   top: 80px;
   transform: skewY(25deg);
-  background-color: var(--primary-cream);
+  background-color: var(--primary-brown);
 }
 
 .section-number{
   position: absolute;
   bottom: 15px;
   right: 0;
-  color: var(--primary-cream);
+  color: var(--primary-brown);
   font-size: 24px;
 }
 
