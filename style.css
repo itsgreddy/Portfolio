@@ -193,6 +193,11 @@ html, body{
   transition: all 0.2s ease-in-out; /* Transition */
 }
 
+.slide{
+  /* transform: translateX(24px); This caused the toggle button to go back to Light on Hover */ 
+  left: 30px;
+}
+
 /* ------------ Section Formatting ------------ */
 
 .section-margin{
