@@ -183,6 +183,7 @@ html, body{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: var(--color-text);  
 }
 
 .toggle-button{
