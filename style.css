@@ -106,13 +106,37 @@ button:focus-visible {
 
 html, body{
   font-family: "Montserrat", sans-serif ;
-  color: var(--text-black);
+  /* color: var(--text-black); */
 }
 
 :root{
-  --text-black:#333332; 
-  --primary-color: #FBF4E4;
-  --primary-brown: #815B5B; 
+
+  /* Light Theme colors */
+  --color-text-light: #333332;
+  --color-background-light: #FBF4E4;
+  --color-brown-light: #815B5B;
+  --color-green-light: #7FB77E;
+  --color-maroon-light: #874C62;
+
+  /* Dark Theme colors */
+  --color-text-dark: #FBF4E4;
+  --color-background-dark: #8395CD;
+}
+
+.light-theme{ /* Elements are gonna use light-theme, and elements in light theme will use the variables in root*/
+  --color-text:var(--color-text-light);
+  --color-background:var(--color-background-light);
+  --color-brown:var(--color-brown-light);
+  --color-green:var(--color-green-light);
+  --color-maroon:var(--color-maroon-light);
+}
+
+.dark-theme{
+  --color-text:var(--color-text-dark);
+  --color-background:var(--color-background-dark);
+  --color-brown:var(--color-text-dark);
+  --color-green:var(--color-text-dark);
+  --color-maroon:var(--color-text-dark);
 }
 
 /* ------------ Experience ------------ */
@@ -169,7 +193,7 @@ html, body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-brown);
+  background-color: var(--color-brown);
   border-radius: 999px;
   margin: 0px 16px; /* Top & Bottom, Left & Right */
   border: none;
@@ -189,7 +213,7 @@ html, body{
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background-color: var(--primary-color);
+  background-color: var(--color-background);
   transition: all 0.2s ease-in-out; /* Transition */
 }
 
@@ -210,7 +234,7 @@ html, body{
   padding: 1000px 4%;
   /* padding: 50% 4%; */
   margin: 0; 
-  background-color: var(--primary-color);
+  background-color: var(--color-background);
 }
 
 .left{
@@ -224,7 +248,7 @@ html, body{
 .section-intro-wrapper{
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--primary-brown);
+  border-bottom: 2px solid var(--color-brown);
   padding-bottom: 400px;
 }
 
@@ -238,19 +262,21 @@ html, body{
   font-weight: 700;
   line-height: 1.8;
   margin-top: 64px;
+  color: var(--color-text);  
 }
 
 .section-text{
   line-height: 2;
   margin-top: 18px;
   font-size: 16px;
+  color: var(--color-text);  
 }
 
 /* -- Fancy Decoration -- */
 
 .section-title{
   position: relative;
-  color: var(--primary-brown);
+  color: var(--color-brown);
 }
 
 .section-title-text{
@@ -261,6 +287,7 @@ html, body{
   transform: skewY(25deg);
   z-index: 5;
   text-transform: uppercase;
+  color: var(--color-text);  
 }
 
 .styleOne,
@@ -271,7 +298,7 @@ html, body{
   width: 100%;
   max-width: 270px;
   height: 60px;
-  border: 1px solid var(--primary-brown);
+  border: 1px solid var(--color-brown);
   transform-origin: left;
   transform: skewY(-25deg);
 }
@@ -287,14 +314,14 @@ html, body{
 .styleThree{
   top: 80px;
   transform: skewY(25deg);
-  background-color: var(--primary-brown);
+  background-color: var(--color-brown);
 }
 
 .section-number{
   position: absolute;
   bottom: 15px;
   right: 0;
-  color: var(--primary-brown);
+  color: var(--color-brown);
   font-size: 24px;
 }
 
@@ -322,6 +349,7 @@ html, body{
   bottom: 100px;
   /* bottom: 13%; */
   left: 0;
+  color: var(--color-text);  
 }
 
 .hero-second{
@@ -329,19 +357,23 @@ html, body{
   /* top: calc(50%-120px); */
   top: 35%;
   right: 0;
+  color: var(--color-text);  
 }
 
 /* -- Text Sizes -- */
 
 .hero-main-title{
   font-size: 64px;
+  color: var(--color-text);  
 }
 
 .hero-main-description{
   font-size: 20px;
+  color: var(--color-text);  
 }
 
 .hero-second-subheading{
   font-size: 32px;
   text-transform: uppercase;
+  color: var(--color-text);  
 }
