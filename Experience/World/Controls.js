@@ -29,7 +29,7 @@ export default class Controls {
             },
             // duration: 20, 
             scrollTrigger: {
-                trigger: ".initial", // Specifying the section margin
+                trigger: ".first-move", // Specifying the section margin
                 markers: true,
                 start: "top top", // Starting marker, activation
                 end: "bottom bottom", // marker, Trigger
