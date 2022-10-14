@@ -109,6 +109,14 @@ html, body{
   /* color: var(--text-black); */
 }
 
+h1,
+section,
+p,
+span,
+svg{
+  transition: background-color 0.7s, color 0.7s;
+}
+
 :root{
 
   /* Light Theme colors */
@@ -120,7 +128,7 @@ html, body{
 
   /* Dark Theme colors */
   --color-text-dark: #FBF4E4;
-  --color-background-dark: #8395CD;
+  --color-background-dark: #675d92;
 }
 
 .light-theme{ /* Elements are gonna use light-theme, and elements in light theme will use the variables in root*/
@@ -288,7 +296,7 @@ html, body{
   transform: skewY(25deg);
   z-index: 5;
   text-transform: uppercase;
-  color: var(--color-text);  
+  color: var(--color-brown);  
 }
 
 .styleOne,
