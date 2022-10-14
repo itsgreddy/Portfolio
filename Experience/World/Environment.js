@@ -12,6 +12,7 @@ export default class Environment {
 
         // this.gui = new GUI({ container: document.querySelector('.hero-main') }); // Creating new GUI
         // using the container and passing it as a parameter to change the position | Avaliable in documentation
+
         this.obj = {
             colorObj: { r: 0, g: 0, b: 0 },
             intensity: 4,
@@ -80,10 +81,10 @@ export default class Environment {
                 b: 255 / 255,
             });
             GSAP.to(this.sunLight, {
-                intensity: 4,
+                intensity: 2,
             });
             GSAP.to(this.ambientLight, {
-                intensity: 2,
+                intensity: 1,
             });
         }
     }
