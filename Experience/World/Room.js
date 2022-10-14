@@ -22,9 +22,52 @@ export default class Room {
 
         this.setModel();
         this.onMouseMove();
+        this.setGUI();
 
         // camera.position.z = 5; // You can't use this line here, coz you have another camera setup already
         // Or else you need to call it here
+    }
+
+    setGUI() {
+        const width = 0.4;
+        const height = 0.4;
+        const intensity = 12;
+
+        // ---- LIGHT 1 ---- //
+
+        this.rectLight1 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
+        this.rectLight1.position.set(1.2, 1.2, -0.4); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.rectLight1.rotation.set(0, 0.2, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.actualRoom.add(this.rectLight1)
+
+        // const rectLightHelper = new RectAreaLightHelper(this.rectLight1);
+        // this.rectLight1.add(rectLightHelper);
+
+        this.gui.add(this.rectLight1.position, 'x').min(-50).max(50).step(0.2).name('light1 position x');
+        this.gui.add(this.rectLight1.position, 'y').min(-50).max(50).step(0.2).name('light1 position y');
+        this.gui.add(this.rectLight1.position, 'z').min(-50).max(50).step(0.2).name('light1 position z');
+
+        this.gui.add(this.rectLight1.rotation, 'x').min(-50).max(50).step(0.2).name('light1 rotation x');
+        this.gui.add(this.rectLight1.rotation, 'y').min(-50).max(50).step(0.2).name('light1 rotation y');
+        this.gui.add(this.rectLight1.rotation, 'z').min(-50).max(50).step(0.2).name('light1 rotation z');
+
+        // ---- LIGHT 2 ---- //
+
+        this.rectLight2 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
+        this.rectLight2.position.set(-0.8, 1, -0.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.rectLight2.rotation.set(-0.2, 0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.actualRoom.add(this.rectLight2)
+
+        // const rectLightHelper = new RectAreaLightHelper(this.rectLight2);
+        // this.rectLight2.add(rectLightHelper);
+
+        this.gui.add(this.rectLight2.position, 'x').min(-50).max(50).step(0.2).name('light2 position x');
+        this.gui.add(this.rectLight2.position, 'y').min(-50).max(50).step(0.2).name('light2 position y');
+        this.gui.add(this.rectLight2.position, 'z').min(-50).max(50).step(0.2).name('light2 position z');
+
+        this.gui.add(this.rectLight2.rotation, 'x').min(-50).max(50).step(0.2).name('light2 rotation x');
+        this.gui.add(this.rectLight2.rotation, 'y').min(-50).max(50).step(0.2).name('light2 rotation y');
+        this.gui.add(this.rectLight2.rotation, 'z').min(-50).max(50).step(0.2).name('light2 rotation z');
     }
 
     setModel() {
@@ -45,42 +88,6 @@ export default class Room {
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.8, 0.8, 0.8); // To scale the room 
         // this.actualRoom.rotation.y = Math.pi // For rotation
-
-        const width = 0.4;
-        const height = 0.4;
-        const intensity = 12;
-        this.rectLight1 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
-        this.rectLight1.position.set(1.2, 1.2, -0.4); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.rectLight1.rotation.set(0, 0.2, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.actualRoom.add(this.rectLight1)
-
-        // const rectLightHelper = new RectAreaLightHelper(this.rectLight1);
-        // this.rectLight1.add(rectLightHelper);
-
-        this.gui.add(this.rectLight1.position, 'x').min(-50).max(50).step(0.2).name('light1 position x')
-        this.gui.add(this.rectLight1.position, 'y').min(-50).max(50).step(0.2).name('light1 position y')
-        this.gui.add(this.rectLight1.position, 'z').min(-50).max(50).step(0.2).name('light1 position z')
-
-        this.gui.add(this.rectLight1.rotation, 'x').min(-50).max(50).step(0.2).name('light1 rotation x')
-        this.gui.add(this.rectLight1.rotation, 'y').min(-50).max(50).step(0.2).name('light1 rotation y')
-        this.gui.add(this.rectLight1.rotation, 'z').min(-50).max(50).step(0.2).name('light1 rotation z')
-
-
-        this.rectLight2 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
-        this.rectLight2.position.set(-0.8, 1, -0.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.rectLight2.rotation.set(-0.2, 0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.actualRoom.add(this.rectLight2)
-
-        // const rectLightHelper = new RectAreaLightHelper(this.rectLight2);
-        // this.rectLight2.add(rectLightHelper);
-
-        this.gui.add(this.rectLight2.position, 'x').min(-50).max(50).step(0.2).name('light2 position x')
-        this.gui.add(this.rectLight2.position, 'y').min(-50).max(50).step(0.2).name('light2 position y')
-        this.gui.add(this.rectLight2.position, 'z').min(-50).max(50).step(0.2).name('light2 position z')
-
-        this.gui.add(this.rectLight2.rotation, 'x').min(-50).max(50).step(0.2).name('light2 rotation x')
-        this.gui.add(this.rectLight2.rotation, 'y').min(-50).max(50).step(0.2).name('light2 rotation y')
-        this.gui.add(this.rectLight2.rotation, 'z').min(-50).max(50).step(0.2).name('light2 rotation z')
     }
 
     onMouseMove() {
