@@ -12,7 +12,7 @@ export default class Room {
         this.room = this.resources.items.room; // Getting object and using dot notation to get the room
         this.actualRoom = this.room.scene;
 
-        this.gui = new GUI({ container: document.querySelector('.hero-secoond') });
+        // this.gui = new GUI({ container: document.querySelector('.hero-secoond') });
 
         this.lerp = { // Lerping, covering less dist in same time quanta. Decreasing the speed of the transition
             current: 0,
@@ -22,23 +22,14 @@ export default class Room {
 
         this.setModel();
         this.onMouseMove();
-        this.setGUI();
+        // this.setGUI();
 
         // camera.position.z = 5; // You can't use this line here, coz you have another camera setup already
         // Or else you need to call it here
     }
 
     setGUI() {
-        const width = 0.4;
-        const height = 0.4;
-        const intensity = 12;
-
         // ---- LIGHT 1 ---- //
-
-        this.rectLight1 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
-        this.rectLight1.position.set(1.2, 1.2, -0.4); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.rectLight1.rotation.set(0, 0.2, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.actualRoom.add(this.rectLight1)
 
         // const rectLightHelper = new RectAreaLightHelper(this.rectLight1);
         // this.rectLight1.add(rectLightHelper);
@@ -53,11 +44,6 @@ export default class Room {
 
         // ---- LIGHT 2 ---- //
 
-        this.rectLight2 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
-        this.rectLight2.position.set(-0.8, 1, -0.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.rectLight2.rotation.set(-0.2, 0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
-        this.actualRoom.add(this.rectLight2)
-
         // const rectLightHelper = new RectAreaLightHelper(this.rectLight2);
         // this.rectLight2.add(rectLightHelper);
 
@@ -68,6 +54,32 @@ export default class Room {
         this.gui.add(this.rectLight2.rotation, 'x').min(-50).max(50).step(0.2).name('light2 rotation x');
         this.gui.add(this.rectLight2.rotation, 'y').min(-50).max(50).step(0.2).name('light2 rotation y');
         this.gui.add(this.rectLight2.rotation, 'z').min(-50).max(50).step(0.2).name('light2 rotation z');
+
+        // ---- LIGHT 3 ---- //
+
+        // const rectLightHelper = new RectAreaLightHelper(this.rectLight3);
+        // this.rectLight2.add(rectLightHelper);
+
+        this.gui.add(this.rectLight3.position, 'x').min(-50).max(50).step(0.2).name('light3 position x');
+        this.gui.add(this.rectLight3.position, 'y').min(-50).max(50).step(0.2).name('light3 position y');
+        this.gui.add(this.rectLight3.position, 'z').min(-50).max(50).step(0.2).name('light3 position z');
+
+        this.gui.add(this.rectLight3.rotation, 'x').min(-50).max(50).step(0.2).name('light3 rotation x');
+        this.gui.add(this.rectLight3.rotation, 'y').min(-50).max(50).step(0.2).name('light3 rotation y');
+        this.gui.add(this.rectLight3.rotation, 'z').min(-50).max(50).step(0.2).name('light3 rotation z');
+
+        // ---- LIGHT 4 ---- //
+
+        // const rectLightHelper = new RectAreaLightHelper(this.rectLight4);
+        // this.rectLight2.add(rectLightHelper);
+
+        this.gui.add(this.rectLight4.position, 'x').min(-50).max(50).step(0.2).name('light4 position x');
+        this.gui.add(this.rectLight4.position, 'y').min(-50).max(50).step(0.2).name('light4 position y');
+        this.gui.add(this.rectLight4.position, 'z').min(-50).max(50).step(0.2).name('light4 position z');
+
+        this.gui.add(this.rectLight4.rotation, 'x').min(-50).max(50).step(0.2).name('light4 rotation x');
+        this.gui.add(this.rectLight4.rotation, 'y').min(-50).max(50).step(0.2).name('light4 rotation y');
+        this.gui.add(this.rectLight4.rotation, 'z').min(-50).max(50).step(0.2).name('light4 rotation z');
     }
 
     setModel() {
@@ -88,6 +100,50 @@ export default class Room {
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.8, 0.8, 0.8); // To scale the room 
         // this.actualRoom.rotation.y = Math.pi // For rotation
+
+        // ---- LIGHT 1 ---- //
+
+        this.width1 = 0.4;
+        this.height1 = 0.4;
+        this.intensity1 = 12;
+
+        this.rectLight1 = new THREE.RectAreaLight(0xffffff, this.intensity1, this.width1, this.height1);
+        this.rectLight1.position.set(1.2, 1.2, -0.4); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.rectLight1.rotation.set(0, 0.2, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.actualRoom.add(this.rectLight1)
+
+        // ---- LIGHT 2 ---- //
+
+        this.width2 = 0.4;
+        this.height2 = 0.4;
+        this.intensity2 = 12;
+
+        this.rectLight2 = new THREE.RectAreaLight(0xffffff, this.intensity2, this.width2, this.height2);
+        this.rectLight2.position.set(-0.8, 1, -0.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.rectLight2.rotation.set(-0.2, 0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.actualRoom.add(this.rectLight2)
+
+        // ---- LIGHT 3 ---- //
+
+        this.width3 = 0.1;
+        this.height3 = 0.1;
+        this.intensity3 = 100;
+
+        this.rectLight3 = new THREE.RectAreaLight(0xffffff, this.intensity3, this.width3, this.height3);
+        this.rectLight3.position.set(-1.2, -0.4, -1.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.rectLight3.rotation.set(0.8, 1.2, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.actualRoom.add(this.rectLight3)
+
+        // ---- LIGHT 4 ---- //
+
+        this.width4 = 0.1;
+        this.height4 = 0.1;
+        this.intensity4 = 100;
+
+        this.rectLight4 = new THREE.RectAreaLight(0xffffff, this.intensity4, this.width4, this.height4);
+        this.rectLight4.position.set(1.2, -0.2, -1.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.rectLight4.rotation.set(-2, -0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
+        this.actualRoom.add(this.rectLight4)
     }
 
     onMouseMove() {

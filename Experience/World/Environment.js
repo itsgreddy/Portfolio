@@ -64,7 +64,7 @@ export default class Environment {
                 b: 0.6862745098039216,
             });
             GSAP.to(this.sunLight, {
-                intensity: 4,
+                intensity: 1,
             });
             GSAP.to(this.ambientLight, {
                 intensity: 3,
@@ -81,10 +81,10 @@ export default class Environment {
                 b: 255 / 255,
             });
             GSAP.to(this.sunLight, {
-                intensity: 2,
+                intensity: 4,
             });
             GSAP.to(this.ambientLight, {
-                intensity: 1,
+                intensity: 2,
             });
         }
     }
