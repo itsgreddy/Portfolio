@@ -105,7 +105,7 @@ export default class Room {
 
         this.width1 = 0.4;
         this.height1 = 0.4;
-        this.intensity1 = 12;
+        this.intensity1 = 11;
 
         this.rectLight1 = new THREE.RectAreaLight(0xffffff, this.intensity1, this.width1, this.height1);
         this.rectLight1.position.set(1.2, 1.2, -0.4); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
@@ -116,7 +116,7 @@ export default class Room {
 
         this.width2 = 0.4;
         this.height2 = 0.4;
-        this.intensity2 = 12;
+        this.intensity2 = 11;
 
         this.rectLight2 = new THREE.RectAreaLight(0xffffff, this.intensity2, this.width2, this.height2);
         this.rectLight2.position.set(-0.8, 1, -0.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
@@ -127,7 +127,7 @@ export default class Room {
 
         this.width3 = 0.1;
         this.height3 = 0.1;
-        this.intensity3 = 100;
+        this.intensity3 = 120;
 
         this.rectLight3 = new THREE.RectAreaLight(0xffffff, this.intensity3, this.width3, this.height3);
         this.rectLight3.position.set(-1.2, -0.4, -1.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
@@ -138,7 +138,7 @@ export default class Room {
 
         this.width4 = 0.1;
         this.height4 = 0.1;
-        this.intensity4 = 100;
+        this.intensity4 = 120;
 
         this.rectLight4 = new THREE.RectAreaLight(0xffffff, this.intensity4, this.width4, this.height4);
         this.rectLight4.position.set(1.2, -0.2, -1.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
