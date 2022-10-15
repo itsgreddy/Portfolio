@@ -26,20 +26,61 @@ export default class Controls {
             "(min-width: 969px)": () => { // If we use regular function we lose context, thats why we use arrow fucntion to save context and we can access class variables
                 console.log("Fired Desktop");
 
+                // -------------------- First Section -------------------- //
+
                 this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
-                        trigger: ".first-move",
+                        trigger: ".first-move", // Specifying the section margin
+                        // markers: true,
+                        start: "top top", // Starting marker, activation
+                        end: "bottom bottom", // Ending marker, Trigger
+                        scrub: 0.6,
+                        invalidateOnRefresh: true, // Invalidating it on refresh, so that it checks again
+                    },
+                });
+                this.firstMoveTimeline.to(
+                    this.room.position, // Moving the mesh instead of the camera
+                    {
+                        // x: 2.5,
+                        // x: this.sizes.width * 0.00094, // Making the animation depend on the size of window
+                        x: () => { // To update the model on window changing we need to provide it as a function
+                            return this.sizes.width * 0.00145; // Providing a fucntional wrap
+                        },
+                    });
+
+                // -------------------- Second Section -------------------- //
+
+                this.secondMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".second-move",
+                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
                 });
-                this.firstMoveTimeline.to(this.room.position, {
-                    x: () => {
-                        return this.sizes.width * 0.00145;
+                this.secondMoveTimeline.to(
+                    this.room.position,
+                    {
+                        x: () => {
+                            return this.sizes.width * -0.0021;
+                        },
+                        z: () => {
+                            return this.sizes.height * 0.0120;
+                        }
                     },
-                });
+                    "same"
+                );
+                this.secondMoveTimeline.to(
+                    this.room.scale,
+                    {
+                        x: 3.2,
+                        y: 3.2,
+                        z: 3.2,
+                    },
+                    "same"
+                );
             },
 
             //mobile
@@ -55,24 +96,6 @@ export default class Controls {
 
         });
 
-        // // console.log(this.room);
-        // this.timeline = new GSAP.timeline();
-        // this.timeline.to(this.room.position, { // Moving the mesh instead of the camera
-        //     // x: 2.5,
-        //     // x: this.sizes.width * 0.00094, // Making the animation depend on the size of window
-        //     x: () => { // To update the model on window changing we need to provide it as a function
-        //         return this.sizes.width * 0.00145; // Providing a fucntional wrap
-        //     },
-        //     // duration: 20, 
-        //     scrollTrigger: {
-        //         trigger: ".first-move", // Specifying the section margin
-        //         // markers: true,
-        //         start: "top top", // Starting marker, activation
-        //         end: "bottom bottom", // marker, Trigger
-        //         scrub: 0.5,
-        //         invalidateOnRefresh: true, // Invalidating it on refresh, so that it checks again
-        //     }
-        // });
     }
 
     resize() { }
