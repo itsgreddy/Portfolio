@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import GSAP from "gsap";
+import GUI from "lil-gui";
+
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 import Experience from "../Experience";
@@ -13,10 +15,28 @@ export default class Controls {
         this.time = this.experience.time;
         this.camera = this.experience.camera;
         this.room = this.experience.world.room.actualRoom; // Taking it from World.js instead of Experience.js
+        this.room.children.forEach(child => { // Scalling up the lights
+            if (child.type === "RectAreaLight") { // ThreeJS provides the type to us for all the assets
+                this.rectLight1 = child;
+                // this.rectLight2 = child;
+                // this.rectLight3 = child;
+                // this.rectLight4 = child;
+            }
+        })
+
+        // this.gui = new GUI({ container: document.querySelector('.hero-main') });
+
         GSAP.registerPlugin(ScrollTrigger); // Registering plugin
 
         this.setScrollTrigger();
+        // this.setGUI();
     }
+
+    // setGUI() {
+    //     this.gui.add(this.camera.position, 'x').min(-50).max(50).step(0.2).name('camera position x');
+    //     this.gui.add(this.camera.position, 'y').min(-50).max(50).step(0.2).name('camera position y');
+    //     this.gui.add(this.camera.position, 'z').min(-50).max(50).step(0.2).name('camera position z');
+    // }
 
     setScrollTrigger() {
 
@@ -59,28 +79,37 @@ export default class Controls {
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
-                });
-                this.secondMoveTimeline.to(
-                    this.room.position,
-                    {
-                        x: () => {
-                            return this.sizes.width * -0.0021;
+                })
+                    // .to(this.camera.position, { x: 0, y: 0, z: 5 })
+                    .to(
+                        this.room.position,
+                        {
+                            x: () => {
+                                return this.sizes.width * -0.0021;
+                            },
+                            z: () => {
+                                return this.sizes.height * 0.0120;
+                            },
                         },
-                        z: () => {
-                            return this.sizes.height * 0.0120;
-                        }
-                    },
-                    "same"
-                );
-                this.secondMoveTimeline.to(
-                    this.room.scale,
-                    {
-                        x: 3.2,
-                        y: 3.2,
-                        z: 3.2,
-                    },
-                    "same"
-                );
+                        "same"
+                    )
+                    .to(
+                        this.room.scale,
+                        {
+                            x: 3.2,
+                            y: 3.2,
+                            z: 3.2,
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.rectLight1,
+                        {
+                            width: 0.4 * 4,
+                            height: 0.4 * 4,
+                        },
+                        "same"
+                    )
             },
 
             //mobile

@@ -12,7 +12,7 @@ export default class Room {
         this.room = this.resources.items.room; // Getting object and using dot notation to get the room
         this.actualRoom = this.room.scene;
 
-        // this.gui = new GUI({ container: document.querySelector('.hero-secoond') });
+        // this.gui = new GUI({ container: document.querySelector('.hero-second') });
 
         this.lerp = { // Lerping, covering less dist in same time quanta. Decreasing the speed of the transition
             current: 0,
@@ -146,6 +146,8 @@ export default class Room {
         this.rectLight4.position.set(1.2, -0.2, -1.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
         this.rectLight4.rotation.set(-2, -0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
         this.actualRoom.add(this.rectLight4)
+
+        // this.roomChildren["rectLight1", "rectLight2", "rectLight3", "rectLight4"] = rectLight;
     }
 
     onMouseMove() {
