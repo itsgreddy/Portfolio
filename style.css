@@ -412,3 +412,11 @@ svg{
 .maroon-background{
   background-color: var(--color-maroon);
 }
+
+/* Media Queries */
+
+@media (max-width:968px){
+  .section{
+    width: 100%;
+  }
+}
