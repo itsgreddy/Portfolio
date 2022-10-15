@@ -80,7 +80,17 @@ export default class Controls {
                         invalidateOnRefresh: true,
                     },
                 })
-                    // .to(this.camera.position, { x: 0, y: 0, z: 5 })
+                    // .to(this.camera.prespectiveCamera.position, { x: 5, y: 0, z: 5 })
+                    // .to(this.camera.orthographicCamera.rotation, { x: - Math.PI / 6 })
+                    .to(
+                        this.camera.orthographicCamera.rotation,
+                        {
+                            z: () => {
+                                return Math.PI / 2;
+                            },
+                        },
+                        "same"
+                    )
                     .to(
                         this.room.position,
                         {
@@ -89,6 +99,22 @@ export default class Controls {
                             },
                             z: () => {
                                 return this.sizes.height * 0.0120;
+                            },
+                            // y: () => {
+                            //     return this.sizes.height * 0.0120;
+                            // },
+
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.rotation,
+                        {
+                            // x: () => {
+                            //     return 3;
+                            // },
+                            z: () => {
+                                return Math.PI / 2;
                             },
                         },
                         "same"
@@ -102,14 +128,14 @@ export default class Controls {
                         },
                         "same"
                     )
-                    .to(
-                        this.rectLight1,
-                        {
-                            width: 0.4 * 4,
-                            height: 0.4 * 4,
-                        },
-                        "same"
-                    )
+                // .to(
+                //     this.rectLight1,
+                //     {
+                //         width: 0.4 * 4,
+                //         height: 0.4 * 4,
+                //     },
+                //     "same"
+                // )
             },
 
             //mobile
