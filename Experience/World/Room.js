@@ -93,6 +93,8 @@ export default class Room {
                     groupchild.receiveShadow = true;
                 });
             }
+
+            console.log(child);
         });
 
         // console.log(this.room);

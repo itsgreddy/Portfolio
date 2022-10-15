@@ -51,7 +51,7 @@ export default class Environment {
     }
 
     switchTheme(theme) { // Grabbing the parameter
-        console.log(this.sunLight);
+        // console.log(this.sunLight);
         if (theme === "dark") {
             GSAP.to(this.sunLight.color, { // Converting the RGB to either 1 or 0 by dividing, since that's what is accepted by threeJS 
                 r: 0.17254901960784313,                // as mentioned in the documentation

@@ -114,7 +114,7 @@ section,
 p,
 span,
 svg{
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.7s, color 0.5s;
 }
 
 :root{
@@ -223,7 +223,7 @@ svg{
   width: 20px;
   height: 20px;
   background-color: var(--color-background);
-  transition: all 0.2s ease-in-out; /* Transition */
+  transition: all 0.3s ease-in-out; /* Transition */
 }
 
 .slide{
@@ -240,8 +240,8 @@ svg{
 
 .section{
   width: 50%;
-  padding: 1000px 4%;
-  /* padding: 50% 4%; */
+  /* padding: 1000px 4%; */
+  padding: 50% 4%;
   margin: 0; 
   background-color: var(--color-background);
 }
