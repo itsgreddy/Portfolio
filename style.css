@@ -114,7 +114,7 @@ section,
 p,
 span,
 svg{
-  transition: background-color 0.7s, color 0.7s;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 :root{
@@ -385,4 +385,30 @@ svg{
   font-size: 32px;
   text-transform: uppercase;
   color: var(--color-text);  
+}
+
+/* Overwriting Colors */
+
+.green-text{
+  color:var(--color-green);
+}
+
+.green-border{
+  border-color: var(--color-green);
+}
+
+.green-background{
+  background-color: var(--color-green);
+}
+
+.maroon-text{
+  color:var(--color-maroon);
+}
+
+.maroon-border{
+  border-color: var(--color-maroon);
+}
+
+.maroon-background{
+  background-color: var(--color-maroon);
 }
