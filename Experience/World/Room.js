@@ -94,7 +94,7 @@ export default class Room {
                 });
             }
 
-            console.log(child);
+            // console.log(child);
         });
 
         // console.log(this.room);
