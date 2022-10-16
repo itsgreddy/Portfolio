@@ -54,19 +54,28 @@ export default class Controls {
                         // markers: true,
                         start: "top top", // Starting marker, activation
                         end: "bottom bottom", // Ending marker, Trigger
-                        scrub: 0.6,
+                        // scrub: 0.6,
+                        scrub: 1,
                         invalidateOnRefresh: true, // Invalidating it on refresh, so that it checks again
                     },
-                });
-                this.firstMoveTimeline.to(
-                    this.room.position, // Moving the mesh instead of the camera
-                    {
-                        // x: 2.5,
-                        // x: this.sizes.width * 0.00094, // Making the animation depend on the size of window
-                        x: () => { // To update the model on window changing we need to provide it as a function
-                            return this.sizes.width * 0.00145; // Providing a fucntional wrap
+                })
+                    // --- Room --- //
+
+                    .to(
+                        this.room.position, // Moving the mesh instead of the camera
+                        {
+                            // x: 2.5,
+                            // x: this.sizes.width * 0.00094, // Making the animation depend on the size of window
+                            x: () => { // To update the model on window changing we need to provide it as a function
+                                return 2.3; // Providing a fucntional wrap
+                            },
+                            // y: () => {
+                            //     return 1;
+                            // },
                         },
-                    });
+                        "same"
+
+                    )
 
                 // -------------------- Second Section -------------------- //
 
@@ -76,34 +85,39 @@ export default class Controls {
                         // markers: true,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 0.6,
+                        // scrub: 0.6,
+                        scrub: 1,
                         invalidateOnRefresh: true,
                     },
                 })
+                    // --- Camera --- //
+
                     // .to(this.camera.prespectiveCamera.position, { x: 5, y: 0, z: 5 })
-                    // .to(this.camera.orthographicCamera.rotation, { x: - Math.PI / 6 })
+                    // .to(this.camera.orthographicCamera.rotation, { z: Math.PI / 2 }, "same")
                     .to(
                         this.camera.orthographicCamera.rotation,
                         {
                             z: () => {
-                                return Math.PI / 2;
+                                return Math.PI / 4;
                             },
                         },
                         "same"
                     )
+
+                    // --- Room --- //
+
                     .to(
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.0021;
+                                return -4;
                             },
                             z: () => {
-                                return this.sizes.height * 0.0120;
+                                return 10;
                             },
-                            // y: () => {
-                            //     return this.sizes.height * 0.0120;
-                            // },
-
+                            y: () => {
+                                return 1.5;
+                            },
                         },
                         "same"
                     )
@@ -114,7 +128,7 @@ export default class Controls {
                             //     return 3;
                             // },
                             z: () => {
-                                return Math.PI / 2;
+                                return Math.PI / 4;
                             },
                         },
                         "same"
@@ -128,6 +142,9 @@ export default class Controls {
                         },
                         "same"
                     )
+
+                // --- Lights --- //
+
                 // .to(
                 //     this.rectLight1,
                 //     {
