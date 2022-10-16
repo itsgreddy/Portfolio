@@ -46,6 +46,18 @@ export default class Controls {
             "(min-width: 969px)": () => { // If we use regular function we lose context, thats why we use arrow fucntion to save context and we can access class variables
                 console.log("Fired Desktop");
 
+                // ---- Resets ---- //
+
+                this.room.scale.set(0.8, 0.8, 0.8);
+                this.rectLight1.width1 = 0.4
+                this.rectLight1.height1 = 0.4
+                this.rectLight2.width2 = 0.4
+                this.rectLight2.height2 = 0.4
+                this.rectLight3.width3 = 0.1
+                this.rectLight3.height3 = 0.1
+                this.rectLight4.width4 = 0.1
+                this.rectLight4.height4 = 0.1
+
                 // -------------------- First Section -------------------- //
 
                 this.firstMoveTimeline = new GSAP.timeline({

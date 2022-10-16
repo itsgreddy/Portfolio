@@ -22,6 +22,7 @@ export default class Room {
 
         this.setModel();
         this.onMouseMove();
+        this.setLights();
         // this.setGUI();
 
         // camera.position.z = 5; // You can't use this line here, coz you have another camera setup already
@@ -102,7 +103,9 @@ export default class Room {
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.8, 0.8, 0.8); // To scale the room 
         // this.actualRoom.rotation.y = Math.pi // For rotation
+    }
 
+    setLights() {
         // ---- LIGHT 1 ---- //
 
         const width1 = 0.4;
