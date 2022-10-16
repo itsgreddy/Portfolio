@@ -105,22 +105,22 @@ export default class Room {
 
         // ---- LIGHT 1 ---- //
 
-        this.width1 = 0.4;
-        this.height1 = 0.4;
-        this.intensity1 = 11;
+        const width1 = 0.4;
+        const height1 = 0.4;
+        const intensity1 = 11;
 
-        this.rectLight1 = new THREE.RectAreaLight(0xffffff, this.intensity1, this.width1, this.height1);
+        this.rectLight1 = new THREE.RectAreaLight(0xffffff, intensity1, width1, height1);
         this.rectLight1.position.set(1.2, 1.2, -0.4); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
         this.rectLight1.rotation.set(0, 0.2, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
         this.actualRoom.add(this.rectLight1)
 
         // ---- LIGHT 2 ---- //
 
-        this.width2 = 0.4;
-        this.height2 = 0.4;
-        this.intensity2 = 11;
+        const width2 = 0.4;
+        const height2 = 0.4;
+        const intensity2 = 11;
 
-        this.rectLight2 = new THREE.RectAreaLight(0xffffff, this.intensity2, this.width2, this.height2);
+        this.rectLight2 = new THREE.RectAreaLight(0xffffff, intensity2, width2, height2);
         this.rectLight2.position.set(-0.8, 1, -0.2); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
         this.rectLight2.rotation.set(-0.2, 0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
         this.actualRoom.add(this.rectLight2)

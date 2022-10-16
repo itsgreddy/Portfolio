@@ -18,9 +18,9 @@ export default class Controls {
         this.room.children.forEach(child => { // Scalling up the lights
             if (child.type === "RectAreaLight") { // ThreeJS provides the type to us for all the assets
                 this.rectLight1 = child;
-                // this.rectLight2 = child;
-                // this.rectLight3 = child;
-                // this.rectLight4 = child;
+                this.rectLight2 = child;
+                this.rectLight3 = child;
+                this.rectLight4 = child;
             }
         })
 
@@ -451,8 +451,156 @@ export default class Controls {
             //mobile
             "(max-width: 968px)": () => { // Matches our mediaquery in CSS
                 console.log("Fired Mobile");
-            },
 
+                // ---- Resets ---- //
+
+                this.room.scale.set(0.5, 0.5, 0.5);
+                this.rectLight1.width1 = 0.25
+                this.rectLight1.height1 = 0.25
+                this.rectLight2.width2 = 0.25
+                this.rectLight2.height2 = 0.25
+                this.rectLight3.width3 = 0.06
+                this.rectLight3.height3 = 0.06
+                this.rectLight4.width4 = 0.06
+                this.rectLight4.height4 = 0.06
+
+                // -------------------- First Section -------------------- //
+
+                this.firstMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".first-move", // Specifying the section margin
+                        // markers: true,
+                        start: "top top", // Starting marker, activation
+                        end: "bottom bottom", // Ending marker, Trigger
+                        scrub: 0.6,
+                        // scrub: 1,
+                        invalidateOnRefresh: true, // Invalidating it on refresh, so that it checks again
+                    },
+                })
+                    .to(this.room.scale, {
+                        x: 0.7,
+                        y: 0.7,
+                        z: 0.7,
+                    })
+
+                // -------------------- Second Section -------------------- //
+
+                this.secondMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".second-move",
+                        // markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        // scrub: 1,
+                        invalidateOnRefresh: true,
+                    },
+                })
+                    // --- Camera --- //
+
+                    .to(
+                        this.camera.orthographicCamera.rotation,
+                        {
+                            z: () => {
+                                return Math.PI / 6;
+                            },
+                        },
+                        "same"
+                    )
+
+                    // --- Room --- //
+
+                    .to(
+                        this.room.position,
+                        {
+                            x: () => {
+                                return this.sizes.width * 0.0017;
+                            },
+                            z: () => {
+                                return -4;
+                            },
+                            y: () => {
+                                return 0.5;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.rotation,
+                        {
+                            // x: () => {
+                            //     return 3;
+                            // },
+                            z: () => {
+                                return Math.PI / 15;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.scale,
+                        {
+                            x: 2.5,
+                            y: 2.5,
+                            z: 2.5,
+                        },
+                        "same"
+                    )
+
+                // -------------------- Third Section -------------------- //
+
+                this.thirdMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".third-move",
+                        // markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+
+                // -------------------- Forth Section -------------------- //
+
+                this.forthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".forth-move",
+                        // markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+
+                // -------------------- Fifth Section -------------------- //
+
+                this.fifthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fifth-move",
+                        // markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+
+
+                // -------------------- Sixth Section -------------------- //
+
+                this.sixthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".sixth-move",
+                        // markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+
+            },
             // all 
             "all": function () {
                 // ScrollTriggers created here aren't associated with a particular media query,
