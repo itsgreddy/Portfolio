@@ -449,12 +449,12 @@ export default class Controls {
             },
 
             //mobile
-            "(max-width: 968px)": () => { // Matches our mediaquery in CSS
+            "(max-width: 968px)": () => {
                 console.log("Fired Mobile");
 
                 // ---- Resets ---- //
 
-                this.room.scale.set(0.5, 0.5, 0.5);
+                this.room.scale.set(0.35, 0.35, 0.35);
                 this.rectLight1.width1 = 0.25
                 this.rectLight1.height1 = 0.25
                 this.rectLight2.width2 = 0.25
@@ -468,19 +468,17 @@ export default class Controls {
 
                 this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
-                        trigger: ".first-move", // Specifying the section margin
-                        // markers: true,
-                        start: "top top", // Starting marker, activation
-                        end: "bottom bottom", // Ending marker, Trigger
+                        trigger: ".first-move",
+                        start: "top top",
+                        end: "bottom bottom",
                         scrub: 0.6,
-                        // scrub: 1,
-                        invalidateOnRefresh: true, // Invalidating it on refresh, so that it checks again
+                        invalidateOnRefresh: true,
                     },
                 })
                     .to(this.room.scale, {
-                        x: 0.7,
-                        y: 0.7,
-                        z: 0.7,
+                        x: 0.39,
+                        y: 0.39,
+                        z: 0.39,
                     })
 
                 // -------------------- Second Section -------------------- //
@@ -488,11 +486,9 @@ export default class Controls {
                 this.secondMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".second-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // scrub: 1,
                         invalidateOnRefresh: true,
                     },
                 })
@@ -514,13 +510,13 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.0025;
-                            },
-                            z: () => {
-                                return 8;
+                                return this.sizes.width * -0.004;
                             },
                             y: () => {
                                 return 1.5;
+                            },
+                            z: () => {
+                                return 8;
                             },
                         },
                         "same"
@@ -528,9 +524,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return Math.PI / 4;
                             },
@@ -552,7 +545,6 @@ export default class Controls {
                 this.thirdMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".third-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
@@ -577,13 +569,13 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.002;
+                                return this.sizes.width * -0.0045;
                             },
                             y: () => {
-                                return 0.5;
+                                return 2;
                             },
                             z: () => {
-                                return 8;
+                                return 9;
                             },
                         },
                         "same"
@@ -591,9 +583,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return - Math.PI / 6;
                             },
@@ -603,9 +592,9 @@ export default class Controls {
                     .to(
                         this.room.scale,
                         {
-                            x: 2.5,
-                            y: 2.5,
-                            z: 2.5,
+                            x: 2,
+                            y: 2,
+                            z: 2,
                         },
                         "same"
                     )
@@ -615,7 +604,6 @@ export default class Controls {
                 this.forthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".forth-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
@@ -640,7 +628,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return 4.5;
+                                return 4;
                             },
                             y: () => {
                                 return 2;
@@ -654,9 +642,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return Math.PI / 12;
                             },
@@ -666,9 +651,9 @@ export default class Controls {
                     .to(
                         this.room.scale,
                         {
-                            x: 4.5,
-                            y: 4.5,
-                            z: 4.5,
+                            x: 4,
+                            y: 4,
+                            z: 4,
                         },
                         "same"
                     )
@@ -678,13 +663,59 @@ export default class Controls {
                 this.fifthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".fifth-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
-                });
+                })
+                    // --- Camera --- //
+
+                    .to(
+                        this.camera.orthographicCamera.rotation,
+                        {
+                            z: () => {
+                                return Math.PI / 6;
+                            },
+                        },
+                        "same"
+                    )
+
+                    // --- Room --- //
+
+                    .to(
+                        this.room.position,
+                        {
+                            x: () => {
+                                return this.sizes.width * 0.0001;
+                            },
+                            y: () => {
+                                return 0.05;
+                            },
+                            z: () => {
+                                return -3;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.rotation,
+                        {
+                            z: () => {
+                                return Math.PI / 15;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.scale,
+                        {
+                            x: 2,
+                            y: 2,
+                            z: 2,
+                        },
+                        "same"
+                    )
 
 
                 // -------------------- Sixth Section -------------------- //
@@ -698,7 +729,60 @@ export default class Controls {
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
-                });
+                })
+                    // --- Camera --- //
+
+                    .to(
+                        this.camera.orthographicCamera.rotation,
+                        {
+                            y: () => {
+                                return - Math.PI / 19;
+                            },
+                            z: () => {
+                                return - Math.PI / 19;
+                            },
+                        },
+                        "same"
+                    )
+
+                    // --- Room --- //
+
+                    .to(
+                        this.room.position,
+                        {
+                            x: () => {
+                                return this.sizes.width * 0.0028;
+                            },
+                            y: () => {
+                                return 0;
+                            },
+                            z: () => {
+                                return -1;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.rotation,
+                        {
+                            // x: () => {
+                            //     return 3;
+                            // },
+                            z: () => {
+                                return - Math.PI / 19;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.scale,
+                        {
+                            x: 0.35,
+                            y: 0.35,
+                            z: 0.35,
+                        },
+                        "same"
+                    )
 
             },
             // all 
