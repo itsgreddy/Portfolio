@@ -502,7 +502,7 @@ export default class Controls {
                         this.camera.orthographicCamera.rotation,
                         {
                             z: () => {
-                                return Math.PI / 6;
+                                return Math.PI / 4;
                             },
                         },
                         "same"
@@ -514,13 +514,13 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * 0.0017;
+                                return this.sizes.width * -0.0025;
                             },
                             z: () => {
-                                return -4;
+                                return 8;
                             },
                             y: () => {
-                                return 0.5;
+                                return 1.5;
                             },
                         },
                         "same"
@@ -532,7 +532,7 @@ export default class Controls {
                             //     return 3;
                             // },
                             z: () => {
-                                return Math.PI / 15;
+                                return Math.PI / 4;
                             },
                         },
                         "same"
@@ -540,9 +540,9 @@ export default class Controls {
                     .to(
                         this.room.scale,
                         {
-                            x: 2.5,
-                            y: 2.5,
-                            z: 2.5,
+                            x: 3.2,
+                            y: 3.2,
+                            z: 3.2,
                         },
                         "same"
                     )
@@ -558,7 +558,57 @@ export default class Controls {
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
-                });
+                })
+                    // --- Camera --- //
+
+                    .to(
+                        this.camera.orthographicCamera.rotation,
+                        {
+                            z: () => {
+                                return - Math.PI / 8;
+                            },
+                        },
+                        "same"
+                    )
+
+                    // --- Room --- //
+
+                    .to(
+                        this.room.position,
+                        {
+                            x: () => {
+                                return this.sizes.width * -0.002;
+                            },
+                            y: () => {
+                                return 0.5;
+                            },
+                            z: () => {
+                                return 8;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.rotation,
+                        {
+                            // x: () => {
+                            //     return 3;
+                            // },
+                            z: () => {
+                                return - Math.PI / 6;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.scale,
+                        {
+                            x: 2.5,
+                            y: 2.5,
+                            z: 2.5,
+                        },
+                        "same"
+                    )
 
                 // -------------------- Forth Section -------------------- //
 
