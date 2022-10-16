@@ -43,7 +43,7 @@ export default class Controls {
         ScrollTrigger.matchMedia({
 
             // Desktop
-            "(min-width: 969px)": () => { // If we use regular function we lose context, thats why we use arrow fucntion to save context and we can access class variables
+            "(min-width: 700px)": () => { // If we use regular function we lose context, thats why we use arrow fucntion to save context and we can access class variables
                 console.log("Fired Desktop");
 
                 // ---- Resets ---- //
@@ -461,7 +461,7 @@ export default class Controls {
             },
 
             //mobile
-            "(max-width: 968px)": () => {
+            "(max-width: 699px)": () => {
                 console.log("Fired Mobile");
 
                 // ---- Resets ---- //

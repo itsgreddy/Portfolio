@@ -415,7 +415,7 @@ svg{
 
 /* Media Queries */
 
-@media (max-width:968px){
+@media (max-width:699px){
   .section{
     width: 100%;
   }
