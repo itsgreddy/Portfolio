@@ -49,6 +49,7 @@ export default class Controls {
                 // ---- Resets ---- //
 
                 this.room.scale.set(0.8, 0.8, 0.8);
+                this.room.position.set(0, 0, 0);
                 // this.rectLight1.width1 = 0.4
                 // this.rectLight1.height1 = 0.4
                 // this.rectLight2.width2 = 0.4
@@ -467,6 +468,7 @@ export default class Controls {
                 // ---- Resets ---- //
 
                 this.room.scale.set(0.35, 0.35, 0.35);
+                this.room.position.set(0, 0, 0);
                 // this.rectLight1.width1 = 0.25
                 // this.rectLight1.height1 = 0.25
                 // this.rectLight2.width2 = 0.25
