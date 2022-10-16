@@ -621,7 +621,57 @@ export default class Controls {
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
-                });
+                })
+                    // --- Camera --- //
+
+                    .to(
+                        this.camera.orthographicCamera.rotation,
+                        {
+                            z: () => {
+                                return Math.PI / 7;
+                            },
+                        },
+                        "same"
+                    )
+
+                    // --- Room --- //
+
+                    .to(
+                        this.room.position,
+                        {
+                            x: () => {
+                                return 4.5;
+                            },
+                            y: () => {
+                                return 2;
+                            },
+                            z: () => {
+                                return 13;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.rotation,
+                        {
+                            // x: () => {
+                            //     return 3;
+                            // },
+                            z: () => {
+                                return Math.PI / 12;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.scale,
+                        {
+                            x: 4.5,
+                            y: 4.5,
+                            z: 4.5,
+                        },
+                        "same"
+                    )
 
                 // -------------------- Fifth Section -------------------- //
 
