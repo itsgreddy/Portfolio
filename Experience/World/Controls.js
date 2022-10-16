@@ -342,6 +342,72 @@ export default class Controls {
                         },
                         "same"
                     )
+
+                // -------------------- Sixth Section -------------------- //
+
+                this.sixthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".sixth-move",
+                        // markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1,
+                        invalidateOnRefresh: true,
+                    },
+                })
+                    // --- Camera --- //
+
+                    .to(
+                        this.camera.orthographicCamera.rotation,
+                        {
+                            y: () => {
+                                return - Math.PI / 19;
+                            },
+                            z: () => {
+                                return - Math.PI / 19;
+                            },
+                        },
+                        "same"
+                    )
+
+                    // --- Room --- //
+
+                    .to(
+                        this.room.position,
+                        {
+                            x: () => {
+                                return -1.5;
+                            },
+                            z: () => {
+                                return -1;
+                            },
+                            y: () => {
+                                return 0;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.rotation,
+                        {
+                            // x: () => {
+                            //     return 3;
+                            // },
+                            z: () => {
+                                return - Math.PI / 19;
+                            },
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.room.scale,
+                        {
+                            x: 0.8,
+                            y: 0.8,
+                            z: 0.8,
+                        },
+                        "same"
+                    )
             },
 
             //mobile
