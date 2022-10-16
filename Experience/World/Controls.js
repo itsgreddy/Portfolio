@@ -84,7 +84,7 @@ export default class Controls {
                             // x: 2.5,
                             // x: this.sizes.width * 0.00094, // Making the animation depend on the size of window
                             x: () => { // To update the model on window changing we need to provide it as a function
-                                return 2.3; // Providing a fucntional wrap
+                                return this.sizes.width * 0.0015; // Providing a fucntional wrap
                             },
                             y: () => {
                                 return 0;
@@ -148,7 +148,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return -4;
+                                return this.sizes.width * -0.0025;
                             },
                             z: () => {
                                 return 10;
@@ -222,7 +222,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return 0.5;
+                                return this.sizes.width * 0.0003;
                             },
                             z: () => {
                                 return 8;
@@ -348,7 +348,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return 2.5;
+                                return this.sizes.width * 0.0017;
                             },
                             z: () => {
                                 return -4;
@@ -414,7 +414,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return -1.5;
+                                return this.sizes.width * -0.0010;
                             },
                             y: () => {
                                 return 0;
