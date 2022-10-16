@@ -54,11 +54,28 @@ export default class Controls {
                         // markers: true,
                         start: "top top", // Starting marker, activation
                         end: "bottom bottom", // Ending marker, Trigger
-                        // scrub: 0.6,
-                        scrub: 1,
+                        scrub: 0.6,
+                        // scrub: 1,
                         invalidateOnRefresh: true, // Invalidating it on refresh, so that it checks again
                     },
                 })
+                    // --- Camera --- //
+
+                    // .to(this.camera.prespectiveCamera.position, { x: 5, y: 0, z: 5 })
+                    // .to(this.camera.orthographicCamera.rotation, { z: Math.PI / 2 }, "same")
+                    // .to(
+                    //     this.camera.orthographicCamera.rotation,
+                    //     {
+                    //         y: () => {
+                    //             return Math.PI / 19;
+                    //         },
+                    //         z: () => {
+                    //             return Math.PI / 19;
+                    //         },
+                    //     },
+                    //     "same"
+                    // )
+
                     // --- Room --- //
 
                     .to(
@@ -69,13 +86,36 @@ export default class Controls {
                             x: () => { // To update the model on window changing we need to provide it as a function
                                 return 2.3; // Providing a fucntional wrap
                             },
-                            // y: () => {
-                            //     return 1;
-                            // },
+                            y: () => {
+                                return 0;
+                            },
+                            z: () => {
+                                return 0;
+                            },
                         },
                         "same"
-
                     )
+                // .to(
+                //     this.room.rotation,
+                //     {
+                //         // x: () => {
+                //         //     return 3;
+                //         // },
+                //         z: () => {
+                //             return Math.PI / 19;
+                //         },
+                //     },
+                //     "same"
+                // )
+                // .to(
+                //     this.room.scale,
+                //     {
+                //         x: 0.8,
+                //         y: 0.8,
+                //         z: 0.8,
+                //     },
+                //     "same"
+                // )
 
                 // -------------------- Second Section -------------------- //
 
@@ -85,15 +125,13 @@ export default class Controls {
                         // markers: true,
                         start: "top top",
                         end: "bottom bottom",
-                        // scrub: 0.6,
-                        scrub: 1,
+                        scrub: 0.6,
+                        // scrub: 1,
                         invalidateOnRefresh: true,
                     },
                 })
                     // --- Camera --- //
 
-                    // .to(this.camera.prespectiveCamera.position, { x: 5, y: 0, z: 5 })
-                    // .to(this.camera.orthographicCamera.rotation, { z: Math.PI / 2 }, "same")
                     .to(
                         this.camera.orthographicCamera.rotation,
                         {
@@ -162,7 +200,7 @@ export default class Controls {
                         // markers: true,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 1,
+                        scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
                 })
@@ -225,7 +263,7 @@ export default class Controls {
                         // markers: true,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 1,
+                        scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
                 })
@@ -288,7 +326,7 @@ export default class Controls {
                         // markers: true,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 1,
+                        scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
                 })
@@ -351,7 +389,7 @@ export default class Controls {
                         // markers: true,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 1,
+                        scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
                 })
@@ -378,11 +416,11 @@ export default class Controls {
                             x: () => {
                                 return -1.5;
                             },
-                            z: () => {
-                                return -1;
-                            },
                             y: () => {
                                 return 0;
+                            },
+                            z: () => {
+                                return -1;
                             },
                         },
                         "same"
