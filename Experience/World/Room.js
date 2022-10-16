@@ -22,7 +22,7 @@ export default class Room {
 
         this.setModel();
         this.onMouseMove();
-        this.setLights();
+        // this.setLights();
         // this.setGUI();
 
         // camera.position.z = 5; // You can't use this line here, coz you have another camera setup already

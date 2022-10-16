@@ -49,14 +49,14 @@ export default class Controls {
                 // ---- Resets ---- //
 
                 this.room.scale.set(0.8, 0.8, 0.8);
-                this.rectLight1.width1 = 0.4
-                this.rectLight1.height1 = 0.4
-                this.rectLight2.width2 = 0.4
-                this.rectLight2.height2 = 0.4
-                this.rectLight3.width3 = 0.1
-                this.rectLight3.height3 = 0.1
-                this.rectLight4.width4 = 0.1
-                this.rectLight4.height4 = 0.1
+                // this.rectLight1.width1 = 0.4
+                // this.rectLight1.height1 = 0.4
+                // this.rectLight2.width2 = 0.4
+                // this.rectLight2.height2 = 0.4
+                // this.rectLight3.width3 = 0.1
+                // this.rectLight3.height3 = 0.1
+                // this.rectLight4.width4 = 0.1
+                // this.rectLight4.height4 = 0.1
 
                 // -------------------- First Section -------------------- //
 
@@ -467,14 +467,14 @@ export default class Controls {
                 // ---- Resets ---- //
 
                 this.room.scale.set(0.35, 0.35, 0.35);
-                this.rectLight1.width1 = 0.25
-                this.rectLight1.height1 = 0.25
-                this.rectLight2.width2 = 0.25
-                this.rectLight2.height2 = 0.25
-                this.rectLight3.width3 = 0.06
-                this.rectLight3.height3 = 0.06
-                this.rectLight4.width4 = 0.06
-                this.rectLight4.height4 = 0.06
+                // this.rectLight1.width1 = 0.25
+                // this.rectLight1.height1 = 0.25
+                // this.rectLight2.width2 = 0.25
+                // this.rectLight2.height2 = 0.25
+                // this.rectLight3.width3 = 0.06
+                // this.rectLight3.height3 = 0.06
+                // this.rectLight4.width4 = 0.06
+                // this.rectLight4.height4 = 0.06
 
                 // -------------------- First Section -------------------- //
 
