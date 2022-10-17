@@ -123,6 +123,8 @@ svg{
   --color-text-light: #333332;
   --color-background-light: #FBF4E4;
   --color-brown-light: #815B5B;
+  /* --color-green-light: #7FB77E;
+  --color-maroon-light: #874C62; */
 
   /* Dark Theme colors */
   --color-text-dark: #FBF4E4;
@@ -133,16 +135,16 @@ svg{
   --color-text:var(--color-text-light);
   --color-background:var(--color-background-light);
   --color-brown:var(--color-brown-light);
-  --color-green:var(--color-green-light);
-  --color-maroon:var(--color-maroon-light);
+  /* --color-green:var(--color-green-light);
+  --color-maroon:var(--color-maroon-light); */
 }
 
 .dark-theme{
   --color-text:var(--color-text-dark);
   --color-background:var(--color-background-dark);
   --color-brown:var(--color-text-dark);
-  --color-green:var(--color-text-dark);
-  --color-maroon:var(--color-text-dark);
+  /* --color-green:var(--color-text-dark);
+  --color-maroon:var(--color-text-dark); */
 }
 
 /* ------------ Experience ------------ */
@@ -387,7 +389,7 @@ svg{
 
 /* Overwriting Colors */
 
-.green-text{
+/* .green-text{
   color:var(--color-green);
 }
 
@@ -409,11 +411,11 @@ svg{
 
 .maroon-background{
   background-color: var(--color-maroon);
-}
+} */
 
 /* Media Queries */
 
-@media (max-width:968px){
+@media (max-width:698px){
   .section{
     width: 100%;
   }
