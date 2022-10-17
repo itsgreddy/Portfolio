@@ -210,7 +210,6 @@ export default class Controls {
                 this.thirdMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".third-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
@@ -249,9 +248,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return - Math.PI / 6;
                             },
@@ -273,7 +269,6 @@ export default class Controls {
                 this.forthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".forth-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
@@ -312,9 +307,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return Math.PI / 12;
                             },
@@ -336,7 +328,6 @@ export default class Controls {
                 this.fifthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".fifth-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
@@ -375,9 +366,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return Math.PI / 15;
                             },
@@ -399,7 +387,6 @@ export default class Controls {
                 this.sixthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".sixth-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
@@ -441,9 +428,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return - Math.PI / 19;
                             },
@@ -737,7 +721,6 @@ export default class Controls {
                 this.sixthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".sixth-move",
-                        // markers: true,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
@@ -779,9 +762,6 @@ export default class Controls {
                     .to(
                         this.room.rotation,
                         {
-                            // x: () => {
-                            //     return 3;
-                            // },
                             z: () => {
                                 return - Math.PI / 19;
                             },
@@ -797,7 +777,6 @@ export default class Controls {
                         },
                         "same"
                     )
-
             },
             // all 
             "all": function () {
