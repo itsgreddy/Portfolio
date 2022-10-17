@@ -779,9 +779,33 @@ export default class Controls {
                     )
             },
             // all 
-            "all": function () {
+            "all": () => {
                 // ScrollTriggers created here aren't associated with a particular media query,
                 // so they persist.
+
+                // Mini Desk Animations
+                // console.log(this.room.children);
+
+                this.fifthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fifth-move",
+                        start: "center center",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+
+                this.room.children.forEach(child => { // Assigning a tween for each child
+                    if (child.name === "Table") {
+                        GSAP.to(child.position, { // Blender hack, or use console.log for position or lil GUI OR we can also use transform controls three.js
+                            x: -0.25035,
+                            z: 0.839047, // Making it positive because it's flipped
+                            duration: 0.3,
+                        })
+                    }
+                })
+
             }
 
         });
