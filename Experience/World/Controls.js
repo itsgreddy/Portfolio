@@ -43,7 +43,7 @@ export default class Controls {
         ScrollTrigger.matchMedia({
 
             // Desktop
-            "(min-width: 700px)": () => { // If we use regular function we lose context, thats why we use arrow fucntion to save context and we can access class variables
+            "(min-width: 969px)": () => { // If we use regular function we lose context, thats why we use arrow fucntion to save context and we can access class variables
                 console.log("Fired Desktop");
 
                 // ---- Resets ---- //
@@ -97,7 +97,7 @@ export default class Controls {
                             // x: 2.5,
                             // x: this.sizes.width * 0.00094, // Making the animation depend on the size of window
                             x: () => { // To update the model on window changing we need to provide it as a function
-                                return this.sizes.width * 0.0015; // Providing a fucntional wrap
+                                return this.sizes.width * 0.00155; // Providing a fucntional wrap
                             },
                             y: () => {
                                 return 0;
@@ -161,7 +161,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.0025;
+                                return this.sizes.width * -0.0020;
                             },
                             z: () => {
                                 return 10;
@@ -235,7 +235,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * 0.0003;
+                                return this.sizes.width * 0.0006;
                             },
                             z: () => {
                                 return 8;
@@ -361,7 +361,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * 0.0017;
+                                return this.sizes.width * 0.0019;
                             },
                             z: () => {
                                 return -4;
@@ -427,7 +427,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.0010;
+                                return this.sizes.width * -0.0009;
                             },
                             y: () => {
                                 return 0;
@@ -462,7 +462,7 @@ export default class Controls {
             },
 
             //mobile
-            "(max-width: 699px)": () => {
+            "(max-width: 968px)": () => {
                 console.log("Fired Mobile");
 
                 // ---- Resets ---- //
@@ -490,9 +490,9 @@ export default class Controls {
                     },
                 })
                     .to(this.room.scale, {
-                        x: 0.39,
-                        y: 0.39,
-                        z: 0.39,
+                        x: 0.4,
+                        y: 0.4,
+                        z: 0.4,
                     })
 
                 // -------------------- Second Section -------------------- //
@@ -524,13 +524,13 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.004;
+                                return this.sizes.width * -0.0045;
                             },
                             y: () => {
                                 return 1.5;
                             },
                             z: () => {
-                                return 8;
+                                return 6;
                             },
                         },
                         "same"
@@ -583,7 +583,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.0045;
+                                return this.sizes.width * -0.0035;
                             },
                             y: () => {
                                 return 2;
@@ -642,7 +642,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return 4;
+                                return 4.5;
                             },
                             y: () => {
                                 return 2;
@@ -701,7 +701,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * 0.0001;
+                                return this.sizes.width * 0.0015;
                             },
                             y: () => {
                                 return 0.05;
@@ -765,7 +765,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * 0.0028;
+                                return this.sizes.width * 0.0029;
                             },
                             y: () => {
                                 return 0;
