@@ -783,31 +783,65 @@ export default class Controls {
                 // ScrollTriggers created here aren't associated with a particular media query,
                 // so they persist.
 
-                // Mini Desk Animations
-                // console.log(this.room.children);
+                // ---- Mini Desk Animations ---- //
 
-                this.fifthMoveTimeline = new GSAP.timeline({
+                // console.log(this.room.children);
+                this.lastPartTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".fifth-move",
                         start: "center center",
-                        end: "bottom bottom",
-                        scrub: 0.6,
-                        invalidateOnRefresh: true,
+                        // end: "bottom bottom",
+                        // scrub: 0.6,
+                        // invalidateOnRefresh: true,
                     },
                 });
 
+                // We didn't add tweensa directly to the timeline because if we did, the order would be different every single time 
+
                 this.room.children.forEach(child => { // Assigning a tween for each child
                     if (child.name === "Table") {
-                        GSAP.to(child.position, { // Blender hack, or use console.log for position or lil GUI OR we can also use transform controls three.js
+                        this.first = GSAP.to(child.position, { // Blender hack, or use console.log for position or lil GUI OR we can also use transform controls three.js
                             x: -0.25035,
+                            y: 0.024414,
                             z: 0.839047, // Making it positive because it's flipped
-                            duration: 0.3,
-                        })
+                            ease: "back.out(4)",
+                            duration: 0.5,
+                        });
                     }
-                })
+                    if (child.name === "Visiting_Card") {
+                        this.second = GSAP.to(child.scale, {
+                            x: 0.09,
+                            y: 0.01,
+                            z: 0.09,
+                            ease: "back.out(4)",
+                            duration: 0.5,
+                        });
+                    }
+                    if (child.name === "Phone") {
+                        this.third = GSAP.to(child.scale, {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(2)",
+                            duration: 0.5,
+                        });
+                    }
+                    if (child.name === "Car") {
+                        this.forth = GSAP.to(child.scale, { // Scale is relative to scene, scene is relative to World
+                            x: 0.0007,
+                            y: 0.0007,
+                            z: 0.0007,
+                            ease: "back.out(2)",
+                            duration: 0.5,
+                        });
+                    }
+                });
+                this.lastPartTimeline.add(this.first);
+                this.lastPartTimeline.add(this.second, "-=0.2");
+                this.lastPartTimeline.add(this.third, "-=0.2");
+                this.lastPartTimeline.add(this.forth, "-=0.2");
 
             }
-
         });
 
     }
