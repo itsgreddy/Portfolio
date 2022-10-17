@@ -98,7 +98,7 @@ export default class Room {
             if (child.name === "Table") {
                 child.position.x = -0.25035;
                 child.position.y = -0.406042;
-                child.position.z = 0.459047;
+                child.position.z = 0.659047;
             }
 
             if (child.name === "Car" || child.name === "Phone" || child.name === "Visiting_Card") {

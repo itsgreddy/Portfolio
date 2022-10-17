@@ -508,7 +508,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.0045;
+                                return this.sizes.width * -0.0055;
                             },
                             y: () => {
                                 return 1.5;
@@ -567,7 +567,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * -0.0035;
+                                return this.sizes.width * -0.004;
                             },
                             y: () => {
                                 return 2;
@@ -626,7 +626,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return 4.5;
+                                return 4.2;
                             },
                             y: () => {
                                 return 2;
