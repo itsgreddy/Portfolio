@@ -106,7 +106,7 @@ export default class Room {
             //     child.scale.set(0, 0, 0);
             // }
 
-            // console.log(child);
+            console.log(child.name);
 
             child.scale.set(0, 0, 0); // Setting all childs scale
             if (child.name === "Cube") {

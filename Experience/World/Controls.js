@@ -956,6 +956,15 @@ export default class Controls {
                             z: 0.839047, // Making it positive because it's flipped
                             ease: "back.out(4)",
                             duration: 0.5,
+                        })
+                    }
+                    if (child.name === "Table") {
+                        this.first = GSAP.to(child.scale, {
+                            x: 0.010262,
+                            y: 0.010262,
+                            z: 0.020636,
+                            ease: "back.out(4)",
+                            duration: 0.5,
                         });
                     }
                     if (child.name === "Visiting_Card") {

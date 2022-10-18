@@ -130,6 +130,176 @@ export default class Preloader extends EventEmitter {
                             duration: 1,
                         }
                     )
+                    .to(
+                        this.roomChildren.Table_main.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Shelves.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Door.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Socket.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Cushion_Bag.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        },
+                        "cushion"
+                    )
+                    .to(
+                        this.roomChildren.Cushion_Bag.rotation,
+                        {
+                            y: 4 * Math.PI + Math.PI / 4,
+                            ease: "power2.out",
+                            duration: 1,
+                        },
+                        "cushion"
+                    )
+                    .to(
+                        this.roomChildren.Guitar.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Telescope.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Clock.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        },
+                        "clock"
+                    )
+                    .to(
+                        this.roomChildren.Clock.rotation,
+                        {
+                            z: 4 * Math.PI + Math.PI / 4,
+                            ease: "power2.out",
+                            duration: 1,
+                        },
+                        "clock"
+                    )
+                    .to(
+                        this.roomChildren.Screens.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Peripherals.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Flowers.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Lamps.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Books.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Stationary.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
+                    .to(
+                        this.roomChildren.Office_Chair.scale,
+                        {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            ease: "back.out(1.5)",
+                            duration: 0.5,
+                        }
+                    )
             } else {
                 this.secondTimeline.to(this.room.position, {
                     x: 0,
