@@ -748,7 +748,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * 0.0029;
+                                return this.sizes.width * 0.0027;
                             },
                             y: () => {
                                 return 0;
@@ -782,6 +782,60 @@ export default class Controls {
             "all": () => {
                 // ScrollTriggers created here aren't associated with a particular media query,
                 // so they persist.
+
+                // ---- Progress Bars --- //
+
+                this.section = document.querySelectorAll(".section");
+                this.section.forEach(section => { // Essentially we are looping through all sections and selecting progress-wrapper of them all  
+                    this.progressWrapper = section.querySelector(".progress-wrapper ");
+                    this.progressBar = section.querySelector(".progress-bar ");
+
+                    if (section.classList.contains("right")) {
+                        GSAP.to(section, {
+                            borderTopLeftRadius: 10,
+                            scrollTrigger: { // Since it's an individual tween, there won't be any logical errors
+                                trigger: section,
+                                start: "top bottom",
+                                // markers: "true",
+                                end: "top top",
+                                scrub: 0.6,
+                            }
+                        })
+
+                        GSAP.to(section, {
+                            borderBottomLeftRadius: 700,
+                            scrollTrigger: {
+                                trigger: section,
+                                start: "bottom bottom",
+                                // markers: "true",
+                                end: "bottom top",
+                                scrub: 0.6,
+                            }
+                        })
+                    } else {
+                        GSAP.to(section, {
+                            borderTopRightRadius: 10,
+                            scrollTrigger: { // Since it's an individual tween, there won't be any logical errors
+                                trigger: section,
+                                start: "top bottom",
+                                // markers: "true",
+                                end: "top top",
+                                scrub: 0.6,
+                            }
+                        })
+
+                        GSAP.to(section, {
+                            borderBottomRightRadius: 700,
+                            scrollTrigger: {
+                                trigger: section,
+                                start: "bottom bottom",
+                                // markers: "true",
+                                end: "bottom top",
+                                scrub: 0.6,
+                            }
+                        })
+                    }
+                })
 
                 // ---- Mini Desk Animations ---- //
 
