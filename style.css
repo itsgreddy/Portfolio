@@ -160,6 +160,10 @@ svg{
   height: 100%;
 }
 
+.hidden{
+  display: none;
+}
+
 /* ------------ Page Section ------------ */
 
 .page{
@@ -177,6 +181,7 @@ svg{
 .toggle-bar{
   position: fixed;
   display: flex;
+  /* opacity: 0; */
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -242,7 +247,7 @@ svg{
   position: relative;
   width: 50%;
   /* padding: 1000px 4%; */
-  padding: 50% 4%;
+  padding: 40% 4%;
   margin: 0; 
   background-color: var(--color-background);
   overflow: hidden;
@@ -341,7 +346,7 @@ svg{
   position: absolute;
   display: block;
   width: 100%;
-  max-width: 270px;
+  max-width: 280px;
   height: 60px;
   border: 1px solid var(--color-brown);
   transform-origin: left;
@@ -381,7 +386,7 @@ svg{
 .hero-wrapper{
   position: relative;
   height: 100%;
-  width: calc(100%-160px);
+  width: 100%;
   /* width: 80%; */
   margin: 0 auto;
   max-width: 1100px;

@@ -786,7 +786,7 @@ export default class Controls {
                 // ---- Progress Bars --- //
 
                 this.section = document.querySelectorAll(".section");
-                this.section.forEach(section => { // Essentially we are looping through all sections and selecting progress-wrapper of them all  
+                this.section.forEach((section) => { // Essentially we are looping through all sections and selecting progress-wrapper of them all  
                     this.progressWrapper = section.querySelector(".progress-wrapper ");
                     this.progressBar = section.querySelector(".progress-bar ");
 
@@ -799,8 +799,8 @@ export default class Controls {
                                 // markers: "true",
                                 end: "top top",
                                 scrub: 0.6,
-                            }
-                        })
+                            },
+                        });
 
                         GSAP.to(section, {
                             borderBottomLeftRadius: 700,
@@ -810,19 +810,19 @@ export default class Controls {
                                 // markers: "true",
                                 end: "bottom top",
                                 scrub: 0.6,
-                            }
-                        })
+                            },
+                        });
                     } else {
                         GSAP.to(section, {
                             borderTopRightRadius: 10,
-                            scrollTrigger: { // Since it's an individual tween, there won't be any logical errors
+                            scrollTrigger: {
                                 trigger: section,
                                 start: "top bottom",
                                 // markers: "true",
                                 end: "top top",
                                 scrub: 0.6,
-                            }
-                        })
+                            },
+                        });
 
                         GSAP.to(section, {
                             borderBottomRightRadius: 700,
@@ -832,10 +832,22 @@ export default class Controls {
                                 // markers: "true",
                                 end: "bottom top",
                                 scrub: 0.6,
-                            }
-                        })
+                            },
+                        });
                     }
-                })
+
+                    GSAP.from(this.progressBar, {
+                        // scaleY: 0,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top top",
+                            end: "bottom bottom",
+                            scurb: 0.4,
+                            pin: this.progressWrapper,
+                            pinSpacing: false,
+                        },
+                    });
+                });
 
                 // ---- Mini Desk Animations ---- //
 
