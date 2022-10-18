@@ -73,242 +73,233 @@ export default class Preloader extends EventEmitter {
 
             this.secondTimeline = new GSAP.timeline();
 
-            if (this.device === "desktop") {
-                this.secondTimeline
-                    .to(
-                        this.room.position,
-                        {
-                            x: 0,
-                            y: 0,
-                            z: 0,
-                            ease: "power1.out",
-                        },
-                        "same"
-                    )
-                    .to(
-                        this.roomChildren.Cube.rotation,
-                        {
-                            y: 2 * Math.PI + Math.PI / 4
-                        },
-                        "same"
-                    )
-                    .to(
-                        this.roomChildren.Cube.scale,
-                        {
-                            x: 1.7,
-                            y: 1.5,
-                            z: 1.7,
-                        },
-                        "same"
-                    )
-                    .to(
-                        this.camera.orthographicCamera.position,
-                        {
-                            y: 4,
-                        },
-                        "same"
-                    )
-                    .to(
-                        this.roomChildren.Cube.position,
-                        {
-                            x: -0.032309,
-                            y: 1.733471,
-                            z: 0.52467,
-                        },
-                        "same"
-                    ).set(this.roomChildren.Body.scale, {
+            this.secondTimeline
+                .to(
+                    this.room.position,
+                    {
+                        x: 0,
+                        y: 0,
+                        z: 0,
+                        ease: "power1.out",
+                    },
+                    "same"
+                )
+                .to(
+                    this.roomChildren.Cube.rotation,
+                    {
+                        y: 2 * Math.PI + Math.PI / 4
+                    },
+                    "same"
+                )
+                .to(
+                    this.roomChildren.Cube.scale,
+                    {
+                        x: 1.7,
+                        y: 1.5,
+                        z: 1.7,
+                    },
+                    "same"
+                )
+                .to(
+                    this.camera.orthographicCamera.position,
+                    {
+                        y: 4,
+                    },
+                    "same"
+                )
+                .to(
+                    this.roomChildren.Cube.position,
+                    {
+                        x: -0.032309,
+                        y: 1.733471,
+                        z: 0.52467,
+                    },
+                    "same"
+                ).set(this.roomChildren.Body.scale, {
+                    x: 1,
+                    y: 1,
+                    z: 1,
+                })
+                .to(
+                    this.roomChildren.Cube.scale,
+                    {
+                        x: 0,
+                        y: 0,
+                        z: 0,
+                        duration: 1,
+                    }
+                )
+                .to(
+                    this.roomChildren.Table_main.scale,
+                    {
                         x: 1,
                         y: 1,
                         z: 1,
-                    })
-                    .to(
-                        this.roomChildren.Cube.scale,
-                        {
-                            x: 0,
-                            y: 0,
-                            z: 0,
-                            duration: 1,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Table_main.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Shelves.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Door.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Socket.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Cushion_Bag.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        },
-                        "cushion"
-                    )
-                    .to(
-                        this.roomChildren.Cushion_Bag.rotation,
-                        {
-                            y: 4 * Math.PI + Math.PI / 4,
-                            ease: "power2.out",
-                            duration: 1,
-                        },
-                        "cushion"
-                    )
-                    .to(
-                        this.roomChildren.Guitar.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Telescope.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Clock.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        },
-                        "clock"
-                    )
-                    .to(
-                        this.roomChildren.Clock.rotation,
-                        {
-                            z: 4 * Math.PI + Math.PI / 4,
-                            ease: "power2.out",
-                            duration: 1,
-                        },
-                        "clock"
-                    )
-                    .to(
-                        this.roomChildren.Screens.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Peripherals.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Flowers.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Lamps.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Books.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Stationary.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-                    .to(
-                        this.roomChildren.Office_Chair.scale,
-                        {
-                            x: 1,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(1.5)",
-                            duration: 0.5,
-                        }
-                    )
-            } else {
-                this.secondTimeline.to(this.room.position, {
-                    x: 0,
-                    y: 0,
-                    z: 0,
-                    ease: "power1.out",
-                    duration: 0.5,
-                });
-            }
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Shelves.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Door.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Socket.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Cushion_Bag.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    },
+                    "cushion"
+                )
+                .to(
+                    this.roomChildren.Cushion_Bag.rotation,
+                    {
+                        y: 4 * Math.PI + Math.PI / 4,
+                        ease: "power2.out",
+                        duration: 1,
+                    },
+                    "cushion"
+                )
+                .to(
+                    this.roomChildren.Guitar.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Telescope.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Clock.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    },
+                    "clock"
+                )
+                .to(
+                    this.roomChildren.Clock.rotation,
+                    {
+                        z: 4 * Math.PI + Math.PI / 4,
+                        ease: "power2.out",
+                        duration: 1,
+                    },
+                    "clock"
+                )
+                .to(
+                    this.roomChildren.Screens.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Peripherals.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Flowers.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Lamps.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Books.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Stationary.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                    }
+                )
+                .to(
+                    this.roomChildren.Office_Chair.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.5)",
+                        duration: 0.5,
+                        onComplete: resolve,
+                    }
+                )
         });
 
     }
