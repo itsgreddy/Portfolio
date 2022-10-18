@@ -1,6 +1,5 @@
 import { EventEmitter } from "events";
 import GSAP from "gsap";
-import { promises } from "stream";
 
 import Experience from "./Experience";
 
@@ -33,7 +32,8 @@ export default class Preloader extends EventEmitter {
     }
 
     firstIntro() {
-        return new Promise((resolve) => { // We are using asynchronos JS to make sure that the preloader animation is completed, even if the user tries to scroll down and skill it 
+        return new Promise((resolve) => { // We are using asynchronous JS to make sure that the preloader animation is completed, even if the user tries to scroll down and skill it 
+
             this.firstTimeline = new GSAP.timeline();
 
             if (this.device === "desktop") {
@@ -48,6 +48,7 @@ export default class Preloader extends EventEmitter {
                         x: -1,
                         ease: "power1.out",
                         duration: 0.5,
+                        onComplete: resolve, // Fulfilling the promise we made after the preloader is done
                     });
             } else {
                 this.firstTimeline.to(this.roomChildren.Cube.scale, {
@@ -61,31 +62,35 @@ export default class Preloader extends EventEmitter {
                         z: -1,
                         ease: "power1.out",
                         duration: 0.5,
+                        onComplete: resolve,
                     });
             }
         })
     }
 
     secondIntro() {
-        this.secondTimeline = new GSAP.timeline();
+        return new Promise((resolve) => {
 
-        if (this.device === "desktop") {
-            this.secondTimeline.to(this.room.position, {
-                x: 0,
-                y: 0,
-                z: 0,
-                ease: "power1.out",
-                duration: 0.5,
-            });
-        } else {
-            this.secondTimeline.to(this.room.position, {
-                x: 0,
-                y: 0,
-                z: 0,
-                ease: "power1.out",
-                duration: 0.5,
-            });
-        }
+            this.secondTimeline = new GSAP.timeline();
+
+            if (this.device === "desktop") {
+                this.secondTimeline.to(this.room.position, {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    ease: "power1.out",
+                    duration: 0.5,
+                });
+            } else {
+                this.secondTimeline.to(this.room.position, {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    ease: "power1.out",
+                    duration: 0.5,
+                });
+            }
+        });
 
     }
 
@@ -98,14 +103,15 @@ export default class Preloader extends EventEmitter {
         }
     }
 
-    playIntro() {
-        this.firstIntro();
+    async playIntro() {
+        await this.firstIntro();
+        // console.log("continuing");
         this.scrollOnceEvent = this.onScroll.bind(this)
         window.addEventListener("wheel", this.scrollOnceEvent); // Binding this so that we dont lose context
     }
 
-    playSecondIntro() {
-        this.secondIntro();
+    async playSecondIntro() {
+        await this.secondIntro();
     }
 
 }
