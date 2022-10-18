@@ -29,6 +29,7 @@ export default class Controls {
 
         GSAP.registerPlugin(ScrollTrigger); // Registering plugin
 
+        this.setSmoothScroll();
         this.setScrollTrigger();
         // this.setGUI();
     }
@@ -38,6 +39,51 @@ export default class Controls {
     //     this.gui.add(this.camera.position, 'y').min(-50).max(50).step(0.2).name('camera position y');
     //     this.gui.add(this.camera.position, 'z').min(-50).max(50).step(0.2).name('camera position z');
     // }
+
+    setupASScroll() {
+        const asscroll = new ASScroll({
+            ease: 0.3,
+            disableRaf: true
+        });
+
+
+        GSAP.ticker.add(asscroll.update);
+
+        ScrollTrigger.defaults({
+            scroller: asscroll.containerElement
+        });
+
+
+        ScrollTrigger.scrollerProxy(asscroll.containerElement, {
+            scrollTop(value) {
+                if (arguments.length) {
+                    asscroll.currentPos = value;
+                    return;
+                }
+                return asscroll.currentPos;
+            },
+            getBoundingClientRect() {
+                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+            },
+            fixedMarkers: true
+        });
+
+
+        asscroll.on("update", ScrollTrigger.update);
+        ScrollTrigger.addEventListener("refresh", asscroll.resize);
+
+        requestAnimationFrame(() => {
+            asscroll.enable({
+                newScrollElements: document.querySelectorAll(".gsap-marker-start, .gsap-marker-end, [asscroll]")
+            });
+
+        });
+        return asscroll;
+    }
+
+    setSmoothScroll() {
+        this.asscroll = this.setupASScroll();
+    }
 
     setScrollTrigger() {
 
