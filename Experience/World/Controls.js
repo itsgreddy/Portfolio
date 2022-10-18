@@ -3,6 +3,7 @@ import GSAP from "gsap";
 import GUI from "lil-gui";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import ASScroll from "@ashthornton/asscroll"
 
 import Experience from "../Experience";
 
