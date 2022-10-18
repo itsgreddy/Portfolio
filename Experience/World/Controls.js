@@ -796,7 +796,7 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return this.sizes.width * 0.0027;
+                                return this.sizes.width * 0.0028;
                             },
                             y: () => {
                                 return 0;
@@ -885,7 +885,7 @@ export default class Controls {
                     }
 
                     GSAP.from(this.progressBar, {
-                        // scaleY: 0,
+                        scaleY: 0,
                         scrollTrigger: {
                             trigger: section,
                             start: "top top",
