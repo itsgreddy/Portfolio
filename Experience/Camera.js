@@ -45,7 +45,7 @@ export default class Camera {
         // this.orthographicCamera.rotation.z = - Math.PI / 6;
 
         // this.orthographicCamera.position.x = 5; // Placing the view of our model
-        this.orthographicCamera.position.y = 4;
+        this.orthographicCamera.position.y = 3;
         this.orthographicCamera.position.z = 5;
 
         // this.orthographicCamera = new THREE.PerspectiveCamera(

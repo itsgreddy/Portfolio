@@ -74,13 +74,62 @@ export default class Preloader extends EventEmitter {
             this.secondTimeline = new GSAP.timeline();
 
             if (this.device === "desktop") {
-                this.secondTimeline.to(this.room.position, {
-                    x: 0,
-                    y: 0,
-                    z: 0,
-                    ease: "power1.out",
-                    duration: 0.5,
-                });
+                this.secondTimeline
+                    .to(
+                        this.room.position,
+                        {
+                            x: 0,
+                            y: 0,
+                            z: 0,
+                            ease: "power1.out",
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.roomChildren.Cube.rotation,
+                        {
+                            y: 2 * Math.PI + Math.PI / 4
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.roomChildren.Cube.scale,
+                        {
+                            x: 1.7,
+                            y: 1.5,
+                            z: 1.7,
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.camera.orthographicCamera.position,
+                        {
+                            y: 4,
+                        },
+                        "same"
+                    )
+                    .to(
+                        this.roomChildren.Cube.position,
+                        {
+                            x: -0.032309,
+                            y: 1.733471,
+                            z: 0.52467,
+                        },
+                        "same"
+                    ).set(this.roomChildren.Body.scale, {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                    })
+                    .to(
+                        this.roomChildren.Cube.scale,
+                        {
+                            x: 0,
+                            y: 0,
+                            z: 0,
+                            duration: 1,
+                        }
+                    )
             } else {
                 this.secondTimeline.to(this.room.position, {
                     x: 0,
