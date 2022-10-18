@@ -14,7 +14,7 @@ export default class Floor {
 
     setCircles() {
         const geometry = new THREE.CircleGeometry(5, 64);
-        const material1 = new THREE.MeshStandardMaterial({ color: "rgb(129, 91, 91)" });
+        const material1 = new THREE.MeshStandardMaterial({ color: "rgb(82, 60, 60)" });
         const material2 = new THREE.MeshStandardMaterial({ color: "rgb(255, 202, 117)" });
 
         this.circleFirst = new THREE.Mesh(geometry, material1);
