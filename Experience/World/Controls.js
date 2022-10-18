@@ -26,7 +26,8 @@ export default class Controls {
         })
 
         // this.gui = new GUI({ container: document.querySelector('.hero-main') });
-
+        this.circleFirst = this.experience.world.floor.circleFirst;
+        this.circleSecond = this.experience.world.floor.circleSecond;
         GSAP.registerPlugin(ScrollTrigger); // Registering plugin
 
         this.setSmoothScroll();
@@ -895,6 +896,40 @@ export default class Controls {
                         },
                     });
                 });
+
+                // ---- Circle Animations ---- // 
+
+                // -------------------- First Section -------------------- //
+
+                this.firstMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".first-move",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                }).to(this.circleFirst.scale, {
+                    x: 3,
+                    y: 3,
+                    z: 3,
+                })
+
+                // -------------------- Sixth Section -------------------- //
+
+                this.sixthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".sixth-move",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                }).to(this.circleSecond.scale, {
+                    x: 3,
+                    y: 3,
+                    z: 3,
+                })
 
                 // ---- Mini Desk Animations ---- //
 

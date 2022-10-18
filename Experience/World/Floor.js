@@ -13,17 +13,25 @@ export default class Floor {
     }
 
     setCircles() {
-        const geometry = new THREE.CircleGeometry(5, 32);
+        const geometry = new THREE.CircleGeometry(5, 64);
         const material1 = new THREE.MeshStandardMaterial({ color: 0x815B5B });
         const material2 = new THREE.MeshStandardMaterial({ color: 0xFBF4E4 });
+
         this.circleFirst = new THREE.Mesh(geometry, material1);
         this.circleSecond = new THREE.Mesh(geometry, material2);
+
         this.circleFirst.position.y = - 0.68;
+        // this.circleFirst.position.x = 0.15;
+
         this.circleSecond.position.y = - 0.67;
+        this.circleSecond.position.x = 2;
+
         this.circleFirst.scale.set(0, 0, 0);
         this.circleSecond.scale.set(0, 0, 0);
+
         this.circleFirst.rotation.x = this.circleSecond.rotation.x = -Math.PI / 2; // This is so that we have it horizontally and the color is facing towards us
         this.circleFirst.receiveShadow = this.circleSecond.receiveShadow = true;
+
         this.scene.add(this.circleFirst);
         this.scene.add(this.circleSecond);
     }

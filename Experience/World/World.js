@@ -18,8 +18,8 @@ export default class World {
 
         this.resources.on("ready", () => {
             this.environment = new Environment(); // Instantiaing Environment
+            this.floor = new Floor(); // We will be getting errors for circles if it's after room
             this.room = new Room();
-            this.floor = new Floor();
             this.controls = new Controls();
             // console.log("Created room");
         });
