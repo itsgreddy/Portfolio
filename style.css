@@ -239,11 +239,13 @@ svg{
 }
 
 .section{
+  position: relative;
   width: 50%;
   /* padding: 1000px 4%; */
   padding: 50% 4%;
   margin: 0; 
   background-color: var(--color-background);
+  overflow: hidden;
 }
 
 .left{
@@ -452,5 +454,9 @@ svg{
 @media (max-width:968px){
   .section{
     width: 100%;
+  }
+  .progress-bar-wrapper-left{
+    right: 0;
+    left: auto; /* We do this to overwrite the previously assigned left value*/
   }
 }
