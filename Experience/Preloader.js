@@ -1,5 +1,6 @@
 import { EventEmitter } from "events";
 import GSAP from "gsap";
+import { promises } from "stream";
 
 import Experience from "./Experience";
 
@@ -31,24 +32,80 @@ export default class Preloader extends EventEmitter {
         console.log(this.roomChildren); // using a reference object and not using a loop to get the childs
     }
 
+    firstIntro() {
+        return new Promise((resolve) => { // We are using asynchronos JS to make sure that the preloader animation is completed, even if the user tries to scroll down and skill it 
+            this.firstTimeline = new GSAP.timeline();
+
+            if (this.device === "desktop") {
+                this.firstTimeline.to(this.roomChildren.Cube.scale, {
+                    x: 0.25,
+                    y: 0.25,
+                    z: 0.25,
+                    ease: "back-out(3)",
+                    duration: 0.5,
+                })
+                    .to(this.room.position, {
+                        x: -1,
+                        ease: "power1.out",
+                        duration: 0.5,
+                    });
+            } else {
+                this.firstTimeline.to(this.roomChildren.Cube.scale, {
+                    x: 0.25,
+                    y: 0.25,
+                    z: 0.25,
+                    ease: "back-out(3)",
+                    duration: 0.5,
+                })
+                    .to(this.room.position, {
+                        z: -1,
+                        ease: "power1.out",
+                        duration: 0.5,
+                    });
+            }
+        })
+    }
+
+    secondIntro() {
+        this.secondTimeline = new GSAP.timeline();
+
+        if (this.device === "desktop") {
+            this.secondTimeline.to(this.room.position, {
+                x: 0,
+                y: 0,
+                z: 0,
+                ease: "power1.out",
+                duration: 0.5,
+            });
+        } else {
+            this.secondTimeline.to(this.room.position, {
+                x: 0,
+                y: 0,
+                z: 0,
+                ease: "power1.out",
+                duration: 0.5,
+            });
+        }
+
+    }
+
+    onScroll(e) { // Grabbing the event object and checking for the event
+        if (e.deltaY > 0) {
+            // console.log("added event");
+            // window.removeEventListener("wheel", this.onScroll.bind(this)); // this doesn't simply remove the event because its different now, we need to provide pointer variable for it to happen
+            window.removeEventListener("wheel", this.scrollOnceEvent); // We need to add a pointer fucntion for it 
+            this.playSecondIntro();
+        }
+    }
+
     playIntro() {
         this.firstIntro();
+        this.scrollOnceEvent = this.onScroll.bind(this)
+        window.addEventListener("wheel", this.scrollOnceEvent); // Binding this so that we dont lose context
     }
 
-    firstIntro() {
-        this.timeline = new GSAP.timeline();
-
-        this.timeline.to(this.roomChildren.Cube.scale, {
-            x: 0.25,
-            y: 0.25,
-            z: 0.25,
-            ease: "back-out(3)",
-            duration: 0.7,
-        })
-            .to(this.room.position, {
-                x: -1,
-                ease: "power1.out",
-                duration: 0.7,
-            });
+    playSecondIntro() {
+        this.secondIntro();
     }
+
 }
