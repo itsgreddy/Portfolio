@@ -1,12 +1,13 @@
 import * as THREE from "three";
-import Experience from "../Experience";
+import { EventEmitter } from "events";
 
+import Experience from "../Experience";
 import Room from "./Room";
 import Floor from "./Floor";
 import Controls from "./Controls";
 import Environment from "./Environment";
 
-export default class World {
+export default class World extends EventEmitter { // We need Event Emitter for Pre loader so that when everything is ready, we can tell preloader to play the animations
     constructor() {
         this.experience = new Experience();
         this.sizes = this.experience.sizes;
@@ -21,6 +22,7 @@ export default class World {
             this.floor = new Floor(); // We will be getting errors for circles if it's after room
             this.room = new Room();
             this.controls = new Controls();
+            this.emit("worldready");
             // console.log("Created room");
         });
 
