@@ -14,7 +14,7 @@ export default class Preloader extends EventEmitter {
         this.world = this.experience.world;
 
         this.world.on("worldready", () => {
-            this.playIntro();
+            // this.playIntro();
         });
     }
 }

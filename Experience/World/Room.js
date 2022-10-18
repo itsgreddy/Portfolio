@@ -101,10 +101,16 @@ export default class Room {
                 child.position.z = 0.659047;
             }
 
-            if (child.name === "Car" || child.name === "Phone" || child.name === "Visiting_Card") {
-                child.scale.set(0, 0, 0);
-            }
+            // if (child.name === "Car" || child.name === "Phone" || child.name === "Visiting_Card") {
+            //     child.scale.set(0, 0, 0);
+            // }
 
+            child.scale.set(0, 0, 0); // Setting all childs scale
+            if (child.name === "Cube") {
+                child.scale.set(0.2, 0.2, 0.2);
+                child.position.set(0, 0.5, 0);
+                child.rotation.y = Math.PI / 4;
+            }
             // console.log(child);
         });
 
