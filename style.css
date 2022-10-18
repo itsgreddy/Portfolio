@@ -123,7 +123,7 @@ svg{
   --color-text-light: #333332;
   --color-background-light: #FBF4E4;
   --color-brown-light: #815B5B;
-  --color-cream-light: #815B5B;
+  --color-cream-light: #FBF4E4;
   /* --color-green-light: #7FB77E;
   --color-maroon-light: #874C62; */
 
@@ -433,7 +433,7 @@ svg{
 
 /* Overwriting Colors */
 
-.cream-text{
+/* .cream-text{
   color:var(--color-cream);
 }
 
@@ -445,7 +445,19 @@ svg{
   background-color: var(--color-cream);
 }
 
-/* .green-text{
+.brown-text{
+  color:var(--color-brown);
+}
+
+.brown-border{
+  border-color: var(--color-brown);
+}
+
+.brown-background{
+  background-color: var(--color-brown);
+}
+
+.green-text{
   color:var(--color-green);
 }
 
