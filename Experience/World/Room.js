@@ -11,6 +11,7 @@ export default class Room {
         this.resources = this.experience.resources;
         this.room = this.resources.items.room; // Getting object and using dot notation to get the room
         this.actualRoom = this.room.scene;
+        this.roomChildren = {}; // Creating a reference object
 
         // this.gui = new GUI({ container: document.querySelector('.hero-second') });
 
@@ -105,13 +106,16 @@ export default class Room {
             //     child.scale.set(0, 0, 0);
             // }
 
+            // console.log(child);
+
             child.scale.set(0, 0, 0); // Setting all childs scale
             if (child.name === "Cube") {
                 child.scale.set(0.2, 0.2, 0.2);
                 child.position.set(0, 0.5, 0);
                 child.rotation.y = Math.PI / 4;
             }
-            // console.log(child);
+
+            this.roomChildren[child.name] = child;
         });
 
         // console.log(this.room);
@@ -166,7 +170,7 @@ export default class Room {
         this.rectLight4.rotation.set(-2, -0.4, 0); // Location from blender | The Z axis in ThreeJS is Y axis in Blender 
         this.actualRoom.add(this.rectLight4)
 
-        // this.roomChildren["rectLight1", "rectLight2", "rectLight3", "rectLight4"] = rectLight;
+        this.roomChildren["rectLight1", "rectLight2", "rectLight3", "rectLight4"] = rectLight;
     }
 
     onMouseMove() {

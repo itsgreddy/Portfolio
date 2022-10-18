@@ -931,7 +931,7 @@ export default class Controls {
                     z: 3,
                 })
 
-                // ---- Mini Desk Animations ---- //
+                // ---- Mini Table Animations ---- //
 
                 // console.log(this.room.children);
                 this.lastPartTimeline = new GSAP.timeline({
@@ -944,7 +944,9 @@ export default class Controls {
                     },
                 });
 
-                // We didn't add tweensa directly to the timeline because if we did, the order would be different every single time 
+                // We didn't add tweens directly to the timeline because if we did, the order would be different every single time 
+                // This is a inefficient way in respective to time and code performance because everytime we assign a tween to the asset we are looping through the object
+                // Instead since we already have a loop in Room.JS so for tweening a asset we can ask that loop in Room.JS (Reference Object)
 
                 this.room.children.forEach(child => { // Assigning a tween for each child
                     if (child.name === "Table") {
