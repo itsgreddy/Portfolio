@@ -10,6 +10,7 @@ import Assets from "./Utils/Assets"
 import Camera from "./Camera";
 import Theme from "./Theme";
 import Renderer from "./Renderer";
+import Preloader from "./Preloader";
 
 import World from "./World/World";
 
@@ -29,6 +30,7 @@ export default class Experience {
         this.resources = new Resources(Assets); // Calling in Asset's Array and Passing them to Resources class
         this.theme = new Theme();
         this.world = new World(); // Order matters here
+        this.Preloader = new Preloader();
 
         this.sizes.on("resize", () => { // We are emitting in Size.JS here with "on" we are listening and executing the update fucntion
             this.resize();

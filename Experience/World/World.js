@@ -9,6 +9,7 @@ import Environment from "./Environment";
 
 export default class World extends EventEmitter { // We need Event Emitter for Pre loader so that when everything is ready, we can tell preloader to play the animations
     constructor() {
+        super();
         this.experience = new Experience();
         this.sizes = this.experience.sizes;
         this.scene = this.experience.scene;
