@@ -7,6 +7,12 @@ export default class Sizes extends EventEmitter {
         this.aspect = this.width / this.height; // We need aspect ratio for the camera
         this.pixelRatio = Math.min(window.devicePixelRatio, 2) // To choose the pixel ratio acc to the device (minimum)
         this.frustrum = 5; // To avoid the NaN error with cam
+        if (this.width < 968) {
+            this.device = "mobile";
+        } else {
+            this.device = "desktop";
+        }
+
 
         window.addEventListener("resize", () => { // We need this to update the values on resize
             this.width = window.innerWidth;
@@ -14,6 +20,16 @@ export default class Sizes extends EventEmitter {
             this.aspect = this.width / this.height;
             this.pixelRatio = Math.min(window.devicePixelRatio, 2);
             this.emit("resize");
+
+            if (this.width < 968) {
+                this.device = "mobile";
+                this.emit("switchdevice", this.device)
+                console.log("mobile");
+            } else {
+                this.device = "desktop";
+                this.emit("switchdevice", this.device)
+                console.log("Desktop");
+            }
         })
     }
 }

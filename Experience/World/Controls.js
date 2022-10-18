@@ -92,7 +92,7 @@ export default class Controls {
 
             // Desktop
             "(min-width: 969px)": () => { // If we use regular function we lose context, thats why we use arrow fucntion to save context and we can access class variables
-                console.log("Fired Desktop");
+                // console.log("Fired Desktop");
 
                 // ---- Resets ---- //
 
@@ -495,7 +495,7 @@ export default class Controls {
 
             //mobile
             "(max-width: 968px)": () => {
-                console.log("Fired Mobile");
+                // console.log("Fired Mobile");
 
                 // ---- Resets ---- //
 

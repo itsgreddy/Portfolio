@@ -13,6 +13,11 @@ export default class Preloader extends EventEmitter {
         this.resources = this.experience.resources;
         this.camera = this.experience.camera;
         this.world = this.experience.world;
+        this.device = this.sizes.device;
+
+        this.sizes.on("switchdevices", (device) => { // Using the resize function in sizes to change devices
+            this.device = device;
+        })
 
         this.world.on("worldready", () => {
             this.setAssets();
