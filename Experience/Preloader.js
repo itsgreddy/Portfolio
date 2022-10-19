@@ -382,10 +382,10 @@ export default class Preloader extends EventEmitter {
     move() {
         if (this.device === "desktop") {
             this.room.position.set(-1, 0, 0);
-            console.log("I am here");
+            console.log("Desktop is here");
         } else {
             this.room.position.set(0, 0, -1);
-            console.log("I am gone");
+            console.log("Mobile is here");
         }
     }
 

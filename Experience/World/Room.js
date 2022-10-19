@@ -9,6 +9,7 @@ export default class Room {
         this.experience = new Experience();
         this.scene = this.experience.scene;
         this.resources = this.experience.resources;
+        this.time = this.experience.time;
         this.room = this.resources.items.room; // Getting object and using dot notation to get the room
         this.actualRoom = this.room.scene;
         this.roomChildren = {}; // Creating a reference object
@@ -178,7 +179,7 @@ export default class Room {
         window.addEventListener("mousemove", (m) => {
 
             this.rotation =
-                ((m.clientX - window.innerWidth / 2) / window.innerWidth) * 2; // For reducing it to -1 -> 1
+                ((m.clientX - window.innerWidth / 2) * 2) / window.innerWidth; // For reducing it to -1 -> 1
             // console.log(m.clientX, this.rotation);
             // 1. 0 -> 1200 | ClientX Value
             // 2. 1200 / 2 : 600 | Window.innerwidth Value
