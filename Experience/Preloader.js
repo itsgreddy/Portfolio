@@ -329,7 +329,8 @@ export default class Preloader extends EventEmitter {
         if (e.deltaY > 0) {
             // console.log("added event");
             // window.removeEventListener("wheel", this.onScroll.bind(this)); // this doesn't simply remove the event because its different now, we need to provide pointer variable for it to happen
-            window.removeEventListener("wheel", this.scrollOnceEvent); // We need to add a pointer fucntion for it 
+            // window.removeEventListener("wheel", this.scrollOnceEvent); // We need to add a pointer fucntion for it 
+            this.removeEventListeners();
             this.playSecondIntro();
         }
     }
@@ -342,10 +343,17 @@ export default class Preloader extends EventEmitter {
         let currentY = e.touches[0].clientY; // Setting the current Y value
         let difference = this.initialY - currentY; // Calculating the difference
         if (difference > 0) {
-            console.log('swipped up');
+            console.log("swipped up");
+            this.removeEventListeners();
             this.playSecondIntro();
         }
         this.initialY = null; // Resetting the initial value
+    }
+
+    removeEventListeners() {
+        window.removeEventListener("wheel", this.scrollOnceEvent);
+        window.removeEventListener("touchstart", this.touchStart);
+        window.removeEventListener("touchmove", this.touchMove);
     }
 
     async playIntro() {
@@ -355,8 +363,8 @@ export default class Preloader extends EventEmitter {
         this.touchStart = this.onTouch.bind(this);
         this.touchMove = this.onTouchMove.bind(this);
         window.addEventListener("wheel", this.scrollOnceEvent); // Binding this so that we dont lose context
-        window.addEventListener("touchstart", this.scrollOnceEvent); // Binding this so that we dont lose context
-        window.addEventListener("touchmove", this.scrollOnceEvent); // Binding this so that we dont lose context
+        window.addEventListener("touchstart", this.touchStart); // Binding this so that we dont lose context
+        window.addEventListener("touchmove", this.touchMove); // Binding this so that we dont lose context
     }
 
     async playSecondIntro() {
