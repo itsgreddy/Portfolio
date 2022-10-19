@@ -13,7 +13,6 @@ export default class Sizes extends EventEmitter {
             this.device = "desktop";
         }
 
-
         window.addEventListener("resize", () => { // We need this to update the values on resize
             this.width = window.innerWidth;
             this.height = window.innerHeight;

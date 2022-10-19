@@ -19,6 +19,5 @@ export default class Time extends EventEmitter {
 
         this.emit("update"); // Whenever time is updated, emit this event 
         window.requestAnimationFrame(() => this.update());
-
     }
 }

@@ -33,9 +33,9 @@ export default class Experience {
         this.world = new World(); // Order matters here
         this.preloader = new Preloader();
 
-        this.preloader.on("enablecontrols", () => {
-            this.controls = new Controls();
-        })
+        // this.preloader.on("enablecontrols", () => {
+        //     this.controls = new Controls();
+        // })
 
         this.sizes.on("resize", () => { // We are emitting in Size.JS here with "on" we are listening and executing the update fucntion
             this.resize();
@@ -52,6 +52,7 @@ export default class Experience {
     }
 
     update() {
+        this.preloader.update();
         this.camera.update();
         this.world.update();
         this.renderer.update();

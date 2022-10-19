@@ -358,6 +358,7 @@ export default class Preloader extends EventEmitter {
 
     async playIntro() {
         await this.firstIntro();
+        this.moveFlag = true;
         // console.log("continuing");
         this.scrollOnceEvent = this.onScroll.bind(this);
         this.touchStart = this.onTouch.bind(this);
@@ -368,8 +369,23 @@ export default class Preloader extends EventEmitter {
     }
 
     async playSecondIntro() {
+        this.moveFlag = false;
         await this.secondIntro();
         this.emit("enablecontrols");
+    }
+
+    move() {
+        if (this.device === "desktop") {
+            this.room.position.set(-1, 0, 0);
+        } else {
+            this.room.position.set(0, 0, -1);
+        }
+    }
+
+    update() {
+        if (this.moveFlag) {
+            this.move();
+        }
     }
 
 }

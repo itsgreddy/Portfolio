@@ -8,7 +8,7 @@ export default class Environment {
     constructor() {
         this.experience = new Experience();
         this.scene = this.experience.scene;
-        this.resources = this.experience.resources;
+        // this.resources = this.experience.resources;
 
         // this.gui = new GUI({ container: document.querySelector('.hero-main') }); // Creating new GUI
         // using the container and passing it as a parameter to change the position | Avaliable in documentation
