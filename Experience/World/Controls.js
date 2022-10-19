@@ -16,14 +16,14 @@ export default class Controls {
         this.time = this.experience.time;
         this.camera = this.experience.camera;
         this.room = this.experience.world.room.actualRoom; // Taking it from World.js instead of Experience.js
-        this.room.children.forEach(child => { // Scalling up the lights
-            if (child.type === "RectAreaLight") { // ThreeJS provides the type to us for all the assets
-                this.rectLight1 = child;
-                this.rectLight2 = child;
-                this.rectLight3 = child;
-                this.rectLight4 = child;
-            }
-        })
+        // this.room.children.forEach(child => { // Scalling up the lights
+        //     if (child.type === "RectAreaLight") { // ThreeJS provides the type to us for all the assets
+        //         this.rectLight1 = child;
+        //         this.rectLight2 = child;
+        //         this.rectLight3 = child;
+        //         this.rectLight4 = child;
+        //     }
+        // });
 
         // this.gui = new GUI({ container: document.querySelector('.hero-main') });
         this.circleFirst = this.experience.world.floor.circleFirst;
@@ -45,17 +45,15 @@ export default class Controls {
 
     setupASScroll() {
         const asscroll = new ASScroll({
-            ease: 0.3,
+            ease: 0.5,
             disableRaf: true
         });
-
 
         GSAP.ticker.add(asscroll.update);
 
         ScrollTrigger.defaults({
             scroller: asscroll.containerElement
         });
-
 
         ScrollTrigger.scrollerProxy(asscroll.containerElement, {
             scrollTop(value) {
@@ -71,15 +69,13 @@ export default class Controls {
             fixedMarkers: true
         });
 
-
         asscroll.on("update", ScrollTrigger.update);
         ScrollTrigger.addEventListener("refresh", asscroll.resize);
 
         requestAnimationFrame(() => {
             asscroll.enable({
-                newScrollElements: document.querySelectorAll(".gsap-marker-start, .gsap-marker-end, [asscroll]")
+                newScrollElements: document.querySelectorAll(".gsap-marker-start, .gsap-marker-end, [asscroll]"),
             });
-
         });
         return asscroll;
     }
@@ -89,7 +85,6 @@ export default class Controls {
     }
 
     setScrollTrigger() {
-
         ScrollTrigger.matchMedia({
 
             // Desktop
@@ -828,6 +823,7 @@ export default class Controls {
                         "same"
                     )
             },
+
             // all 
             "all": () => {
                 // ScrollTriggers created here aren't associated with a particular media query,
@@ -837,8 +833,8 @@ export default class Controls {
 
                 this.section = document.querySelectorAll(".section");
                 this.section.forEach((section) => { // Essentially we are looping through all sections and selecting progress-wrapper of them all  
-                    this.progressWrapper = section.querySelector(".progress-wrapper ");
-                    this.progressBar = section.querySelector(".progress-bar ");
+                    this.progressWrapper = section.querySelector(".progress-wrapper");
+                    this.progressBar = section.querySelector(".progress-bar");
 
                     if (section.classList.contains("right")) {
                         GSAP.to(section, {
@@ -903,7 +899,7 @@ export default class Controls {
 
                 // -------------------- First Section -------------------- //
 
-                this.firstMoveTimeline = new GSAP.timeline({
+                this.firstCircle = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".first-move",
                         start: "top top",
@@ -919,7 +915,7 @@ export default class Controls {
 
                 // -------------------- Sixth Section -------------------- //
 
-                this.sixthMoveTimeline = new GSAP.timeline({
+                this.secondCircle = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".sixth-move",
                         start: "top top",
@@ -959,15 +955,6 @@ export default class Controls {
                             ease: "back.out(4)",
                             duration: 0.5,
                         })
-                    }
-                    if (child.name === "Table") {
-                        this.first = GSAP.to(child.scale, {
-                            x: 0.010262,
-                            y: 0.010262,
-                            z: 0.020636,
-                            ease: "back.out(4)",
-                            duration: 0.5,
-                        });
                     }
                     if (child.name === "Visiting_Card") {
                         this.second = GSAP.to(child.scale, {

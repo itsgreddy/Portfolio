@@ -215,6 +215,11 @@ export default class Preloader extends EventEmitter {
                 //     },
                 //     "clock"
                 // )
+                .set(this.roomChildren.Table.scale, {
+                    x: 0.010262,
+                    y: 0.010262,
+                    z: 0.020636,
+                })
                 .to(
                     this.roomChildren.Screens.scale,
                     {
