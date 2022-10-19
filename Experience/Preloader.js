@@ -2,6 +2,7 @@ import { EventEmitter } from "events";
 import GSAP from "gsap";
 
 import Experience from "./Experience";
+import convert from "./Utils/convertDivsToSpan";
 
 export default class Preloader extends EventEmitter {
     constructor() {
@@ -26,6 +27,11 @@ export default class Preloader extends EventEmitter {
     }
 
     setAssets() {
+        convert(document.querySelector(".intro-text"))
+        convert(document.querySelector(".hero-main-title"))
+        convert(document.querySelector(".hero-main-description"))
+        convert(document.querySelector(".hero-second-subheading"))
+        convert(document.querySelector(".second-sub"))
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
         console.log(this.roomChildren); // using a reference object and not using a loop to get the childs
@@ -37,15 +43,16 @@ export default class Preloader extends EventEmitter {
             this.firstTimeline = new GSAP.timeline();
 
             if (this.device === "desktop") {
-                this.firstTimeline.to(this.roomChildren.Cube.scale, {
-                    x: 0.25,
-                    y: 0.25,
-                    z: 0.25,
-                    ease: "back-out(3)",
-                    duration: 0.5,
-                })
+                this.firstTimeline
+                    .to(this.roomChildren.Cube.scale, {
+                        x: 0.2,
+                        y: 0.2,
+                        z: 0.2,
+                        ease: "back-out(3)",
+                        duration: 0.7,
+                    })
                     .to(this.room.position, {
-                        x: -1,
+                        x: -1.1,
                         ease: "power1.out",
                         duration: 0.5,
                         onComplete: resolve, // Fulfilling the promise we made after the preloader is done
@@ -383,7 +390,7 @@ export default class Preloader extends EventEmitter {
 
     move() {
         if (this.device === "desktop") {
-            this.room.position.set(-1, 0, 0);
+            this.room.position.set(-1.1, 0, 0);
             console.log("Desktop is here");
         } else {
             this.room.position.set(0, 0, -1);
