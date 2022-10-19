@@ -183,6 +183,22 @@ svg{
   position: relative;
 }
 
+/* ------------ Preloader Section ------------ */
+
+.animatedis{
+  display: inline-block; /* Default is inline elements which cannot be moved */
+  transform: translateY(100%); /* Tranlating all the spans 100% on Y axis */
+}
+
+.intro-text{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   font-weight: 500;
+   font-size: 16px;
+   transform: translate(-50%, -50%);
+}
+
 /* ------------ Toggle Bar ------------ */
 .toggle-bar{
   position: fixed;
