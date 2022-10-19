@@ -16,7 +16,7 @@ import World from "./World/World";
 import Controls from "./World/Controls";
 
 export default class Experience {
-    static instance
+    static instance;
     constructor(canvas) {
         if (Experience.instance) {
             return Experience.instance //If It's avaliable then return it or else make it by going to this and then in next if look return it
@@ -35,14 +35,14 @@ export default class Experience {
 
         // this.preloader.on("enablecontrols", () => {
         //     this.controls = new Controls();
-        // })
+        // });
 
         this.sizes.on("resize", () => { // We are emitting in Size.JS here with "on" we are listening and executing the update fucntion
             this.resize();
-        })
+        });
         this.time.on("update", () => { // We are emitting in Time.JS here with "on" we are listening and executing the update fucntion
             this.update();
-        })
+        });
     }
 
     resize() {

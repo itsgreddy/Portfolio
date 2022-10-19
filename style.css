@@ -122,7 +122,6 @@ svg{
 }
 
 :root{
-
   /* Light Theme colors */
   --color-text-light: #333332;
   --color-background-light: #FBF4E4;
@@ -210,7 +209,7 @@ svg{
   cursor: pointer;
   position: relative;
   width: 56px;
-  height: 26px;
+  height: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -253,8 +252,8 @@ svg{
 .section{
   position: relative;
   width: 50%;
-  /* padding: 1000px 4%; */
-  padding: 50% 4%;
+  padding: 1000px 4%;
+  /* padding: 50% 4%; */
   margin: 0; 
   background-color: var(--color-background);
   overflow: hidden;
@@ -411,7 +410,7 @@ svg{
 
 .hero-second{
   position: absolute;
-  /* top: calc(50%-120px); */
+  /* top: calc(50%-1200px); */
   top: 35%;
   right: 0;
   color: var(--color-text);  
