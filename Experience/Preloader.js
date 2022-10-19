@@ -369,6 +369,7 @@ export default class Preloader extends EventEmitter {
 
     async playSecondIntro() {
         await this.secondIntro();
+        this.emit("enablecontrols");
     }
 
 }
