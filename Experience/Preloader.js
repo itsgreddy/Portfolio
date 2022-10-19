@@ -55,24 +55,29 @@ export default class Preloader extends EventEmitter {
                         x: -1.1,
                         ease: "power1.out",
                         duration: 0.5,
-                        onComplete: resolve, // Fulfilling the promise we made after the preloader is done
                     });
             } else {
-                this.firstTimeline.to(this.roomChildren.Cube.scale, {
-                    x: 0.25,
-                    y: 0.25,
-                    z: 0.25,
-                    ease: "back-out(3)",
-                    duration: 0.5,
-                })
+                this.firstTimeline
+                    .to(this.roomChildren.Cube.scale, {
+                        x: 0.25,
+                        y: 0.25,
+                        z: 0.25,
+                        ease: "back-out(3)",
+                        duration: 0.5,
+                    })
                     .to(this.room.position, {
                         z: -1,
                         ease: "power1.out",
                         duration: 0.5,
-                        onComplete: resolve,
                     });
             }
-        })
+            this.firstTimeline.to(".intro-text .animatedis", {
+                yPercent: -100,
+                stagger: 0.07,
+                ease: "back.out(1.2)",
+                onComplete: resolve, // Fulfilling the promise we made after the preloader is done
+            });
+        });
     }
 
     secondIntro() {
