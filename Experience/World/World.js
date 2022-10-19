@@ -22,7 +22,7 @@ export default class World extends EventEmitter { // We need Event Emitter for P
             this.environment = new Environment(); // Instantiaing Environment
             this.floor = new Floor(); // We will be getting errors for circles if it's after room
             this.room = new Room();
-            this.controls = new Controls();
+            // this.controls = new Controls();
             this.emit("worldready");
             // console.log("Created room");
         });
