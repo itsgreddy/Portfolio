@@ -334,11 +334,29 @@ export default class Preloader extends EventEmitter {
         }
     }
 
+    onTouch(e) {
+        this.initialY = e.touches[0].clientY; // Setting initial Y value
+    }
+
+    onTouchMove(e) {
+        let currentY = e.touches[0].clientY; // Setting the current Y value
+        let difference = this.initialY - currentY; // Calculating the difference
+        if (difference > 0) {
+            console.log('swipped up');
+            this.playSecondIntro();
+        }
+        this.initialY = null; // Resetting the initial value
+    }
+
     async playIntro() {
         await this.firstIntro();
         // console.log("continuing");
-        this.scrollOnceEvent = this.onScroll.bind(this)
+        this.scrollOnceEvent = this.onScroll.bind(this);
+        this.touchStart = this.onTouch.bind(this);
+        this.touchMove = this.onTouchMove.bind(this);
         window.addEventListener("wheel", this.scrollOnceEvent); // Binding this so that we dont lose context
+        window.addEventListener("touchstart", this.scrollOnceEvent); // Binding this so that we dont lose context
+        window.addEventListener("touchmove", this.scrollOnceEvent); // Binding this so that we dont lose context
     }
 
     async playSecondIntro() {
