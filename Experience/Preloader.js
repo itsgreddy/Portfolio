@@ -32,6 +32,7 @@ export default class Preloader extends EventEmitter {
         convert(document.querySelector(".hero-main-description"))
         convert(document.querySelector(".hero-second-subheading"))
         convert(document.querySelector(".second-sub"))
+
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
         console.log(this.roomChildren); // using a reference object and not using a loop to get the childs
@@ -73,8 +74,8 @@ export default class Preloader extends EventEmitter {
             }
             this.firstTimeline.to(".intro-text .animatedis", {
                 yPercent: -100,
-                stagger: 0.07,
-                ease: "back.out(1.2)",
+                stagger: 0.05,
+                ease: "back.out(1.7)",
                 onComplete: resolve, // Fulfilling the promise we made after the preloader is done
             });
         });
@@ -86,6 +87,11 @@ export default class Preloader extends EventEmitter {
             this.secondTimeline = new GSAP.timeline();
 
             this.secondTimeline
+                .to(".intro-text .animatedis", {
+                    yPercent: 100,
+                    stagger: 0.05,
+                    ease: "back.in(1.7)",
+                })
                 .to(
                     this.room.position,
                     {
@@ -139,8 +145,37 @@ export default class Preloader extends EventEmitter {
                         y: 0,
                         z: 0,
                         duration: 0.7,
-                    }
+                    },
+                    "introanimation"
                 )
+                .to(".hero-main-title .animatedis",
+                    {
+                        yPercent: -100,
+                        stagger: 0.07,
+                        ease: "back.out(1.7)",
+                    },
+                    "introanimation")
+                .to(".hero-main-description .animatedis",
+                    {
+                        yPercent: -100,
+                        stagger: 0.07,
+                        ease: "back.out(1.7)",
+                    },
+                    "introanimation")
+                .to(".first-sub .animatedis",
+                    {
+                        yPercent: -100,
+                        stagger: 0.07,
+                        ease: "back.out(1.7)",
+                    },
+                    "introanimation")
+                .to(".second-sub .animatedis",
+                    {
+                        yPercent: -100,
+                        stagger: 0.07,
+                        ease: "back.out(1.7)",
+                    },
+                    "introanimation")
                 .to(
                     this.roomChildren.Shelves.scale,
                     {
@@ -214,8 +249,7 @@ export default class Preloader extends EventEmitter {
                         z: 1,
                         ease: "back.out(1.5)",
                         duration: 0.4,
-                    },
-                    ">-0.5"
+                    }
                 )
                 // .to(
                 //     this.roomChildren.Clock.rotation,
@@ -337,7 +371,7 @@ export default class Preloader extends EventEmitter {
                         duration: 0.4,
                         onComplete: resolve,
                     }
-                )
+                );
         });
 
     }
