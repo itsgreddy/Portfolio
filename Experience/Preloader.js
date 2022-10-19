@@ -220,15 +220,16 @@ export default class Preloader extends EventEmitter {
                     },
                     "clock"
                 )
-                .to(
-                    this.roomChildren.Clock.rotation,
-                    {
-                        z: 4 * Math.PI + Math.PI / 4,
-                        ease: "power2.out",
-                        duration: 1,
-                    },
-                    "clock"
-                )
+                // .to(
+                //     this.roomChildren.Clock.rotation,
+                //     {
+                //         // x: 4 * Math.PI + Math.PI / 4,
+                //         z: 4 * Math.PI + Math.PI / 4,
+                //         ease: "power2.out",
+                //         duration: 1,
+                //     },
+                //     "clock"
+                // )
                 .to(
                     this.roomChildren.Screens.scale,
                     {
