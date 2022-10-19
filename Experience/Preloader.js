@@ -375,7 +375,9 @@ export default class Preloader extends EventEmitter {
 
     async playSecondIntro() {
         this.moveFlag = false;
+        this.scaleFlag = true;
         await this.secondIntro();
+        this.scaleFlag = false;
         this.emit("enablecontrols");
     }
 
@@ -389,9 +391,21 @@ export default class Preloader extends EventEmitter {
         }
     }
 
+    scale() {
+        if (this.device === "desktop") {
+            this.room.scale.set(0.8, 0.8, 0.8);
+        } else {
+            this.room.scale.set(0.35, 0.35, 0.35);
+        }
+    }
+
     update() {
         if (this.moveFlag) {
             this.move();
+        }
+
+        if (this.scaleFlag) {
+            this.scale();
         }
     }
 
