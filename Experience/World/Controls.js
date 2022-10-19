@@ -30,6 +30,8 @@ export default class Controls {
         this.circleSecond = this.experience.world.floor.circleSecond;
         GSAP.registerPlugin(ScrollTrigger); // Registering plugin
 
+        document.querySelector('.page').getElementsByClassName.overflow = "visible"; // This is hacky, figure out how to resolve the bug with asscroll GSAP
+
         this.setSmoothScroll();
         this.setScrollTrigger();
         // this.setGUI();
