@@ -35,7 +35,7 @@ export default class Preloader extends EventEmitter {
 
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
-        console.log(this.roomChildren); // using a reference object and not using a loop to get the childs
+        // console.log(this.roomChildren); // using a reference object and not using a loop to get the childs
     }
 
     firstIntro() {
@@ -431,7 +431,7 @@ export default class Preloader extends EventEmitter {
         let currentY = e.touches[0].clientY; // Setting the current Y value
         let difference = this.initialY - currentY; // Calculating the difference
         if (difference > 0) {
-            console.log("swipped up");
+            // console.log("swipped up");
             this.removeEventListeners();
             this.playSecondIntro();
         }
@@ -467,10 +467,10 @@ export default class Preloader extends EventEmitter {
     move() {
         if (this.device === "desktop") {
             this.room.position.set(-1.3, 0, 0);
-            console.log("Desktop is here");
+            // console.log("Desktop is here");
         } else {
             this.room.position.set(0, 0, -1);
-            console.log("Mobile is here");
+            // console.log("Mobile is here");
         }
     }
 
