@@ -203,6 +203,7 @@ svg{
   position: absolute;
    top: 90%;
    left: 50%;
+   opacity: 0;
    transform: translate(-50%, -50%);
    animation: bounce 0.5s ease-in alternate infinite; /* Bouncing it for 0.5s, alternating it and for infinitely*/
 }
@@ -220,7 +221,7 @@ svg{
 .toggle-bar{
   position: fixed;
   display: flex;
-  /* opacity: 0; */
+  opacity: 0;
   flex-direction: row;
   justify-content: center;
   align-items: center;

@@ -72,12 +72,27 @@ export default class Preloader extends EventEmitter {
                         duration: 0.5,
                     });
             }
-            this.firstTimeline.to(".intro-text .animatedis", {
-                yPercent: -100,
-                stagger: 0.05,
-                ease: "back.out(1.7)",
-                onComplete: resolve, // Fulfilling the promise we made after the preloader is done
-            });
+            this.firstTimeline
+                .to(".intro-text .animatedis", {
+                    yPercent: -100,
+                    stagger: 0.05,
+                    ease: "back.out(1.7)",
+                })
+                .to(
+                    ".arrow-svg-wrapper",
+                    {
+                        opacity: 1,
+                    },
+                    "same"
+                )
+                .to(
+                    ".toggle-bar",
+                    {
+                        opacity: 1,
+                        onComplete: resolve, // Fulfilling the promise we made after the preloader is done
+                    },
+                    "same"
+                );
         });
     }
 
