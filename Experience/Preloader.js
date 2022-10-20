@@ -102,11 +102,21 @@ export default class Preloader extends EventEmitter {
             this.secondTimeline = new GSAP.timeline();
 
             this.secondTimeline
-                .to(".intro-text .animatedis", {
-                    yPercent: 100,
-                    stagger: 0.05,
-                    ease: "back.in(1.7)",
-                })
+                .to(".intro-text .animatedis",
+                    {
+                        yPercent: 100,
+                        stagger: 0.05,
+                        ease: "back.in(1.7)",
+                    },
+                    "fadeout"
+                )
+                .to(
+                    ".arrow-svg-wrapper",
+                    {
+                        opacity: 0,
+                    },
+                    "fadeout"
+                )
                 .to(
                     this.room.position,
                     {
