@@ -478,7 +478,8 @@ export default class Preloader extends EventEmitter {
         if (this.device === "desktop") {
             this.room.scale.set(0.8, 0.8, 0.8);
         } else {
-            this.room.scale.set(0.35, 0.35, 0.35);
+            this.room.scale.set(0.45, 0.45, 0.45);
+            // this.room.position.set(0, 0, -0.5);
         }
     }
 

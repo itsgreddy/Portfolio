@@ -496,7 +496,7 @@ export default class Controls {
 
                 // ---- Resets ---- //
 
-                this.room.scale.set(0.35, 0.35, 0.35);
+                this.room.scale.set(0.45, 0.45, 0.45);
                 this.room.position.set(0, 0, 0);
                 // this.rectLight1.width1 = 0.25
                 // this.rectLight1.height1 = 0.25
