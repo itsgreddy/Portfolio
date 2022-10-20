@@ -393,6 +393,13 @@ export default class Preloader extends EventEmitter {
                     "chair",
                     ">-0.1"
                 )
+                .to(
+                    ".arrow-svg-wrapper",
+                    {
+                        opacity: 1,
+                        onComplete: resolve,
+                    },
+                )
         });
 
     }
