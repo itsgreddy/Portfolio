@@ -207,7 +207,14 @@ svg{
    animation: bounce 0.5s ease-in alternate infinite; /* Bouncing it for 0.5s, alternating it and for infinitely*/
 }
 
-
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(8px);
+  }
+}
 
 /* ------------ Toggle Bar ------------ */
 .toggle-bar{
