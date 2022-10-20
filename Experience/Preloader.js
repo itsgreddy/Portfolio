@@ -42,6 +42,7 @@ export default class Preloader extends EventEmitter {
         return new Promise((resolve) => { // We are using asynchronous JS to make sure that the preloader animation is completed, even if the user tries to scroll down and skill it 
 
             this.firstTimeline = new GSAP.timeline();
+            this.firstTimeline.set(".animatedis", { y: 0, yPercent: 100 })
             this.firstTimeline
                 .to(".preloader", {
                     opacity: 0,
@@ -86,7 +87,7 @@ export default class Preloader extends EventEmitter {
             }
             this.firstTimeline
                 .to(".intro-text .animatedis", {
-                    yPercent: -100,
+                    yPercent: 0,
                     stagger: 0.05,
                     ease: "back.out(1.7)",
                 })
@@ -187,28 +188,28 @@ export default class Preloader extends EventEmitter {
                 )
                 .to(".hero-main-title .animatedis",
                     {
-                        yPercent: -100,
+                        yPercent: 0,
                         stagger: 0.07,
                         ease: "back.out(1.7)",
                     },
                     "introanimation")
                 .to(".hero-main-description .animatedis",
                     {
-                        yPercent: -100,
+                        yPercent: 0,
                         stagger: 0.07,
                         ease: "back.out(1.7)",
                     },
                     "introanimation")
                 .to(".first-sub .animatedis",
                     {
-                        yPercent: -100,
+                        yPercent: 0,
                         stagger: 0.07,
                         ease: "back.out(1.7)",
                     },
                     "introanimation")
                 .to(".second-sub .animatedis",
                     {
-                        yPercent: -100,
+                        yPercent: 0,
                         stagger: 0.07,
                         ease: "back.out(1.7)",
                     },

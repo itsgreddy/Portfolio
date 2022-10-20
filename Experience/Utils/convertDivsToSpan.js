@@ -4,7 +4,7 @@ export default function (element) {
         .split("")
         .map(char => { // Splitting and mapping
             if (char === " ") {
-                return `<span>${char}</span>`
+                return `<span>&nbsp;</span>`
             }
             return `<span class = "animatedis">${char}</span>`; // Passing into GSAP to use stagger // -- String literal and char -- //
         })
