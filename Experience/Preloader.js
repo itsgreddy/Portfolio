@@ -42,7 +42,19 @@ export default class Preloader extends EventEmitter {
         return new Promise((resolve) => { // We are using asynchronous JS to make sure that the preloader animation is completed, even if the user tries to scroll down and skill it 
 
             this.firstTimeline = new GSAP.timeline();
-
+            this.firstTimeline
+                .to(".preloader", {
+                    opacity: 0,
+                    delay: 1,
+                    onComplete: () => {
+                        document.querySelector(".preloader").classList.add("hidden"); // Grabbing the preloader then adding the class list
+                    }
+                })
+                .to(this.room.position, {
+                    x: -1.1,
+                    ease: "power1.out",
+                    duration: 0.5,
+                });
             if (this.device === "desktop") {
                 this.firstTimeline
                     .to(this.roomChildren.Cube.scale, {

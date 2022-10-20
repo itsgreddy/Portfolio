@@ -176,6 +176,7 @@ svg{
   width: 100%;
   height: 100vh;
   position: fixed;
+  opacity: 1;
   z-index: 99999999;
 }
 
@@ -214,10 +215,10 @@ svg{
   0%{
     transform: translateY(0);
   }
-  50%{
+  20%{
     transform: translateY(-12px);
   }
-  100%{
+  40%{
     transform: translateY(0);
   }
 }
@@ -243,12 +244,15 @@ svg{
 }
 
 .intro-text{
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   font-weight: 500;
-   font-size: 16px;
-   transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 16px;
+  transform: translate(-50%, -50%);
 }
 
 .arrow-svg-wrapper{
