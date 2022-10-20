@@ -30,7 +30,7 @@ export default class Controls {
         this.circleSecond = this.experience.world.floor.circleSecond;
         GSAP.registerPlugin(ScrollTrigger); // Registering plugin
 
-        document.querySelector('.page').getElementsByClassName.overflow = "visible"; // This is hacky, figure out how to resolve the bug with asscroll GSAP
+        document.querySelector('.page').style.overflow = "visible"; // This is hacky, figure out how to resolve the bug with asscroll GSAP
 
         this.setSmoothScroll();
         this.setScrollTrigger();
@@ -519,9 +519,9 @@ export default class Controls {
                     },
                 })
                     .to(this.room.scale, {
-                        x: 0.4,
-                        y: 0.4,
-                        z: 0.4,
+                        x: 0.5,
+                        y: 0.5,
+                        z: 0.5,
                     })
 
                 // -------------------- Second Section -------------------- //
@@ -816,9 +816,9 @@ export default class Controls {
                     .to(
                         this.room.scale,
                         {
-                            x: 0.35,
-                            y: 0.35,
-                            z: 0.35,
+                            x: 0.4,
+                            y: 0.4,
+                            z: 0.4,
                         },
                         "same"
                     )
