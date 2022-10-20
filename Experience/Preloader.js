@@ -42,19 +42,14 @@ export default class Preloader extends EventEmitter {
         return new Promise((resolve) => { // We are using asynchronous JS to make sure that the preloader animation is completed, even if the user tries to scroll down and skill it 
 
             this.firstTimeline = new GSAP.timeline();
-            this.firstTimeline.set(".animatedis", { y: 0, yPercent: 100 })
+            this.firstTimeline.set(".animatedis", { y: 0, yPercent: 100 });
             this.firstTimeline
                 .to(".preloader", {
                     opacity: 0,
                     delay: 1,
                     onComplete: () => {
                         document.querySelector(".preloader").classList.add("hidden"); // Grabbing the preloader then adding the class list
-                    }
-                })
-                .to(this.room.position, {
-                    x: -1.1,
-                    ease: "power1.out",
-                    duration: 0.5,
+                    },
                 });
             if (this.device === "desktop") {
                 this.firstTimeline
@@ -66,9 +61,9 @@ export default class Preloader extends EventEmitter {
                         duration: 0.7,
                     })
                     .to(this.room.position, {
-                        x: -1.1,
+                        x: -1.3,
                         ease: "power1.out",
-                        duration: 0.5,
+                        duration: 0.7,
                     });
             } else {
                 this.firstTimeline
@@ -77,12 +72,12 @@ export default class Preloader extends EventEmitter {
                         y: 0.25,
                         z: 0.25,
                         ease: "back-out(3)",
-                        duration: 0.5,
+                        duration: 0.7,
                     })
                     .to(this.room.position, {
                         z: -1,
                         ease: "power1.out",
-                        duration: 0.5,
+                        duration: 0.7,
                     });
             }
             this.firstTimeline
@@ -171,7 +166,8 @@ export default class Preloader extends EventEmitter {
                         z: 0.52467,
                     },
                     "same"
-                ).set(this.roomChildren.Body.scale, {
+                )
+                .set(this.roomChildren.Body.scale, {
                     x: 1,
                     y: 1,
                     z: 1,
@@ -449,6 +445,7 @@ export default class Preloader extends EventEmitter {
     }
 
     async playIntro() {
+        this.scaleFlag = true;
         await this.firstIntro();
         this.moveFlag = true;
         // console.log("continuing");
@@ -462,7 +459,6 @@ export default class Preloader extends EventEmitter {
 
     async playSecondIntro() {
         this.moveFlag = false;
-        this.scaleFlag = true;
         await this.secondIntro();
         this.scaleFlag = false;
         this.emit("enablecontrols");
@@ -470,7 +466,7 @@ export default class Preloader extends EventEmitter {
 
     move() {
         if (this.device === "desktop") {
-            this.room.position.set(-1.1, 0, 0);
+            this.room.position.set(-1.3, 0, 0);
             console.log("Desktop is here");
         } else {
             this.room.position.set(0, 0, -1);
