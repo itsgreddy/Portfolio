@@ -33,7 +33,8 @@ export default class Controls {
         document.querySelector('.page').style.overflow = "visible"; // This is hacky, figure out how to resolve the bug with asscroll GSAP
 
         if (
-            !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test( // to determine if smooth scroll should be set or not, otherwise the progress bar will bug out on Mobile devices
+
                 navigator.userAgent
             )
         ) {
