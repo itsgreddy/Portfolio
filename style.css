@@ -405,6 +405,13 @@ svg{
   padding: 20% 5%;
 }
 
+.section-detail-wrapper h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-brown);
+}
+
 .section-heading{
   font-size: 18px;
   font-weight: 700;
@@ -608,6 +615,9 @@ svg{
   .container{
     padding-top: 20%;
   }
+  .section-detail-wrapper h1{
+    font-size: 20px;
+  }  
 }
 
 /* ------------ Cards ------------ */
