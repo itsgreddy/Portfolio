@@ -674,11 +674,10 @@ svg{
 }
 
 .container .card h3{
-  position: absolute;
+  margin-top: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 40%;
   font-size: 7em;
   font-weight: 800;
   font-style: italic;
