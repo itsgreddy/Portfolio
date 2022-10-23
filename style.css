@@ -861,3 +861,16 @@ form textarea{
 form ::placeholder{
   color: var(--color-cream);
 }
+
+.button{
+  display: block;
+  margin: 50px auto;
+  width: fit-content;
+  border: 1px solid #414141;
+  background-color: #414141;
+  padding: 14px 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--color-cream);
+  cursor: pointer;
+}
