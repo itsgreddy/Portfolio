@@ -781,3 +781,70 @@ svg{
   opacity: 1;
   transform: translateY(0px);
 }
+
+/* ------------ Contact Section ------------ */
+
+.contact-left{
+  flex-basis: 60%;
+}
+
+.contact-left p{
+  color: var(--color-text);
+  transition: transform 0.5s;
+}
+
+.contact-left p:hover{
+  transform: translateY(-5px);
+}
+
+.contact-left p i{
+  color: var(--color-brown);
+  margin: 2%;
+  font-size: 25px;
+}
+
+/* Social Icons */
+
+.social-icons{
+  margin-right: 30px;
+}
+
+.social-icons a{
+  text-decoration: none;
+  font-size: 30px;
+  margin: 2%;
+  color: var(--color-brown);
+  display: inline-block;
+  transition: transform 0.5s;
+}
+
+.social-icons a:hover{
+  color: var(--color-text-light);
+  transform: translateY(-5px);
+}
+
+.resume{
+  display: inline-block;
+  color: var(--color-brown);
+}
+
+/* Form */
+
+.contact-left form{
+  width: 100%;
+}
+form input, form textarea{
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: #414141;
+  padding: 25px;
+  margin: 15px 0;
+  color:var(--color-cream);
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+form ::placeholder{
+  color: var(--color-cream);
+}
