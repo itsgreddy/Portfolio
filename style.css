@@ -618,6 +618,9 @@ svg{
   .section-detail-wrapper h1{
     font-size: 20px;
   }  
+  .contact .social-icons a{
+    margin: 16px;
+  }
 }
 
 /* ------------ Cards ------------ */
@@ -784,9 +787,9 @@ svg{
 
 /* ------------ Contact Section ------------ */
 
-.contact-left{
+/* .contact-left{
   flex-basis: 60%;
-}
+} */
 
 .contact-left p{
   color: var(--color-text);
@@ -805,14 +808,14 @@ svg{
 
 /* Social Icons */
 
-.social-icons{
+/* .social-icons{
   margin-right: 30px;
-}
+} */
 
 .social-icons a{
   text-decoration: none;
   font-size: 30px;
-  margin: 2%;
+  margin: 42px;
   color: var(--color-brown);
   display: inline-block;
   transition: transform 0.5s;
@@ -843,6 +846,10 @@ form input, form textarea{
   color:var(--color-cream);
   font-size: 18px;
   border-radius: 6px;
+}
+
+form textarea{
+  height: 300px;
 }
 
 form ::placeholder{
