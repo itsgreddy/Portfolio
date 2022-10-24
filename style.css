@@ -631,6 +631,46 @@ svg{
   }
 }
 
+/* ------------ About ------------ */
+
+.about-intro{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-intro a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  transition: transform 0.5s;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.about-intro a:hover{
+  transform: translateY(-5px);
+}
+
+.about-intro a i{
+  color: var(--color-brown);
+  margin: 2%;
+  font-size: 25px;
+}
+
+.resume{
+  margin: 50px auto;
+  padding: 14px 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 100;
+  color: var(--color-cream);
+  cursor: pointer;
+}
+
 /* ------------ Cards ------------ */
 
 .cards{
@@ -797,24 +837,6 @@ svg{
 
 /* .contact-left{
   flex-basis: 60%;
-}
-
-.contact-left p{
-  color: var(--color-text);
-  transition: transform 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-left p:hover{
-  transform: translateY(-5px);
-}
-
-.contact-left p i{
-  color: var(--color-brown);
-  margin: 2%;
-  font-size: 25px;
 } */
 
 /* Social Icons */
