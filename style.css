@@ -638,9 +638,9 @@ svg{
 
 .about-intro{
   width: 100%;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .about-intro a{
@@ -654,6 +654,13 @@ svg{
   text-decoration: none;
 }
 
+.about-intro button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-cream);
+}
+
 .about-intro a:hover{
   transform: translateY(-5px);
 }
@@ -664,12 +671,25 @@ svg{
   font-size: 25px;
 }
 
-.resume{
+/* .resume{
   margin: 50px auto;
   padding: 14px 50px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 100;
+  color: var(--color-cream);
+  cursor: pointer;
+} */
+
+.resume{
+  margin: 50px auto;
+  padding: 14px 40px;
+  /* width: fit-content; */
+  border: 1px solid #414141;
+  background-color: #414141;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
   color: var(--color-cream);
   cursor: pointer;
 }
@@ -928,6 +948,7 @@ form ::placeholder{
   padding: 14px 50px;
   border-radius: 6px;
   text-decoration: none;
+  font-weight: 600;
   color: var(--color-cream);
   cursor: pointer;
 }
