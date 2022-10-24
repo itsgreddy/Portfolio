@@ -433,6 +433,7 @@
                       ></textarea>
                       <button type="submit" class="button">S E N D</button>
                     </form>
+                    <span id="sent"></span>
                   </div>
                 </div>
               </div>
@@ -505,11 +506,19 @@
       const scriptURL =
         "https://script.google.com/macros/s/AKfycby7kx8K1a4xpdSbRXOhJzkmHIGjwXtfN-68vwUtwGZmEfUiCvu1pwbYJTAhhvb_Cydp/exec";
       const form = document.forms["submit-to-google-sheet"];
+      const sent = document.getElementById("sent");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => console.log("Success!", response))
+          // .then((response) => console.log("Success!", response))
+          .then((response) => {
+            sent.innerHTML = "Message sent successfully!"; // This message will be shown after clicking send
+            setTimeout(function () {
+              sent.innerHTML = "";
+            }, 3000); // After 3000 ms or 3s the message will be removed
+            form.reset(); // This is to reset the form input field
+          })
           .catch((error) => console.error("Error!", error.message));
       });
     </script>

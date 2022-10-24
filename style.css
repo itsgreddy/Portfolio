@@ -862,6 +862,16 @@ form ::placeholder{
   color: var(--color-cream);
 }
 
+#sent{ /* The ID that's why */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-brown);
+  margin-top: -30px;
+  /* display: block; */
+  font-weight: 600;
+}
+
 .button{
   display: block;
   margin: 50px auto;
