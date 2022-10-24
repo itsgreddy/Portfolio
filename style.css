@@ -619,7 +619,15 @@ svg{
     font-size: 20px;
   }  
   .contact .social-icons a{
-    margin: 16px;
+    margin: 20px;
+  }
+  .contact-left #connect{
+    margin: 5px;
+    font-size: 100%;
+    font-weight: 700;
+  }
+  .contact-left #connect i{
+    margin: 2%; 
   }
 }
 
@@ -870,6 +878,20 @@ form ::placeholder{
   margin-top: -30px;
   /* display: block; */
   font-weight: 600;
+}
+
+#connect{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-brown);
+  margin: 30px;
+  font-size: 150%;
+  font-weight: 600;
+}
+
+#connect i{
+  margin: 2%; 
 }
 
 .button{
