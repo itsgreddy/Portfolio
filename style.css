@@ -594,6 +594,25 @@ svg{
   color: var(--color-brown);
 }
 
+.practicum-tabs{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10% 0;
+}
+
+.practicum-button{
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-brown);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.practicum-button:hover{
+  transform: translateY(-5px);
+  color: var(--color-text-light);
+}
+
 /* ------------ Cards ------------ */
 
 .cards{
