@@ -618,7 +618,7 @@ svg{
 }
 
 .practicum-data{
-  margin-left: 35px;
+  /* margin-left: 35px; */
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
   column-gap: 3rem;
@@ -657,6 +657,14 @@ svg{
   background-color: var(--color-brown);
   transform: translate(5.5px,-5px);
 }
+
+/* .practicum [data-content]{
+  display: none;
+} */
+
+/* .practicum-active [data-content]{
+  display: block;
+} */
 
 /* ------------ Cards ------------ */
 
