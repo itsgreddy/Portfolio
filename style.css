@@ -585,30 +585,22 @@ svg{
 
 /* ------------ Practicum ------------ */
 
-.section-subtitle{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-  font-weight: 600;
-  color: var(--color-brown);
-}
-
-.practicum-tabs{
+.tab-titles{
   display: flex;
   justify-content: space-evenly;
   margin: 10% 0;
 }
 
-.practicum-button{
+.tab-links{
   font-size: 18px;
   font-weight: 600;
   color: var(--color-brown);
   cursor: pointer;
+  position: relative;
   transition: transform 0.5s;
 }
 
-.practicum-button:hover{
+.tab-links:hover{
   transform: translateY(-5px);
   color: var(--color-text-light);
 }
@@ -658,13 +650,13 @@ svg{
   transform: translate(5.5px,-5px);
 }
 
-/* .practicum [data-content]{
+.tab-contents{
   display: none;
-} */
+}
 
-/* .practicum-active [data-content]{
+.tab-contents.active-tab{
   display: block;
-} */
+}
 
 /* ------------ Cards ------------ */
 
