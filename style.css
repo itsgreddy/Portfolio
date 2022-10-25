@@ -236,7 +236,7 @@ svg{
   position: relative;
 }
 
-/* ------------ Intrro Section ------------ */
+/* ------------ Intro Section ------------ */
 
 .animatedis{
   display: inline-block; /* Default is inline elements which cannot be moved */
@@ -533,107 +533,6 @@ svg{
   color: var(--color-text);  
 }
 
-/* Overwriting Colors */
-
-/* .cream-text{
-  color:var(--color-cream);
-}
-
-.cream-border{
-  border-color: var(--color-cream);
-}
-
-.cream-background{
-  background-color: var(--color-cream);
-}
-
-.brown-text{
-  color:var(--color-brown);
-}
-
-.brown-border{
-  border-color: var(--color-brown);
-}
-
-.brown-background{
-  background-color: var(--color-brown);
-}
-
-.green-text{
-  color:var(--color-green);
-}
-
-.green-border{
-  border-color: var(--color-green);
-}
-
-.green-background{
-  background-color: var(--color-green);
-}
-
-.maroon-text{
-  color:var(--color-maroon);
-}
-
-.maroon-border{
-  border-color: var(--color-maroon);
-}
-
-.maroon-background{
-  background-color: var(--color-maroon);
-} */
-
-
-/* Media Queries */
-
-@media (max-width:968px){
-  .intro-text{
-    font-size: 21px;
-  }
-  .section{
-    width: 100%;
-  }
-  .progress-bar-wrapper-left{
-    right: 0;
-    left: auto; /* We do this to overwrite the previously assigned left value*/
-  }
-  .hero-main{
-    bottom: 120px;
-  }
-  .hero-second{
-    top: 200px;
-  }
-  .hero-wrapper{
-    width: calc(100% - 60px);
-  }
-  .hero-main-title{
-    font-size: 28px;
-  }
-  .hero-main-description{
-    font-size: 12px;
-  }
-  .hero-second-subheading{
-    font-size: 18px;
-  }
-  .container{
-    padding-top: 20%;
-  }
-  .section-detail-wrapper h1{
-    font-size: 20px;
-  }  
-  .contact .social-icons a{
-    margin: 20px;
-  }
-  .contact-left #connect{
-    margin: 5px;
-    font-size: 100%;
-    font-weight: 700;
-  }
-  .contact-left #connect i{
-    margin: 2%; 
-  }
-}
-
 /* ------------ About ------------ */
 
 .about-intro{
@@ -682,6 +581,17 @@ svg{
   background-color: #414141;
   color: var(--color-cream);
   cursor: pointer;
+}
+
+/* ------------ Practicum ------------ */
+
+.section-subtitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--color-brown);
 }
 
 /* ------------ Cards ------------ */
@@ -941,4 +851,105 @@ form ::placeholder{
   font-weight: 600;
   color: var(--color-cream);
   cursor: pointer;
+}
+
+/* Overwriting Colors */
+
+/* .cream-text{
+  color:var(--color-cream);
+}
+
+.cream-border{
+  border-color: var(--color-cream);
+}
+
+.cream-background{
+  background-color: var(--color-cream);
+}
+
+.brown-text{
+  color:var(--color-brown);
+}
+
+.brown-border{
+  border-color: var(--color-brown);
+}
+
+.brown-background{
+  background-color: var(--color-brown);
+}
+
+.green-text{
+  color:var(--color-green);
+}
+
+.green-border{
+  border-color: var(--color-green);
+}
+
+.green-background{
+  background-color: var(--color-green);
+}
+
+.maroon-text{
+  color:var(--color-maroon);
+}
+
+.maroon-border{
+  border-color: var(--color-maroon);
+}
+
+.maroon-background{
+  background-color: var(--color-maroon);
+} */
+
+
+/* Media Queries */
+
+@media (max-width:968px){
+  .intro-text{
+    font-size: 21px;
+  }
+  .section{
+    width: 100%;
+  }
+  .progress-bar-wrapper-left{
+    right: 0;
+    left: auto; /* We do this to overwrite the previously assigned left value*/
+  }
+  .hero-main{
+    bottom: 120px;
+  }
+  .hero-second{
+    top: 200px;
+  }
+  .hero-wrapper{
+    width: calc(100% - 60px);
+  }
+  .hero-main-title{
+    font-size: 28px;
+  }
+  .hero-main-description{
+    font-size: 12px;
+  }
+  .hero-second-subheading{
+    font-size: 18px;
+  }
+  .container{
+    padding-top: 20%;
+  }
+  .section-detail-wrapper h1{
+    font-size: 20px;
+  }  
+  .contact .social-icons a{
+    margin: 20px;
+  }
+  .contact-left #connect{
+    margin: 5px;
+    font-size: 100%;
+    font-weight: 700;
+  }
+  .contact-left #connect i{
+    margin: 2%; 
+  }
 }
