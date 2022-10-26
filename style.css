@@ -636,6 +636,11 @@ svg{
 
 .tab-content{
   padding: 40px 0;
+  display: none;
+}
+
+.tab-content.active{
+  display: block;
 }
 
 .timeline{

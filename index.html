@@ -176,7 +176,7 @@
             </div>
 
             <!------- Experience Section ------->
-            <div class="tab-content" id="experience">
+            <div class="tab-content active" id="experience">
               <div class="timeline">
                 <div class="timeline-item">
                   <span class="date"
@@ -737,17 +737,6 @@
           })
           .catch((error) => console.error("Error!", error.message));
       });
-    </script>
-    <script>
-      // var tablinks = document.getElementsByClassName("tab-links");
-      var tabcontents = document.getElementsByClassName("tab-contents");
-      function opentab(tabname) {
-        for (tabcontent of tabcontents) {
-          tabcontent.classList.remove("active-tab");
-        }
-        // event.currentTarget.classList.add("")
-        document.getElementById(tabname).classList.add("active-tab"); // Sending each content to tabname then accordingly to the function
-      }
     </script>
   </body>
 </html>
