@@ -575,18 +575,6 @@ svg{
   margin: 10% 0;
 }
 
-h3{
-  font-size: 25px;
-  margin: 0 0 10px;
-  color: var(--color-brown);
-}
-
-p{
-  color: var(--color-text);
-  font-weight: 500;
-  margin: 15px 0;
-}
-
 /* ------------ Practicum ------------ */
 
 .section-subtitle{
@@ -689,8 +677,9 @@ p{
   margin: 0 0 10px;
 }
 
-.timeline-item h4{
-  font-size: 18px;
+
+.timeline-item h3{
+  font-size: 25px;
   margin: 0 0 10px;
   color: var(--color-brown);
 }
@@ -702,6 +691,7 @@ p{
 .timeline-item p{
   color: var(--color-text);
   font-weight: 500;
+  font-size: 18px;
 }
 
 .practicum-icon{
