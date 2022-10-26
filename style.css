@@ -585,6 +585,10 @@ svg{
 
 /* ------------ Practicum ------------ */
 
+.section-subtitle{
+  font-size: 30px;
+}
+
 .tab-titles{
   display: flex;
   justify-content: space-evenly;
@@ -630,57 +634,43 @@ svg{
   cursor: auto;
 }
 
+.tab-content{
+  padding: 40px 0;
+}
+
+.timeline-item{
+  margin-bottom: 30px;
+}
+
+.timeline-item:last-child{
+  margin-bottom: 0;
+}
+
+.timeline-item .date{
+  display: block;
+  color: var(--color-text);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.timeline-item h4{
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: var(--color-brown);
+}
+
+.timeline-item h4 span{
+  font-weight: 500;
+}
+
 .practicum-icon{
   font-size: 1.4rem;
-}
-
-.practicum-data{
-  /* margin-left: 35px; */
-  display: grid;
-  grid-template-columns: 1fr max-content 1fr;
-  column-gap: 3rem;
-}
-
-.practicum-title{
-  font-size: 22px;
-  color: var(--color-brown);
-  /* font-weight: 600; */
-}
-
-.practicum-subtitle{
-  display: inline-block;
-  font-size: 18px;
-  margin-bottom: 20px;
 }
 
 .practicum-calender{
   font-size: 15px;
   font-weight: 700;
   color: var(--color-text);
-}
-
-.practicum-rounder{
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  background-color: var(--color-brown);
-  border-radius: 50%;
-}
-
-.practicum-line{
-  display: block;
-  width: 2px;
-  height: 100%;
-  background-color: var(--color-brown);
-  transform: translate(5.5px,-5px);
-}
-
-.tab-contents{
-  display: none;
-}
-
-.tab-contents.active-tab{
-  display: block;
 }
 
 /* ------------ Cards ------------ */
