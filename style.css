@@ -595,7 +595,7 @@ svg{
   margin: 10% 0;
 }
 
-.tab-items{
+.tab-item{
   font-size: 18px;
   font-weight: 600;
   color: var(--color-brown);
@@ -607,12 +607,12 @@ svg{
   font-family: inherit;
 }
 
-.tab-items:hover{
+.tab-item:hover{
   transform: translateY(-5px);
   color: var(--color-text-light);
 }
 
-/* .tab-items::before{
+/* .tab-item::before{
   content:'';
   position: absolute;
   left: 0;
@@ -624,12 +624,12 @@ svg{
   transition: width 0.3s ease;
 }
 
-.tab-items:hover::before{
+.tab-item:hover::before{
   width: 100%;
   color: var(--color-text-light);
 } */
 
-.tab-items.active{
+.tab-item.active{
   color: var(--color-text-light);
   cursor: auto;
 }

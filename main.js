@@ -7,5 +7,10 @@ const tabsContainer = document.querySelector(".tab-titles"),
     aboutSection = document.querySelector(".second-section");
 
 tabsContainer.addEventListener("click", (e) => {
-    console.log(e.target); // Shows in console whenever we click any of the sections
+    // console.log(e.target); // Shows in console whenever we click any of the sections
+    if (e.target.classList.contains("tab-item") && !e.target.classList.contains("active")) {
+        tabsContainer.querySelector(".active").classList.remove("active");
+        e.target.classList.add("active");
+        console.log("I am working")
+    }
 })
