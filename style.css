@@ -535,13 +535,6 @@ svg{
 
 /* ------------ About ------------ */
 
-.about-intro{
-  width: 100%;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
-
 .about-intro a{
   display: flex;
   justify-content: center;
@@ -551,13 +544,6 @@ svg{
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
-}
-
-.about-intro button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color-cream);
 }
 
 .about-intro a:hover{
@@ -581,6 +567,12 @@ svg{
   background-color: #414141;
   color: var(--color-cream);
   cursor: pointer;
+}
+
+.about-tabs{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10% 0;
 }
 
 /* ------------ Practicum ------------ */
