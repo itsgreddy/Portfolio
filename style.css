@@ -603,6 +603,11 @@ svg{
   font-family: inherit;
 }
 
+.tab-items:hover{
+  transform: translateY(-5px);
+  color: var(--color-text-light);
+}
+
 /* .tab-items::before{
   content:'';
   position: absolute;
@@ -620,9 +625,9 @@ svg{
   color: var(--color-text-light);
 } */
 
-.tab-items:hover{
-  transform: translateY(-5px);
+.tab-items.active{
   color: var(--color-text-light);
+  cursor: auto;
 }
 
 .practicum-icon{
