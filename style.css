@@ -591,16 +591,19 @@ svg{
   margin: 10% 0;
 }
 
-.tab-links{
+.tab-items{
   font-size: 18px;
   font-weight: 600;
   color: var(--color-brown);
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   position: relative;
   transition: transform 0.5s;
+  font-family: inherit;
 }
 
-.tab-links:hover{
+.tab-items:hover{
   transform: translateY(-5px);
   color: var(--color-text-light);
 }
@@ -869,6 +872,7 @@ form input, form textarea{
   color:var(--color-cream);
   font-size: 18px;
   border-radius: 6px;
+  font-family: inherit;
 }
 
 form textarea{
@@ -912,7 +916,8 @@ form ::placeholder{
   padding: 14px 50px;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 600;
+  font-family: inherit;
+  font-weight: 500;
   color: var(--color-cream);
   cursor: pointer;
 }
