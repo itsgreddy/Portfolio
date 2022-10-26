@@ -575,6 +575,18 @@ svg{
   margin: 10% 0;
 }
 
+h3{
+  font-size: 25px;
+  margin: 0 0 10px;
+  color: var(--color-brown);
+}
+
+p{
+  color: var(--color-text);
+  font-weight: 500;
+  margin: 15px 0;
+}
+
 /* ------------ Practicum ------------ */
 
 .section-subtitle{
@@ -958,7 +970,7 @@ form ::placeholder{
   border-radius: 6px;
   text-decoration: none;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-cream);
   cursor: pointer;
 }
