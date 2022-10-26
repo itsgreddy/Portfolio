@@ -1070,4 +1070,16 @@ form ::placeholder{
   .contact-left #connect i{
     margin: 2%; 
   }
+  .tab-titles{
+    display: flex;
+    overflow-x: auto;
+  }
+  .tab-item{
+    min-width: 100px;
+    height: 60px;
+    margin-left:20px;
+  }
+  .tab-titles::-webkit-scrollbar{
+    width: 0;
+  }
 }
