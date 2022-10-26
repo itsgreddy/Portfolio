@@ -638,8 +638,35 @@ svg{
   padding: 40px 0;
 }
 
+.timeline{
+  position: relative;
+}
+
+.timeline::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  top: 0;
+  left: 5px;
+  background-color: var(--color-brown);
+}
+
 .timeline-item{
   margin-bottom: 30px;
+  position: relative; /* Adding this makes the circles appear for all the dates*/
+  padding: 10px 0 0 40px;
+}
+
+.timeline-item::before{
+  content: '';
+  position: absolute;
+  height: 11px;
+  width: 11px;
+  background-color: var(--color-brown);
+  left: 0;
+  top: 16px;
+  border-radius: 50%;
 }
 
 .timeline-item:last-child{
