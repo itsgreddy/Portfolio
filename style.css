@@ -1069,11 +1069,18 @@ form ::placeholder{
     overflow-x: auto;
   }
   .tab-item{
-    min-width: 100px;
-    height: 60px;
+    max-width: 100px;
+    height: 100px;
     margin-left:20px;
   }
   .tab-titles::-webkit-scrollbar{
+    width: 0;
+  }
+  .about-tabs{
+    display: flex;
+    overflow-x: auto;
+  }
+  .about-tabs::-webkit-scrollbar{
     width: 0;
   }
 }
