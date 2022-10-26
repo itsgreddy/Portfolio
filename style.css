@@ -603,6 +603,23 @@ svg{
   font-family: inherit;
 }
 
+/* .tab-items::before{
+  content:'';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 5;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-text-light);
+  transition: width 0.3s ease;
+}
+
+.tab-items:hover::before{
+  width: 100%;
+  color: var(--color-text-light);
+} */
+
 .tab-items:hover{
   transform: translateY(-5px);
   color: var(--color-text-light);
