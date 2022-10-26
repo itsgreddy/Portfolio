@@ -692,6 +692,11 @@ svg{
 }
 
 .timeline-item h4 span{
+  font-weight: 600;
+}
+
+.timeline-item p{
+  color: var(--color-text);
   font-weight: 500;
 }
 
