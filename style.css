@@ -345,7 +345,7 @@ svg{
 .section{
   position: relative;
   width: 50%;
-  padding: 300px 4%;
+  padding: 1000px 4%;
   /* padding: 50% 4%; */
   margin: 0; 
   background-color: var(--color-background);
@@ -973,11 +973,19 @@ form ::placeholder{
 
 /* ------------ Last Section ------------ */
 
-#bye{ 
+.goodbye{
+  margin-top: 70%;
+}
+
+.byemsg{
+  text-align: left;
   color: var(--color-brown);
-  /* margin: 30px; */
   font-size: 150%;
   font-weight: 600;
+}
+
+.byemsg i{
+  margin: 2%; 
 }
 
 .copywrite{
@@ -986,17 +994,8 @@ form ::placeholder{
   text-align: center;
   padding: 25px 0;
   font-weight: 600;
-  margin-top: 400px;
+  margin-top: 70%;
 }
-
-.goodbye{
-margin-top: 600px;
-}
-
-#bye i{
-  margin: 2%; 
-}
-
 
 /* Overwriting Colors */
 
