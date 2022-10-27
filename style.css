@@ -556,6 +556,11 @@ svg{
   font-size: 25px;
 }
 
+.about-intro h3{
+  color: var(--color-text);
+  margin-bottom: 50px;
+}
+
 .resume{
   margin: 50px auto;
   padding: 14px 40px;
