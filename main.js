@@ -33,3 +33,12 @@ aboutContainer.addEventListener("click", (e) => {
         aboutSection.querySelector(target).classList.add("active");
     }
 })
+
+// var options = {
+//     strings: ['Fuck youuuu', 'and you and youuuu', 'I hate your friends', 'and they hate me too'],
+//     typeSpeed: 100,
+//     backspeed: 100,
+//     loop: true,
+// };
+
+// var typed = new Typed('.typing', options);
