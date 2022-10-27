@@ -1029,6 +1029,10 @@ form ::placeholder{
     right: 0;
     left: auto; /* We do this to overwrite the previously assigned left value*/
   }
+  /* .toggle-bar{
+    width: 20px;
+    height: 10px;
+  } */
   .hero-main{
     bottom: 120px;
   }
