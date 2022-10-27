@@ -1087,6 +1087,12 @@ margin-top: 600px;
   .container{
     padding-top: 20%;
   }
+  .styleTwo{
+    top: 100px;
+  }
+  .styleThree{
+    top: 100px;
+  }
   .section-detail-wrapper h1{
     font-size: 20px;
   }  
