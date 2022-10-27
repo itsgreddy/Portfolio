@@ -171,6 +171,7 @@ svg{
 }
 
 /* ------------ preloader Section ------------ */
+
 .preloader{
   background-color: var(--color-background-light);
   width: 100%;
@@ -344,7 +345,7 @@ svg{
 .section{
   position: relative;
   width: 50%;
-  padding: 1000px 4%;
+  padding: 300px 4%;
   /* padding: 50% 4%; */
   margin: 0; 
   background-color: var(--color-background);
@@ -969,6 +970,33 @@ form ::placeholder{
   color: var(--color-cream);
   cursor: pointer;
 }
+
+/* ------------ Last Section ------------ */
+
+#bye{ 
+  color: var(--color-brown);
+  /* margin: 30px; */
+  font-size: 150%;
+  font-weight: 600;
+}
+
+.copywrite{
+  color: var(--color-brown);
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  font-weight: 600;
+  margin-top: 400px;
+}
+
+.goodbye{
+margin-top: 600px;
+}
+
+#bye i{
+  margin: 2%; 
+}
+
 
 /* Overwriting Colors */
 
