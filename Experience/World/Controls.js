@@ -841,7 +841,7 @@ export default class Controls {
                 this.section = document.querySelectorAll(".section");
                 this.section.forEach((section) => { // Essentially we are looping through all sections and selecting progress-wrapper of them all  
                     this.progressWrapper = section.querySelector(".progress-wrapper");
-                    this.progressBar = section.querySelector(".progress-bar");
+                    // this.progressBar = section.querySelector(".progress-bar");
 
                     if (section.classList.contains("right")) {
                         GSAP.to(section, {
@@ -889,17 +889,17 @@ export default class Controls {
                         });
                     }
 
-                    GSAP.from(this.progressBar, {
-                        scaleY: 0,
-                        scrollTrigger: {
-                            trigger: section,
-                            start: "top top",
-                            end: "bottom bottom",
-                            scurb: 0.4,
-                            pin: this.progressWrapper,
-                            pinSpacing: false,
-                        },
-                    });
+                    // GSAP.from(this.progressBar, {
+                    //     scaleY: 0,
+                    //     scrollTrigger: {
+                    //         trigger: section,
+                    //         start: "top top",
+                    //         end: "bottom bottom",
+                    //         scurb: 0.4,
+                    //         pin: this.progressWrapper,
+                    //         pinSpacing: false,
+                    //     },
+                    // });
                 });
 
                 // ---- Circle Animations ---- // 
