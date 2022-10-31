@@ -130,7 +130,7 @@ export default class Preloader extends EventEmitter {
                     {
                         x: 0,
                         y: 0,
-                        z: 0,
+                        z: -0.5,
                         ease: "power1.out",
                     },
                     "same"

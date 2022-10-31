@@ -504,7 +504,7 @@ export default class Controls {
                 // ---- Resets ---- //
 
                 this.room.scale.set(0.45, 0.45, 0.45);
-                this.room.position.set(0, 0, 0);
+                this.room.position.set(0, 0, -0.5);
                 // this.rectLight1.width1 = 0.25
                 // this.rectLight1.height1 = 0.25
                 // this.rectLight2.width2 = 0.25
@@ -526,9 +526,9 @@ export default class Controls {
                     },
                 })
                     .to(this.room.scale, {
-                        x: 0.5,
-                        y: 0.5,
-                        z: 0.5,
+                        x: 0.6,
+                        y: 0.6,
+                        z: 0.6,
                     })
 
                 // -------------------- Second Section -------------------- //
