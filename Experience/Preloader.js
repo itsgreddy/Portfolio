@@ -216,7 +216,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.4"
@@ -227,7 +227,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.4"
@@ -238,7 +238,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.4"
@@ -249,7 +249,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.3"
@@ -260,7 +260,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.3"
@@ -271,7 +271,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.3"
@@ -282,7 +282,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.2"
@@ -290,8 +290,9 @@ export default class Preloader extends EventEmitter {
                 // .to(
                 //     this.roomChildren.Clock.rotation,
                 //     {
-                //         // x: 4 * Math.PI + Math.PI / 4,
-                //         z: 4 * Math.PI + Math.PI / 4,
+                //         x: Math.PI + Math.PI / 4,
+                //         // y: 4 * Math.PI + Math.PI / 4,
+                //         // z: 4 * Math.PI + Math.PI / 4,
                 //         ease: "power2.out",
                 //         duration: 1,
                 //     },
@@ -308,7 +309,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-1"
@@ -319,7 +320,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-1"
@@ -330,7 +331,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.1"
@@ -341,18 +342,27 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.1"
                 )
+                // .to( // We need to change the Lamps center in blender for this to work
+                //     this.roomChildren.Lamps.rotation,
+                //     {
+                //         y: 4 * Math.PI + Math.PI / 4,
+                //         ease: "power2.out",
+                //         duration: 1,
+                //     },
+                //     ">-0.3"
+                // )
                 .to(
                     this.roomChildren.Books.scale,
                     {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.1"
@@ -363,7 +373,7 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
                     ">-0.1"
@@ -374,11 +384,11 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(3)",
                         duration: 0.5,
                     },
                     "chair",
-                    ">-0.1"
+                    ">-0.3"
                 )
                 .to(
                     this.roomChildren.Cushion_Bag.rotation,
@@ -388,7 +398,7 @@ export default class Preloader extends EventEmitter {
                         duration: 1,
                     },
                     "chair",
-                    ">-0.1"
+                    ">-0.3"
                 )
                 .to(
                     this.roomChildren.Office_Chair.scale,
@@ -396,11 +406,10 @@ export default class Preloader extends EventEmitter {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(1.5)",
+                        ease: "back.out(1.6)",
                         duration: 0.5,
                     },
-                    "chair",
-                    ">-0.1"
+                    ">-2"
                 )
                 .to(
                     ".arrow-svg-wrapper",
