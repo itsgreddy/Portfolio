@@ -536,6 +536,10 @@ svg{
 
 /* ------------ About ------------ */
 
+.break{
+  margin-top: 10px;
+}
+
 .about-intro a{
   display: flex;
   justify-content: center;
@@ -558,8 +562,9 @@ svg{
 }
 
 .about-intro h3{
-  color: var(--color-text);
+  color: var(--color-brown);
   margin-bottom: 50px;
+  font-size: 20px;
 }
 
 .resume{
@@ -696,8 +701,9 @@ svg{
 
 .timeline-item p{
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 550;
   font-size: 18px;
+  line-height: 25px;
 }
 
 .practicum-icon{
