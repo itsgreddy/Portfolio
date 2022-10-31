@@ -1061,10 +1061,31 @@ form ::placeholder{
     right: 0;
     left: auto;  | We do this to overwrite the previously assigned left value
   } */
-  /* .toggle-bar{
-    width: 20px;
-    height: 10px;
-  } */
+  .toggle-bar{
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: 30px;
+    right: 25px;
+    z-index: 99999;
+  }
+  .toggle-button{
+    width: 40px;
+    height: 22px;
+  }
+  .toggle-circle{
+    width: 14px;
+    height: 14px;
+  }
+  .toggle-button:hover .toggle-circle{   
+    transform: none;  
+  }
+  .slide{
+    left: 21.5px;
+  }
   .hero-main{
     bottom: 120px;
   }
