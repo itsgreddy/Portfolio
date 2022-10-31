@@ -267,7 +267,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.3"
                 )
@@ -278,7 +278,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.3"
                 )
@@ -289,7 +289,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.3"
                 )
@@ -300,7 +300,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.2"
                 )
@@ -327,7 +327,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-1"
                 )
@@ -338,7 +338,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-1"
                 )
@@ -349,7 +349,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.1"
                 )
@@ -360,7 +360,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.1"
                 )
@@ -380,7 +380,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.1"
                 )
@@ -391,9 +391,20 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(1.6)",
-                        duration: 0.5,
+                        duration: 0.4,
                     },
                     ">-0.1"
+                )
+                .to(
+                    this.roomChildren.Office_Chair.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(1.6)",
+                        duration: 0.4,
+                    },
+                    ">-0.3"
                 )
                 .to(
                     this.roomChildren.Cushion_Bag.scale,
@@ -405,7 +416,7 @@ export default class Preloader extends EventEmitter {
                         duration: 0.5,
                     },
                     "chair",
-                    ">-0.3"
+                    ">-1"
                 )
                 .to(
                     this.roomChildren.Cushion_Bag.rotation,
@@ -415,18 +426,7 @@ export default class Preloader extends EventEmitter {
                         duration: 1,
                     },
                     "chair",
-                    ">-0.3"
-                )
-                .to(
-                    this.roomChildren.Office_Chair.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        ease: "back.out(1.6)",
-                        duration: 0.5,
-                    },
-                    ">-2"
+                    ">-1"
                 )
                 .to(
                     ".arrow-svg-wrapper",
