@@ -125,16 +125,33 @@ export default class Preloader extends EventEmitter {
                     },
                     "fadeout"
                 )
-                .to(
-                    this.room.position,
-                    {
-                        x: 0,
-                        y: 0,
-                        z: -0.5,
-                        ease: "power1.out",
-                    },
-                    "same"
-                )
+            if (this.device === "mobile") {
+                this.secondTimeline
+                    .to(
+                        this.room.position,
+                        {
+                            x: 0,
+                            y: 0,
+                            z: -0.5,
+                            ease: "power1.out",
+                        },
+                        "same"
+                    )
+            } else {
+                this.secondTimeline
+                    .to(
+                        this.room.position,
+                        {
+                            x: 0,
+                            y: 0,
+                            z: 0,
+                            ease: "power1.out",
+                        },
+                        "same"
+                    )
+            }
+
+            this.secondTimeline
                 .to(
                     this.roomChildren.Cube.rotation,
                     {
