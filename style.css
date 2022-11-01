@@ -345,7 +345,7 @@ svg{
 .section{
   position: relative;
   width: 50%;
-  padding: 1000px 4%;
+  padding: 300px 4%;
   /* padding: 50% 4%; */
   margin: 0; 
   background-color: var(--color-background);
@@ -1064,6 +1064,7 @@ form ::placeholder{
   }
   .section{
     width: 100%;
+    padding: 500px 4%;
   }
   /* .progress-bar-wrapper-left{
     right: 0;
