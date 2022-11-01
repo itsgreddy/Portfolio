@@ -62,6 +62,9 @@ export default class Preloader extends EventEmitter {
                     })
                     .to(this.room.position, {
                         x: -1.5,
+                        // x: () => {
+                        //     return this.sizes.width * -0.0005;
+                        // },
                         ease: "power1.out",
                         duration: 0.7,
                     });
